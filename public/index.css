@@ -16,3 +16,7 @@ body {
   align-items: center;
 }
 
+.products_page .book_list{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}

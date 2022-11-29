@@ -1,10 +1,17 @@
 import React from "react"
-import {Navbar} from "./"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import {Navbar, ProductsPage} from "./"
 
 const Main = () => {
     return (
         <div id="main">
-            <Navbar />
+            <BrowserRouter>
+                <Routes>
+                    <Route path='/' element={<Navbar />}>
+                        <Route path='products' element={<ProductsPage />} />
+                    </Route>
+                </Routes>
+            </BrowserRouter>
         </div>
     )
 }

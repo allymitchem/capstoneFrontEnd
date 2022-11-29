@@ -1,2 +1,5 @@
 export {default as Main} from './Main'
 export {default as Navbar} from './Navbar'
+export {default as ProductsPage} from './ProductsPage'
+export {default as BookList} from './BookList'
+export {default as Book} from './Book'

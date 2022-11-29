@@ -1,10 +1,10 @@
 {
-  "name": "contact-list",
+  "name": "grace-shopper",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-dev": "NODE_ENV='development' react-scripts start",
+    "start:dev": "NODE_ENV='development' react-scripts start",
     "start": "react-scripts start"
   },
   "keywords": [],
@@ -13,6 +13,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router": "^6.4.3",
+    "react-router-dom": "^6.4.3",
     "react-scripts": "^5.0.1"
   },
   "browserslist": {
