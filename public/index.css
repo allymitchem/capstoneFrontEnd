@@ -20,3 +20,9 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+.register_form{
+  display:flex;
+  flex-direction: column;
+  margin:150px;
+}
