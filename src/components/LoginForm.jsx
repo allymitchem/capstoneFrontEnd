@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { loginUser } from "../api/users";
-
-const LoginForm = () => {
+import { Link } from "react-router-dom";
+const LoginForm = ({user, setUser}) => {
   const [formData, setFormData] = useState({
     username: "",
     password: ""
   })
 
-console.log(formData.password, "I am state")
+  // const [loggedIn, setLoggedIn]=useState(false)
+ 
 
 const userToken = localStorage.getItem("token")
-console.log(userToken, "userToken")
+
 
 async function handleSubmit (event) {
   event.preventDefault()
@@ -18,31 +19,35 @@ async function handleSubmit (event) {
   const password = formData.password
   const loggedUser = await loginUser(username, password)
   const token = loggedUser.token
+  console.log(token)
   localStorage.removeItem("token")
   localStorage.setItem("token", token)
   localStorage.removeItem("username")
   localStorage.setItem("username", username)
 
   setFormData({username: "", password: ""})
-
+  setUser({loggedUser})
+  // setLoggedIn(true)
+  console.log(token, "line 29 component")
   if (!token) {
     alert(loggedUser.message)
   }
 }
 
-async function logOutButton () {
-  localStorage.removeItem("token")
-  localStorage.removeItem("username")
-  setFormData({username: "", password: ""})
-}
+// async function logOutButton () {
+//   localStorage.removeItem("token")
+//   localStorage.removeItem("username")
+//   setFormData({username: "", password: ""})
+// }
 
-  return ( userToken ? 
+  return (
+    //  userToken ? (
+    // <div>
+    //   <button onClick={logOutButton}>Logout</button>
+    // </div>
+  // ):(
     <div>
-      <button onClick={logOutButton}>Logout</button>
-    </div>
-    :
-    <div className="login_form">
-      <form onSubmit={handleSubmit}>
+      <form className="login_form" onSubmit={handleSubmit}>
       <input
       placeholder="Username"
       type="text"
@@ -64,9 +69,11 @@ async function logOutButton () {
       value= {formData.password}
       />
       <button type="submit">Submit</button>
+      <Link className="register_link" to="register">Not a member? Sign up</Link>
       </form>
     </div>
-  )
+    )
+  // )
 
 }
 
