@@ -26,3 +26,7 @@ export async function getCart(userId) {
         //do some error handling        
     }
 }
+
+export async function addBookToCart() {
+    
+}
