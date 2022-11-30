@@ -14,12 +14,17 @@ const LoginForm = ({ user, setUser }) => {
     const username = formData.username;
     const password = formData.password;
     const loggedUser = await loginUser(username, password);
+    // console.log(loggedUser)
+    
     const token = loggedUser.token;
-    console.log(token);
+
+    if (token) {
+    // console.log(token);
     localStorage.removeItem("token");
     localStorage.setItem("token", token);
     localStorage.removeItem("username");
     localStorage.setItem("username", username);
+    }
 
     setFormData({ username: "", password: "" });
     setUser({ loggedUser });
@@ -30,18 +35,14 @@ const LoginForm = ({ user, setUser }) => {
     }
   }
 
-  // async function logOutButton () {
-  //   localStorage.removeItem("token")
-  //   localStorage.removeItem("username")
-  //   setFormData({username: "", password: ""})
-  // }
+  async function logOutButton () {
+    localStorage.removeItem("token")
+    localStorage.removeItem("username")
+    setFormData({username: "", password: ""})
+  }
 
-  return (
-    //  userToken ? (
-    // <div>
-    //   <button onClick={logOutButton}>Logout</button>
-    // </div>
-    // ):(
+  return ( userToken ?
+    <button onClick={logOutButton}>Logout</button> :
     <div>
       <form className="login_form" onSubmit={handleSubmit}>
         <input
@@ -71,7 +72,6 @@ const LoginForm = ({ user, setUser }) => {
       </form>
     </div>
   );
-  // )
 };
 
 export default LoginForm;
