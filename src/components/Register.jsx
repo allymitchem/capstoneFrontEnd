@@ -15,19 +15,23 @@ const Register = () => {
         const email = formData.email
 
         const registeringUser = await registerUser(username, password, email)
-        const token = registerUser.token
+        const token = registeringUser.token
+
         
         localStorage.removeItem("token")
         localStorage.setItem("token", token)
         localStorage.removeItem("username")
         localStorage.setItem("username", username)
-        
+
         if (!token) {
             alert(registeringUser.message)
+          } else {
+            alert(registeringUser.message)
           }
+
+        localStorage.removeItem("token")
+        localStorage.removeItem("username")
     }
-
-
 
 
     return(

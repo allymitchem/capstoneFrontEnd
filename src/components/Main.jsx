@@ -4,6 +4,7 @@ import {Navbar, ProductsPage, Register, BookPage} from "./"
 import { getCart } from "../api/carts"
 
 const Main = () => {
+
     const [user, setUser] = useState(null)
     const [cart, setCart] = useState(null)
 
@@ -32,7 +33,7 @@ const Main = () => {
         <div id="main">
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<Navbar user={user} setUser={setUser}/>}>
+                    <Route path='/' element={<Navbar />}>
                         <Route path='products' element={<ProductsPage />} />
                         <Route path='register' element={<Register />} />
                         <Route path=':itemId' element={<BookPage />} />
