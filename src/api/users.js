@@ -7,6 +7,26 @@ function includeToken(paramObj) {
   }
 }
 
+export async function getCurrentUser() {
+  console.log("*** getCurrentUser ran ***");
+  const reqObj = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    }
+  }
+  includeToken(reqObj)
+
+  try {
+    //fetch from a users/me route
+
+    //this is a false return for testing the real user should be returned
+    return {id: 2}
+  } catch (error) {
+    //report an error
+  }
+}
+
 export async function loginUser(username, password) {
   try {
     const reqObj = {
