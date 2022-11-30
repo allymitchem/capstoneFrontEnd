@@ -26,7 +26,7 @@ const Main = () => {
         if (user.id) {
             async function callGetCart() {
                 const cartData = await getCart(user.id)
-                console.log("cart data from DB", cartData);
+                setCart(cartData)
             }
             callGetCart()
         } else {
@@ -43,7 +43,7 @@ const Main = () => {
                 <Routes>
                         <Route path='products' element={<ProductsPage />} />
                         <Route path='register' element={<Register />} />
-                        <Route path=':itemId' element={<BookPage />} />
+                        <Route path=':itemId' element={<BookPage user={user} cart={cart}/>} />
                 </Routes>
             </BrowserRouter>
         </div>

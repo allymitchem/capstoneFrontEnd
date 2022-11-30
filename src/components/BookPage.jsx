@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getBook } from "../api/books";
 
-const BookPage = () => {
+const BookPage = ({ user, cart }) => {
     const [book, setBook] = useState(null)
     const {itemId} = useParams()
 
@@ -13,6 +13,10 @@ const BookPage = () => {
         }
         callGetBook()
     },[])
+
+    async function handleAdd(event) {
+        event.preventDefault()
+    }
 
     return (
         <div className="book_page">
