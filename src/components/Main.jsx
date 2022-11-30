@@ -4,6 +4,8 @@ import {Navbar, ProductsPage, Register, BookPage} from "./"
 
 const Main = () => {
     const [user, setUser] = useState(null)
+    const [cart, setCart] = useState(null)
+
     const getLoggedInUser = async () => {
         const token = localStorage.getItem("token")
         if (token) {
@@ -17,6 +19,7 @@ const Main = () => {
             getLoggedInUser()
         }
     }, [])
+
     return (
         <div id="main">
             <BrowserRouter>
