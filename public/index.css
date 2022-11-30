@@ -26,3 +26,7 @@ body {
   padding: 1rem;
   border: black solid 1px;
 }
+
+.book_page div {
+  display: flex;
+}

@@ -1,6 +1,6 @@
 import React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import {Navbar, ProductsPage, Register} from "./"
+import {Navbar, ProductsPage, Register, BookPage} from "./"
 
 const Main = () => {
     return (
@@ -10,7 +10,7 @@ const Main = () => {
                     <Route path='/' element={<Navbar />}>
                         <Route path='products' element={<ProductsPage />} />
                         <Route path='register' element={<Register />} />
-                        <Route path=':itemId' element={<p>I'm the product page</p>} />
+                        <Route path=':itemId' element={<BookPage />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
