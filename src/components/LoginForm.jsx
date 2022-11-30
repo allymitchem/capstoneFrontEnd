@@ -40,7 +40,10 @@ const navigate = useNavigate()
   async function logOutButton () {
     localStorage.removeItem("token")
     localStorage.removeItem("username")
+    localStorage.removeItem
     setFormData({username: "", password: ""})
+    setUser(false)
+    
   }
 
   return ( userToken ?
