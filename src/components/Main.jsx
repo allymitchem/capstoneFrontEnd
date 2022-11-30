@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import {Navbar, ProductsPage, Register} from "./"
+import {Navbar, ProductsPage, Register, BookPage} from "./"
 
 const Main = () => {
     const [user, setUser] = useState(null)
@@ -24,6 +24,7 @@ const Main = () => {
                     <Route path='/' element={<Navbar user={user} setUser={setUser}/>}>
                         <Route path='products' element={<ProductsPage />} />
                         <Route path='register' element={<Register />} />
+                        <Route path=':itemId' element={<BookPage />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

@@ -23,3 +23,20 @@ export async function getAllBooks() {
         //do something here for sure
     }
 }
+
+export async function getBook(itemId) {
+    const reqObj = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }
+
+    try {
+        const response = await fetch(url+`/items/${itemId}`, reqObj)
+        const result = await response.json()
+        return result
+    } catch (error) {
+        //do something here for sure
+    }
+}

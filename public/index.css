@@ -21,8 +21,19 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+.book {
+  margin: 1rem;
+  padding: 1rem;
+  border: black solid 1px;
+}
+
+.book_page div {
+  display: flex;
+}
+
 .register_form{
   display:flex;
   flex-direction: column;
   margin:150px;
 }
+
