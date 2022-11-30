@@ -8,8 +8,6 @@ const Main = () => {
     const [user, setUser] = useState({})
     const [cart, setCart] = useState(null)
 
-    console.log(user, "Main user State")
-
     useEffect(()=>{
         //check for token and check that the token belongs to a user
         const token = localStorage.getItem("token")
