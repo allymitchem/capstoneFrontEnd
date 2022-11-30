@@ -13,15 +13,15 @@ export async function getCurrentUser() {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-    }
-  }
-  includeToken(reqObj)
+    },
+  };
+  includeToken(reqObj);
 
   try {
     //fetch from a users/me route
 
     //this is a false return for testing the real user should be returned
-    return {id: 2}
+    return { id: 2 };
   } catch (error) {
     //report an error
   }
@@ -38,7 +38,7 @@ export async function loginUser(username, password) {
     };
 
     const response = await fetch(url + "/users/login", reqObj);
-    console.log(response, "this is response")
+    console.log(response, "this is response");
     const result = await response.json();
     console.log(result, "this is result");
     return result;
@@ -47,23 +47,38 @@ export async function loginUser(username, password) {
   }
 }
 
-export async function registerUser(username, password, email){
-  try{
+export async function registerUser(username, password, email) {
+  try {
     const reqObj = {
-      method:"POST",
+      method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({username, password, email})
-    }
-    const response = await fetch (url + "/users/register", reqObj)
-    const result = await response.json()
-    console.log(result, "result in register api")
-    return result
+      body: JSON.stringify({ username, password, email }),
+    };
+    const response = await fetch(url + "/users/register", reqObj);
+    const result = await response.json();
+    console.log(result, "result in register api");
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
+export async function adminUserData(){
+  try {
+    const reqObj ={
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+    }
+    const response = await fetch (url + "/users", reqObj)
+    const result = await response.json()
+    console.log(result, "this is all users hopefully")
+    return result
   }catch(error){
     console.log(error)
-
   }
 
 }
