@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { loginUser } from "../api/users";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const LoginForm = ({ user, setUser }) => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
-
+const navigate = useNavigate()
   
   const userToken = localStorage.getItem("token");
 
@@ -24,7 +24,8 @@ const LoginForm = ({ user, setUser }) => {
     localStorage.removeItem("token");
     localStorage.setItem("token", token);
     localStorage.removeItem("username");
-    localStorage.setItem("username", username);
+    localStorage.setItem("username", username); 
+    navigate("/products")
     }
 
     setFormData({ username: "", password: "" });
