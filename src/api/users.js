@@ -17,11 +17,11 @@ export async function getCurrentUser() {
   }
   includeToken(reqObj)
 
+  console.log(url+'/users/me', reqObj);
   try {
-    //fetch from a users/me route
-
-    //this is a false return for testing the real user should be returned
-    return {id: 2}
+    const response = await fetch(url+'/users/me', reqObj)
+    const result = await response.json();
+    return result;
   } catch (error) {
     //report an error
   }

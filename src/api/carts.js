@@ -8,7 +8,6 @@ function includeToken(paramObj) {
 }
 
 export async function getCart(userId) {
-    console.log("** getCart ran **");
     const reqObj = {
         method: 'GET',
         headers: {
@@ -17,7 +16,6 @@ export async function getCart(userId) {
     }
     includeToken(reqObj)
 
-    console.log(url + `/carts/${userId}`, reqObj);
     try {
         const response = await fetch(url + `/carts/${userId}`, reqObj)
         const result = await response.json()
@@ -27,6 +25,21 @@ export async function getCart(userId) {
     }
 }
 
-export async function addBookToCart() {
-    
+export async function addBookToCart({cartId, itemId, quantity}) {
+    const reqObj = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({itemId, quantity})
+    }
+    includeToken(reqObj)
+
+    try {
+        const response = await fetch(url + `/cartItems/${cartId}`, reqObj)
+        const result = await response.json()
+        return result
+    } catch (error) {
+        //error handling
+    }
 }
