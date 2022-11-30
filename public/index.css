@@ -20,3 +20,9 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+.book {
+  margin: 1rem;
+  padding: 1rem;
+  border: black solid 1px;
+}

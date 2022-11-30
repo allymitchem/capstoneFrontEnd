@@ -10,6 +10,7 @@ const Main = () => {
                     <Route path='/' element={<Navbar />}>
                         <Route path='products' element={<ProductsPage />} />
                         <Route path='register' element={<Register />} />
+                        <Route path=':itemId' element={<p>I'm the product page</p>} />
                     </Route>
                 </Routes>
             </BrowserRouter>
