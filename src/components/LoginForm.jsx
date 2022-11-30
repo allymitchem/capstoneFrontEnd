@@ -7,6 +7,7 @@ const LoginForm = ({ user, setUser }) => {
     password: "",
   });
 
+  
   const userToken = localStorage.getItem("token");
 
   async function handleSubmit(event) {
@@ -14,7 +15,7 @@ const LoginForm = ({ user, setUser }) => {
     const username = formData.username;
     const password = formData.password;
     const loggedUser = await loginUser(username, password);
-    // console.log(loggedUser)
+    // console.log(loggedUser.user)
     
     const token = loggedUser.token;
 
@@ -27,8 +28,8 @@ const LoginForm = ({ user, setUser }) => {
     }
 
     setFormData({ username: "", password: "" });
-    setUser({ loggedUser });
-    // setLoggedIn(true)
+    setUser(loggedUser.user);
+  
     console.log(token, "line 29 component");
     if (!token) {
       alert(loggedUser.message);
