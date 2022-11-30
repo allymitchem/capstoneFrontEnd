@@ -76,6 +76,8 @@ export async function adminUserData(){
       "Content-Type": "application/json"
     }
     }
+    includeToken(reqObj)
+    
     const response = await fetch (url + "/users", reqObj)
     const result = await response.json()
     console.log(result, "this is all users hopefully")
