@@ -7,8 +7,11 @@ const Register = () => {
         password: "",
         email:""
     })
-
+    
+    const [registerMessage, setRegisterMessage]= useState({})
+    console.log(registerMessage,"this is register message")
     async function handleSubmit(event){
+        
         event.preventDefault()
         const username = formData.username
         const password = formData.password
@@ -16,25 +19,29 @@ const Register = () => {
 
         const registeringUser = await registerUser(username, password, email)
         const token = registeringUser.token
+        console.log(registeringUser)
+        setRegisterMessage(registeringUser)
 
-        
         localStorage.removeItem("token")
         localStorage.setItem("token", token)
         localStorage.removeItem("username")
         localStorage.setItem("username", username)
 
         if (!token) {
+
             alert(registeringUser.message)
-          } else {
-            alert(registeringUser.message)
-          }
+          } 
 
         localStorage.removeItem("token")
         localStorage.removeItem("username")
     }
 
 
-    return(
+    return(registerMessage.user ? 
+        <div>
+            {registerMessage.message}
+        </div>
+        :
         <div>
             <form className="register_form" onSubmit={handleSubmit}>
                 <input 
