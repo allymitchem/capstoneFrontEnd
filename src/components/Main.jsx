@@ -5,8 +5,8 @@ import { getCart } from "../api/carts"
 import { getCurrentUser } from "../api/users"
 
 const Main = () => {
-    const [user, setUser] = useState({})
-    const [cart, setCart] = useState(null)
+    const [user, setUser] = useState({id: 0, username: "guest"})
+    const [cart, setCart] = useState({id: 0, userId: 0, creatorName: "guest",items: []})
 
     useEffect(()=>{
         //check for token and check that the token belongs to a user
@@ -31,8 +31,8 @@ const Main = () => {
         } else {
             //since the user is not logged in check if they have a cart in local storage
             const localCart = localStorage.getItem('cart')
+            if (localCart) setCart(JSON.parse(localCart))
         }
-
     },[user])
 
     
@@ -42,9 +42,9 @@ const Main = () => {
             <BrowserRouter>
             <Navbar user={user} setUser={setUser}/>
                 <Routes>
-                        <Route path='products' element={<ProductsPage />} />
+                        <Route path='products' element={<ProductsPage user={user} cart={cart} setCart={setCart}/>} />
                         <Route path='register' element={<Register />} />
-                        <Route path=':itemId' element={<BookPage user={user} cart={cart}/>} />
+                        <Route path=':itemId' element={<BookPage user={user} cart={cart} setCart={setCart}/>} />
                         <Route path='admin' element={<Admin/>}/>
                         <Route path='cart' element={<CartPage cart={cart} setCart={setCart} user={user}/>}/>
                 </Routes>

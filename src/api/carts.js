@@ -43,3 +43,27 @@ export async function addBookToCart({cartId, itemId, quantity}) {
         //error handling
     }
 }
+
+export async function updateBookQuantity({cartItemId, quantity}) {
+    const reqObj = {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({quantity})
+    }
+    includeToken(reqObj)
+
+    try {
+        const response = await fetch(url + `/cartItems/${cartItemId}`, reqObj)
+        const result = await response.json()
+        return result
+    } catch (error) {
+        //error handling
+    }
+}
+
+export function saveLocalCart(cart) {
+    localStorage.removeItem("cart");
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
