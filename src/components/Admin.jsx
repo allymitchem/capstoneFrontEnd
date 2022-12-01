@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { adminUserData } from "../api/users";
 import { getAllBooks } from "../api/books";
 import { BookList, Book, AddBook } from "./";
@@ -62,7 +63,7 @@ const Admin = () => {
             return (
               <div  key={`bookList-id${book.id}`}>
                 <div className="book">
-                <p>{book.title}</p>
+                <h3><NavLink to= {`/${book.id}`}>{book.title}</NavLink></h3>
                 <p>{book.author}</p>
                 <img src={book.imageURL} />
                 <p></p>
