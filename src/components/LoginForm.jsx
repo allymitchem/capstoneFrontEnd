@@ -40,6 +40,7 @@ const LoginForm = ({ user, setUser }) => {
     localStorage.removeItem("token")
     localStorage.removeItem("username")
     setFormData({username: "", password: ""})
+    setUser({id: 0, username: "guest"})
   }
 
   return ( userToken ?

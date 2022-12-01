@@ -8,7 +8,6 @@ const Book = ({item, cart, setCart}) => {
     async function handleAdd(event) {
         event.preventDefault()
         const indexInCart = cart.items.findIndex((elem) => elem.itemId === thisBook.id)
-        console.log("*", cart.userId, "**", indexInCart)
 
         if (cart.userId) {
             if (indexInCart === -1) {
