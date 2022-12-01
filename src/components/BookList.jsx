@@ -1,7 +1,7 @@
 import react from "react";
 import { Book } from "./";
 
-const BookList = ({list, setList}) => {
+const BookList = ({list, setList, }) => {
 
     return (
         <div className="book_list">
