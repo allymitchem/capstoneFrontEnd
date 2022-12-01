@@ -44,11 +44,11 @@ export async function getBook(itemId) {
 export async function postBook (
     title, 
     author, 
+    imageURL, 
     description, 
-    price, 
     year, 
-    numInStock, 
-    imageURL) {
+    price, 
+    numInStock) {
   
       try{
         const reqObj = {
@@ -59,14 +59,15 @@ export async function postBook (
           body: JSON.stringify({ 
             title, 
             author, 
+            imageURL, 
             description, 
-            price, 
             year, 
-            numInStock, 
-            imageURL})
+            price, 
+            numInStock})
         } 
+        includeToken(reqObj)
         const response = await fetch(url + "/items", reqObj)
-        const result = response.json()
+        const result = await response.json()
         console.log(result)
         return result
       } catch (error) {

@@ -2,7 +2,9 @@ import React from 'react'
 import { Outlet, Link } from 'react-router-dom';
 import LoginForm from './LoginForm';
 
+
 const Navbar = ({user, setUser, cart}) => {
+
     return (
         <>
             <div id='navbar'>
