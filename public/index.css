@@ -42,3 +42,13 @@ body {
   margin:150px;
 }
 
+.all_users_list{
+  border:1px solid black;
+  margin:1rem;
+  padding:1rem;
+}
+
+/* .all_books_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+} */

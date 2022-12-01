@@ -13,15 +13,18 @@ export async function getCurrentUser() {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-    }
-  }
-  includeToken(reqObj)
+    },
+  };
+  includeToken(reqObj);
 
   console.log(url+'/users/me', reqObj);
   try {
+
+  
     const response = await fetch(url+'/users/me', reqObj)
     const result = await response.json();
     return result;
+
   } catch (error) {
     //report an error
   }
@@ -38,7 +41,7 @@ export async function loginUser(username, password) {
     };
 
     const response = await fetch(url + "/users/login", reqObj);
-    console.log(response, "this is response")
+    console.log(response, "this is response");
     const result = await response.json();
     console.log(result, "this is result");
     return result;
@@ -47,23 +50,40 @@ export async function loginUser(username, password) {
   }
 }
 
-export async function registerUser(username, password, email){
-  try{
+export async function registerUser(username, password, email) {
+  try {
     const reqObj = {
-      method:"POST",
+      method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({username, password, email})
-    }
-    const response = await fetch (url + "/users/register", reqObj)
-    const result = await response.json()
-    console.log(result, "result in register api")
-    return result
+      body: JSON.stringify({ username, password, email }),
+    };
+    const response = await fetch(url + "/users/register", reqObj);
+    const result = await response.json();
+    console.log(result, "result in register api");
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
+export async function adminUserData(){
+  try {
+    const reqObj ={
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+    }
+    includeToken(reqObj)
+    
+    const response = await fetch (url + "/users", reqObj)
+    const result = await response.json()
+    console.log(result, "this is all users hopefully")
+    return result
   }catch(error){
     console.log(error)
-
   }
 
 }

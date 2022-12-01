@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import {Navbar, ProductsPage, Register, BookPage} from "./"
+import {Navbar, ProductsPage, Register, BookPage, Admin, CartPage} from "./"
 import { getCart } from "../api/carts"
 import { getCurrentUser } from "../api/users"
 
@@ -35,6 +35,8 @@ const Main = () => {
         }
     },[user])
 
+    
+
     return (
         <div id="main">
             <BrowserRouter>
@@ -43,6 +45,8 @@ const Main = () => {
                         <Route path='products' element={<ProductsPage user={user} cart={cart} setCart={setCart}/>} />
                         <Route path='register' element={<Register />} />
                         <Route path=':itemId' element={<BookPage user={user} cart={cart} setCart={setCart}/>} />
+                        <Route path='admin' element={<Admin/>}/>
+                        <Route path='cart' element={<CartPage cart={cart} setCart={setCart} user={user}/>}/>
                 </Routes>
             </BrowserRouter>
         </div>
