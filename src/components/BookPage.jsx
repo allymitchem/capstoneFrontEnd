@@ -34,9 +34,7 @@ const BookPage = ({ user, cart, setCart }) => {
                 setCart(newCart)
             }
         } else {
-            console.log("in the else");
             if (indexInCart === -1) {
-                console.log("in the if");
                 const newCartItem = {...book, itemId: book.id, quantity: quantity}
                 delete newCartItem.id
                 const newCart = {...cart}
@@ -44,7 +42,6 @@ const BookPage = ({ user, cart, setCart }) => {
                 setCart(newCart)
                 saveLocalCart(newCart)
             } else {
-                console.log("in the else");
                 const newCart = {...cart}
                 newCart.items[indexInCart].quantity += Number(quantity)
                 setCart(newCart)

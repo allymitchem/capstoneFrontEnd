@@ -8,19 +8,34 @@ const Book = ({item, cart, setCart}) => {
     async function handleAdd(event) {
         event.preventDefault()
         const indexInCart = cart.items.findIndex((elem) => elem.itemId === thisBook.id)
+        console.log("*", cart.userId, "**", indexInCart)
 
-        if (indexInCart === -1) {
-            const newCartItem = await addBookToCart({cartId: cart.id, itemId: thisBook.id, quantity: 1})
-            const newCart = {...cart}
-            newCart.items.push(newCartItem)
-            setCart(newCart)
-            saveLocalCart(newCart)
+        if (cart.userId) {
+            if (indexInCart === -1) {
+                const newCartItem = await addBookToCart({cartId: cart.id, itemId: thisBook.id, quantity: 1})
+                const newCart = {...cart}
+                newCart.items.push(newCartItem)
+                setCart(newCart)
+            } else {
+                const newCartItem = await updateBookQuantity({cartItemId: cart.items[indexInCart].id, quantity: cart.items[indexInCart].quantity + 1})
+                const newCart = {...cart};
+                newCart.items[indexInCart].quantity = newCartItem.quantity
+                setCart(newCart)
+            }
         } else {
-            const newCartItem = await updateBookQuantity({cartItemId: cart.items[indexInCart].id, quantity: cart.items[indexInCart].quantity + 1})
-            const newCart = {...cart};
-            newCart.items[indexInCart].quantity = newCartItem.quantity
-            setCart(newCart)
-            saveLocalCart(newCart)
+            if (indexInCart === -1) {
+                const newCartItem = {...thisBook, itemId: thisBook.id, quantity: 1}
+                delete newCartItem.id
+                const newCart = {...cart}
+                newCart.items.push(newCartItem)
+                setCart(newCart)
+                saveLocalCart(newCart)
+            } else {
+                const newCart = {...cart}
+                newCart.items[indexInCart].quantity += 1
+                setCart(newCart)
+                saveLocalCart(newCart)
+            }
         }
     }
 
