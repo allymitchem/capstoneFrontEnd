@@ -1,6 +1,6 @@
 import react, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { addBookToCart, updateBookQuantity } from "../api/carts";
+import { addBookToCart, saveLocalCart, updateBookQuantity } from "../api/carts";
 
 const Book = ({item, cart, setCart}) => {
     const [thisBook, setThisBook] = useState(item)
@@ -14,11 +14,13 @@ const Book = ({item, cart, setCart}) => {
             const newCart = {...cart}
             newCart.items.push(newCartItem)
             setCart(newCart)
+            saveLocalCart(newCart)
         } else {
             const newCartItem = await updateBookQuantity({cartItemId: cart.items[indexInCart].id, quantity: cart.items[indexInCart].quantity + 1})
             const newCart = {...cart};
             newCart.items[indexInCart].quantity = newCartItem.quantity
             setCart(newCart)
+            saveLocalCart(newCart)
         }
     }
 

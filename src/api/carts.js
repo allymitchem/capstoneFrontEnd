@@ -61,4 +61,9 @@ export async function updateBookQuantity({cartItemId, quantity}) {
     } catch (error) {
         //error handling
     }
-}    
+}
+
+export function saveLocalCart(cart) {
+    localStorage.removeItem("cart");
+    localStorage.setItem("cart", JSON.stringify(cart));
+}

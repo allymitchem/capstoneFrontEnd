@@ -2,7 +2,7 @@ import react, { useEffect, useState } from "react";
 import { BookList } from "./";
 import { getAllBooks} from "../api/books"
 
-const ProductsPage = ({cart, setCart}) => {
+const ProductsPage = ({cart, setCart, user}) => {
     const [bookList, setBookList] = useState([])
 
     useEffect(() => {
@@ -15,7 +15,7 @@ const ProductsPage = ({cart, setCart}) => {
 
     return (
         <div className="products_page">
-            {bookList.length ? <BookList list={bookList} setList={setBookList} cart={cart} setCart={setCart}/> : null}
+            {bookList.length ? <BookList list={bookList} setList={setBookList} cart={cart} setCart={setCart} user={user}/> : null}
         </div>
     )
 }

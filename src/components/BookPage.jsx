@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getBook } from "../api/books";
-import { addBookToCart, updateBookQuantity } from "../api/carts";
+import { addBookToCart, saveLocalCart, updateBookQuantity } from "../api/carts";
 
 const BookPage = ({ user, cart, setCart }) => {
     const [book, setBook] = useState(null)
@@ -19,18 +19,37 @@ const BookPage = ({ user, cart, setCart }) => {
     async function handleAdd(event) {
         event.preventDefault()
         const indexInCart = cart.items.findIndex((elem) => elem.itemId === book.id)
+        console.log("*", cart.userId, "**", indexInCart);
         //make the api call to add the item (either a real add or a update quanity)
-        if (indexInCart === -1) {
-            const newCartItem = await addBookToCart({cartId: cart.id, itemId: book.id, quantity})
-            const newCart = {...cart}
-            newCart.items.push(newCartItem)
-            console.log(newCart);
-            setCart(newCart)
+        if (cart.userId) {
+            if (indexInCart === -1) {
+                const newCartItem = await addBookToCart({cartId: cart.id, itemId: book.id, quantity})
+                const newCart = {...cart}
+                newCart.items.push(newCartItem)
+                setCart(newCart)
+            } else {
+                const newCartItem = await updateBookQuantity({cartItemId: cart.items[indexInCart].id, quantity: cart.items[indexInCart].quantity + Number(quantity)})
+                const newCart = {...cart};
+                newCart.items[indexInCart].quantity = newCartItem.quantity
+                setCart(newCart)
+            }
         } else {
-            const newCartItem = await updateBookQuantity({cartItemId: cart.items[indexInCart].id, quantity: cart.items[indexInCart].quantity + quantity})
-            const newCart = {...cart};
-            newCart.items[indexInCart].quantity = newCartItem.quantity
-            setCart(newCart)
+            console.log("in the else");
+            if (indexInCart === -1) {
+                console.log("in the if");
+                const newCartItem = {...book, itemId: book.id, quantity: quantity}
+                delete newCartItem.id
+                const newCart = {...cart}
+                newCart.items.push(newCartItem)
+                setCart(newCart)
+                saveLocalCart(newCart)
+            } else {
+                console.log("in the else");
+                const newCart = {...cart}
+                newCart.items[indexInCart].quantity += Number(quantity)
+                setCart(newCart)
+                saveLocalCart(newCart)
+            }
         }
     }
 
