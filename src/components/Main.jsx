@@ -35,6 +35,8 @@ const Main = () => {
 
     },[user])
 
+    
+
     return (
         <div id="main">
             <BrowserRouter>
