@@ -43,13 +43,27 @@ body {
   margin:150px;
 }
 
+.register_link{
+  color:white;
+  text-decoration:none;
+}
+
 .all_users_list{
   border:1px solid black;
   margin:1rem;
   padding:1rem;
 }
 
-/* .all_books_list {
+.all_books_list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-} */
+}
+
+.admin_tabs{
+  padding:1rem;
+}
+
+.add_book_form{
+  display:flex;
+  flex-direction: column;
+}

@@ -44,11 +44,11 @@ export async function getBook(itemId) {
 export async function postBook (
     title, 
     author, 
+    imageURL, 
     description, 
-    price, 
     year, 
-    numInStock, 
-    imageURL) {
+    price, 
+    numInStock) {
   
       try{
         const reqObj = {
@@ -59,14 +59,15 @@ export async function postBook (
           body: JSON.stringify({ 
             title, 
             author, 
+            imageURL, 
             description, 
-            price, 
             year, 
-            numInStock, 
-            imageURL})
+            price, 
+            numInStock})
         } 
+        includeToken(reqObj)
         const response = await fetch(url + "/items", reqObj)
-        const result = response.json()
+        const result = await response.json()
         console.log(result)
         return result
       } catch (error) {
@@ -82,7 +83,6 @@ export async function deleteBook (itemId) {
             headers: {
                 "Content-Type": "application/json",
             }
-
         }
         includeToken(reqObj)
         const response = await fetch(url + `/items/${itemId}`, reqObj)
@@ -94,18 +94,19 @@ export async function deleteBook (itemId) {
     }
 }
 
-export async function patchBook () {
+export async function patchBook (itemId, book) {
 
     try{
         const reqObj = {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
-            }
+            },
+            body: JSON.stringify(book)
         }
         includeToken(reqObj)
         const response = await fetch(url + `/items/${itemId}`, reqObj)
-        const result = response.json()
+        const result = await response.json()
         console.log(result)
         return result
     } catch (error) {
