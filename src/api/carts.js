@@ -68,10 +68,17 @@ export async function deleteBookFromCart(cartItemId) {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({quantity})
+        }
     }
     includeToken(reqObj)    
+
+    try {
+        const response = await fetch(url + `/cartItems/${cartItemId}`, reqObj)
+        const result = await response.json()
+        return result
+    } catch (error) {
+        //error handling
+    }
 } 
 
 export function saveLocalCart(cart) {

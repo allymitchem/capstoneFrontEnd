@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getBook } from "../api/books";
-import { addBookToCart, saveLocalCart, updateBookQuantity } from "../api/carts";
+import { addBookToCart, deleteBookFromCart, saveLocalCart, updateBookQuantity } from "../api/carts";
 
 const BookPage = ({ user, cart, setCart }) => {
     const [book, setBook] = useState(null)
@@ -51,6 +51,13 @@ const BookPage = ({ user, cart, setCart }) => {
 
     async function handleDelete(event) {
         event.preventDefault()
+        console.log(cart);
+        const indexInCart = cart.items.findIndex((elem) => elem.itemId === book.id)
+        const removedBook = await deleteBookFromCart(cart.items[indexInCart].id)
+        const newCart = {...cart}
+        newCart.items.splice(indexInCart,1)
+        setCart(newCart)
+
     }
 
     return (
