@@ -13,6 +13,7 @@ const Navbar = ({user, setUser}) => {
                <LoginForm user={user} setUser={setUser}/>
                {user.id == 1 ? 
                <Link to="admin"><button>Admin</button></Link> : null}
+               <Link to="cart"><button>Cart 🛒</button></Link>
             </div>
             <Outlet />
         </>
