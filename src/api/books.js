@@ -65,8 +65,9 @@ export async function postBook (
             price, 
             numInStock})
         } 
+        includeToken(reqObj)
         const response = await fetch(url + "/items", reqObj)
-        const result = response.json()
+        const result = await response.json()
         console.log(result)
         return result
       } catch (error) {

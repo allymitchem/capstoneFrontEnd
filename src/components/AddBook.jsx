@@ -33,7 +33,7 @@ const AddBook = ({bookList, setBookList}) => {
             numInStock)
 
         setFormData(createdBook)
-        //  setBookList(formData, ...bookList)     
+         setBookList([...bookList, createdBook])
     }
 
     return (
