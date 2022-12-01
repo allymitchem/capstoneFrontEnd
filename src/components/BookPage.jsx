@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getBook } from "../api/books";
 import { addBookToCart, deleteBookFromCart, saveLocalCart, updateBookQuantity } from "../api/carts";
+import {EditBookForm} from "./"
+
 
 const BookPage = ({ user, cart, setCart }) => {
     const [book, setBook] = useState(null)
     const [quantity, setQuantity] = useState(1)
+    const [readyToEdit, setReadyToEdit] = useState(false)
     const {itemId} = useParams()
+
+    const navigate = useNavigate()
+
+    console.log("current book", book)
 
     useEffect(() => {
         async function callGetBook() {
@@ -19,16 +26,18 @@ const BookPage = ({ user, cart, setCart }) => {
     async function handleAdd(event) {
         event.preventDefault()
         const indexInCart = cart.items.findIndex((elem) => elem.itemId === book.id)
-        //make the api call to add the item (either a real add or a update quanity)
+
         if (cart.userId) {
             if (indexInCart === -1) {
                 const newCartItem = await addBookToCart({cartId: cart.id, itemId: book.id, quantity})
                 const newCart = {...cart}
+                newCart.items = [...cart.items]
                 newCart.items.push(newCartItem)
                 setCart(newCart)
             } else {
                 const newCartItem = await updateBookQuantity({cartItemId: cart.items[indexInCart].id, quantity: cart.items[indexInCart].quantity + Number(quantity)})
-                const newCart = {...cart};
+                const newCart = {...cart}
+                newCart.items = [...cart.items]
                 newCart.items[indexInCart].quantity = newCartItem.quantity
                 setCart(newCart)
             }
@@ -37,11 +46,13 @@ const BookPage = ({ user, cart, setCart }) => {
                 const newCartItem = {...book, itemId: book.id, quantity: Number(quantity)}
                 delete newCartItem.id
                 const newCart = {...cart}
+                newCart.items = [...cart.items]
                 newCart.items.push(newCartItem)
                 setCart(newCart)
                 saveLocalCart(newCart)
             } else {
                 const newCart = {...cart}
+                newCart.items = [...cart.items]
                 newCart.items[indexInCart].quantity += Number(quantity)
                 setCart(newCart)
                 saveLocalCart(newCart)
@@ -51,13 +62,27 @@ const BookPage = ({ user, cart, setCart }) => {
 
     async function handleDelete(event) {
         event.preventDefault()
-        console.log(cart);
-        const indexInCart = cart.items.findIndex((elem) => elem.itemId === book.id)
-        const removedBook = await deleteBookFromCart(cart.items[indexInCart].id)
-        const newCart = {...cart}
-        newCart.items.splice(indexInCart,1)
-        setCart(newCart)
 
+        const indexInCart = cart.items.findIndex((elem) => elem.itemId === book.id)
+
+        if (user.id) {
+            await deleteBookFromCart(cart.items[indexInCart].id)
+            const newCart = {...cart}
+            newCart.items = cart.items.filter((_, index) => index != indexInCart)
+            setCart(newCart)
+        } else {
+            const newCart = {...cart}
+            newCart.items = cart.items.filter((_, index) => index != indexInCart)
+            setCart(newCart)
+            saveLocalCart(newCart)
+        }
+    }
+
+    async function deleteBookDB(event){
+        event.preventDefault()
+
+
+        navigate("/admin")
     }
 
     return (
@@ -71,8 +96,18 @@ const BookPage = ({ user, cart, setCart }) => {
                             <p>${book.price/100}</p>
                             <input type='number' value={quantity} onChange={(elem) => setQuantity(elem.target.value)}/>
                             <button onClick={handleAdd}>Add to 🛒</button>
-                            { cart.items.findIndex((elem) => elem.itemId === book.id) !== -1 ? 
+                            {cart.items.findIndex((elem) => elem.itemId === book.id) !== -1 ? 
                                 <button onClick={handleDelete}>🗑️</button>
+                            : null}
+                                
+                            {cart.userId == 1 ?
+                                <button onClick={() => {setReadyToEdit(!readyToEdit)}}>Admin Edit</button>
+                            : null}
+                            {readyToEdit ?
+                                <EditBookForm book={book} setBook={setBook}/>
+                            : null}
+                            {cart.userId ==1 ?
+                                <button>Delete Book</button>
                             : null}
                         </div>
                     </div>

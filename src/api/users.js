@@ -8,7 +8,6 @@ function includeToken(paramObj) {
 }
 
 export async function getCurrentUser() {
-  console.log("*** getCurrentUser ran ***");
   const reqObj = {
     method: "GET",
     headers: {
@@ -17,7 +16,7 @@ export async function getCurrentUser() {
   };
   includeToken(reqObj);
 
-  console.log(url+'/users/me', reqObj);
+  
   try {
 
   
@@ -80,7 +79,7 @@ export async function adminUserData(){
     
     const response = await fetch (url + "/users", reqObj)
     const result = await response.json()
-    console.log(result, "this is all users hopefully")
+   
     return result
   }catch(error){
     console.log(error)

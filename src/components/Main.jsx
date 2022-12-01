@@ -44,7 +44,7 @@ const Main = () => {
     return (
         <div id="main">
             <BrowserRouter>
-            <Navbar user={user} setUser={setUser}/>
+            <Navbar user={user} setUser={setUser} cart={cart}/>
                 <Routes>
                         <Route path='products' element={<ProductsPage user={user} cart={cart} setCart={setCart}/>} />
                         <Route path='register' element={<Register />} />
