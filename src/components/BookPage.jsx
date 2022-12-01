@@ -49,17 +49,24 @@ const BookPage = ({ user, cart, setCart }) => {
         }
     }
 
+    async function handleDelete(event) {
+        event.preventDefault()
+    }
+
     return (
         <div className="book_page">
             {book ? 
                 <>
-                    <h1>{book.title}<small>{book.author}</small></h1>
+                    <h1>{book.title} <small>{book.author}</small></h1>
                     <div>
                         <img src={book.imageURL} />
                         <div className="next_to_picture">
                             <p>${book.price/100}</p>
                             <input type='number' value={quantity} onChange={(elem) => setQuantity(elem.target.value)}/>
-                            <button onClick={(handleAdd)}>Add to 🛒</button>
+                            <button onClick={handleAdd}>Add to 🛒</button>
+                            { cart.items.findIndex((elem) => elem.itemId === book.id) !== -1 ? 
+                                <button onClick={handleDelete}>🗑️</button>
+                            : null}
                         </div>
                     </div>
                     <p>{book.description}</p>

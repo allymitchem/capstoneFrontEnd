@@ -31,7 +31,11 @@ const Main = () => {
         } else {
             //since the user is not logged in check if they have a cart in local storage
             const localCart = localStorage.getItem('cart')
-            if (localCart) setCart(JSON.parse(localCart))
+            if (localCart) {
+                setCart(JSON.parse(localCart))
+            } else {
+                setCart({id: 0, userId: 0, creatorName: "guest",items: []})
+            }
         }
     },[user])
 

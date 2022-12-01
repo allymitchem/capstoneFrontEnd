@@ -63,6 +63,17 @@ export async function updateBookQuantity({cartItemId, quantity}) {
     }
 }
 
+export async function deleteBookFromCart(cartItemId) {
+    const reqObj = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({quantity})
+    }
+    includeToken(reqObj)    
+} 
+
 export function saveLocalCart(cart) {
     localStorage.removeItem("cart");
     localStorage.setItem("cart", JSON.stringify(cart));
