@@ -42,7 +42,7 @@ const Main = () => {
                 <Routes>
                         <Route path='products' element={<ProductsPage />} />
                         <Route path='register' element={<Register />} />
-                        <Route path=':itemId' element={<BookPage user={user} cart={cart}/>} />
+                        <Route path=':itemId' element={<BookPage user={user} cart={cart} setCart={setCart}/>} />
                 </Routes>
             </BrowserRouter>
         </div>

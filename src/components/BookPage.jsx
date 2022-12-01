@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getBook } from "../api/books";
-import { addBookToCart } from "../api/carts";
+import { addBookToCart, updateBookQuantity } from "../api/carts";
 
-const BookPage = ({ user, cart }) => {
+const BookPage = ({ user, cart, setCart }) => {
     const [book, setBook] = useState(null)
     const [quantity, setQuantity] = useState(1)
     const {itemId} = useParams()
@@ -18,15 +18,19 @@ const BookPage = ({ user, cart }) => {
 
     async function handleAdd(event) {
         event.preventDefault()
-        const alreadyInCart = cart.items.filter((elem) => elem.itemId === book.id)
+        const alreadyInCart = cart.items.findIndex((elem) => elem.itemId === book.id)
         //make the api call to add the item (either a real add or a update quanity)
-        if (alreadyInCart.length) {
-            //update the relevent cart_item quantity
-        } else {
+        console.log(alreadyInCart);
+        if (alreadyInCart === -1) {
             const newCartItem = await addBookToCart({cartId: cart.id, itemId: book.id, quantity})
             const newCart = {...cart}
             newCart.items.push(newCartItem)
             console.log(newCart);
+            setCart(newCart)
+        } else {
+            const newCartItem = await updateBookQuantity({cartItemId: cart.items[alreadyInCart].id, quantity: cart.items[alreadyInCart].quantity + quantity})
+            const newCart = {...cart};
+            newCart.items[alreadyInCart].quantity = newCartItem.quantity
             setCart(newCart)
         }
     }
