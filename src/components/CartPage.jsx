@@ -1,9 +1,10 @@
 import React from 'react';
 import BookList from './BookList';
-import {CartList} from './'
+
+import {CartItem} from './'
 import { getAllBooks } from '../api/books';
 
-const CartPage = ({cart}) => {
+const CartPage = ({cart, setCart, user}) => {
 
 
     async function handleCheckout(event) {
@@ -23,7 +24,7 @@ const CartPage = ({cart}) => {
     return (
         <div className="cart_page">
             {cart && cart.items.length ?
-            cart.items.map((elem, index) => <CartList key={`elem_${index}`} elem={elem} />)
+            cart.items.map((elem, index) => <CartItem key={`elem_${index}`} elem={elem} cart={cart} setCart={setCart} user={user}/>)
             
             
              : "Life is full and overflowing with the new. But it is necessary to empty out the old to make room for the new to enter. - Eileen Caddy"}
