@@ -4,7 +4,7 @@ import LoginForm from './LoginForm';
 import Admin from './Admin'
 
 const Navbar = ({user, setUser}) => {
-   console.log(user, "usernav")
+
     return (
         <>
             <div id='navbar'>
