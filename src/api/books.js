@@ -86,8 +86,7 @@ export async function deleteBook (itemId) {
         }
         includeToken(reqObj)
         const response = await fetch(url + `/items/${itemId}`, reqObj)
-        const result = response.json()
-        console.log(result)
+        const result =  await response.json()
         return result
     } catch (error) {
         console.log(error)

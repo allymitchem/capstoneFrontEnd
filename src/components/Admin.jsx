@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { adminUserData } from "../api/users";
 import { getAllBooks } from "../api/books";
-import { BookList, Book, AddBook } from "./";
+import { BookList, Book, AddBook, DeleteBookButton } from "./";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
@@ -10,7 +10,7 @@ const Admin = () => {
   const [userList, setUserList] = useState([]);
   const [bookList, setBookList] = useState([]);
 
-  console.log(bookList);
+  ;
 
   useEffect(() => {
     async function getUsers() {
@@ -33,8 +33,8 @@ const Admin = () => {
       <Tabs>
         <TabList>
           <Tab>Users</Tab>
-          <Tab>Add Book</Tab>
           <Tab>Books</Tab>
+          <Tab>Add Book</Tab>
         </TabList>
         <TabPanel>
           {" "}
@@ -57,28 +57,29 @@ const Admin = () => {
             );
           })}
         </TabPanel>
-        <TabPanel>
-          {" "}
-          <AddBook bookList={bookList} setBookList={setBookList}/>
-        </TabPanel>
+        
         <TabPanel>
             <div className="all_books_list">
           {bookList.length ? bookList.map((book) => {
-            console.log(book, "this is book")
+            // console.log(book, "this is book")
             return (
               <div  key={`bookList-id${book.id}`}>
                 <div className="book">
                 <h3><NavLink to= {`/${book.id}`}>{book.title}</NavLink></h3>
                 <p>{book.author}</p>
                 <img src={book.imageURL} />
-                <p></p>
+                <DeleteBookButton book={book} bookList={bookList} setBookList={setBookList}/>
+
                 </div>
               </div>
             );
           }) : null}
           </div>
         </TabPanel>
-        
+        <TabPanel>
+          {" "}
+          <AddBook bookList={bookList} setBookList={setBookList}/>
+        </TabPanel>
       </Tabs>
     </div>
   );
