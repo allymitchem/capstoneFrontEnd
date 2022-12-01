@@ -8,7 +8,6 @@ function includeToken(paramObj) {
 }
 
 export async function getCurrentUser() {
-  console.log("*** getCurrentUser ran ***");
   const reqObj = {
     method: "GET",
     headers: {
