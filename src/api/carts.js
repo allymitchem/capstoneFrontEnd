@@ -81,6 +81,7 @@ export async function deleteBookFromCart(cartItemId) {
     }
 } 
 
+//not technically an api call but it makes sense for it to live here
 export function saveLocalCart(cart) {
     localStorage.removeItem("cart");
     localStorage.setItem("cart", JSON.stringify(cart));
