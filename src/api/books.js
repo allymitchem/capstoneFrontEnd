@@ -94,7 +94,7 @@ export async function deleteBook (itemId) {
     }
 }
 
-export async function patchBook (itemId) {
+export async function patchBook () {
 
     try{
         const reqObj = {
