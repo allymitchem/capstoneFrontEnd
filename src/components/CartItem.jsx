@@ -32,6 +32,11 @@ const CartItem = ({elem, cart, user, setCart}) => {
 
     async function handleOnChange (event) {
         event.preventDefault()
+        if(cart.userId) {
+
+        }else {
+            
+        }
         
         
     }
