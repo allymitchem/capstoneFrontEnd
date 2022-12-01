@@ -63,7 +63,7 @@ const Admin = () => {
         </TabPanel>
         <TabPanel>
             <div className="all_books_list">
-          {bookList.map((book) => {
+          {bookList.length ? bookList.map((book) => {
             console.log(book, "this is book")
             return (
               <div  key={`bookList-id${book.id}`}>
@@ -75,7 +75,7 @@ const Admin = () => {
                 </div>
               </div>
             );
-          })}
+          }) : null}
           </div>
         </TabPanel>
         
