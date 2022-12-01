@@ -90,7 +90,7 @@ const BookPage = ({ user, cart, setCart }) => {
                                 <button onClick={handleDelete}>🗑️</button>
                             : null}
                                 
-                            {cart.userId ?
+                            {cart.userId == 1 ?
                                 <button onClick={() => {setReadyToEdit(!readyToEdit)}}>Admin Edit</button>
                             : null}
                             {readyToEdit ?
