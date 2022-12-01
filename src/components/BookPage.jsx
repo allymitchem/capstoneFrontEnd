@@ -6,6 +6,7 @@ import { addBookToCart, deleteBookFromCart, saveLocalCart, updateBookQuantity } 
 const BookPage = ({ user, cart, setCart }) => {
     const [book, setBook] = useState(null)
     const [quantity, setQuantity] = useState(1)
+    const [readyToEdit, setReadyToEdit] = useState(false)
     const {itemId} = useParams()
 
     useEffect(() => {
@@ -84,6 +85,13 @@ const BookPage = ({ user, cart, setCart }) => {
                             <button onClick={handleAdd}>Add to 🛒</button>
                             {cart.items.findIndex((elem) => elem.itemId === book.id) !== -1 ? 
                                 <button onClick={handleDelete}>🗑️</button>
+                            : null}
+                                
+                            {cart.userId ?
+                                <button onClick={() => {setReadyToEdit(!readyToEdit)}}>Admin Edit</button>
+                            : null}
+                            {readyToEdit ?
+                                <p>I'm the Edit Form Component</p>
                             : null}
                         </div>
                     </div>
