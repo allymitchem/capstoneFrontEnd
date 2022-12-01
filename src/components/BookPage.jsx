@@ -26,7 +26,7 @@ const BookPage = ({ user, cart, setCart }) => {
     async function handleAdd(event) {
         event.preventDefault()
         const indexInCart = cart.items.findIndex((elem) => elem.itemId === book.id)
-        //make the api call to add the item (either a real add or a update quanity)
+
         if (cart.userId) {
             if (indexInCart === -1) {
                 const newCartItem = await addBookToCart({cartId: cart.id, itemId: book.id, quantity})
