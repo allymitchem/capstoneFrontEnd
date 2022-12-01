@@ -74,7 +74,7 @@ const Admin = () => {
         </TabPanel>
         <TabPanel>
           {" "}
-          <AddBook />
+          <AddBook bookList={bookList} setBookList={setBookList}/>
         </TabPanel>
       </Tabs>
     </div>

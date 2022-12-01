@@ -61,3 +61,8 @@ body {
 .admin_tabs{
   padding:1rem;
 }
+
+.add_book_form{
+  display:flex;
+  flex-direction: column;
+}
