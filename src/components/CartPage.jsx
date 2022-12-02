@@ -27,13 +27,12 @@ const CartPage = ({cart, setCart, user}) => {
         } else {
             alert("There is not enough stock")
         }
-
     }
 
     return (
         <div className="cart_page">
             {cart && cart.items.length ?
-            cart.items.map((elem, index) => <CartItem key={`elem_${index}`} elem={elem} cart={cart} setCart={setCart} user={user}/>)
+            cart.items.map((elem) => <CartItem key={`elem_${elem.userId}`} elem={elem} cart={cart} setCart={setCart} user={user}/>)
             
             
              : "Life is full and overflowing with the new. But it is necessary to empty out the old to make room for the new to enter. - Eileen Caddy"}

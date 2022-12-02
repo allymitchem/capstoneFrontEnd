@@ -53,6 +53,7 @@ export async function updateBookQuantity({cartItemId, quantity}) {
         body: JSON.stringify({quantity})
     }
     includeToken(reqObj)
+    console.log(reqObj)
 
     try {
         const response = await fetch(url + `/cartItems/${cartItemId}`, reqObj)
