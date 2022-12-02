@@ -25,7 +25,8 @@ export async function getActiveCart(userId) {
     }
 }
 
-export async function getCheckedOutCart(cartId) {
+export async function getAnyCart(cartId) {
+    console.log("i'm in getAnyCart")
     const reqObj = {
         method: 'GET',
         headers: {
