@@ -1,11 +1,13 @@
 import React from "react"
+import {useNavigate} from 'react-router-dom'
 import BookList from "./BookList"
 
-import { CartItem } from "./"
+import { CartItem, CheckoutConfirmation } from "./"
 import { patchBook } from "../api/books"
 import { getCart, markCartInactive } from "../api/carts"
 
 const CartPage = ({ cart, setCart, user }) => {
+  const navigate = useNavigate()
   async function handleCheckout(event) {
     event.preventDefault()
     //this does not checkout a guest user yet
@@ -21,9 +23,11 @@ const CartPage = ({ cart, setCart, user }) => {
       }
       //mark the cart as inactive
       const deadCart = await markCartInactive(cart.id)
+      console.log(deadCart, "this is the dead cart")
       //get a new cart
-      const cartData = await getCart(user.id)
-      setCart(cartData)
+      const newCartData = await getCart(user.id)
+      setCart(newCartData)
+      navigate(`/CheckoutConfirmation/${deadCart.id}`)
     } else {
       alert("There is not enough stock")
     }
