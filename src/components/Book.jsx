@@ -67,7 +67,7 @@ const Book = ({item, cart, setCart}) => {
             <img src={thisBook.imageURL} />
             <p>${thisBook.price/100}</p>
             <button onClick={handleAdd}>🛒</button>
-            {cart.items.findIndex((elem) => elem.itemId === thisBook.id) !== -1 ? 
+            {(cart.items.findIndex((elem) => elem.itemId === thisBook.id) !== -1) ? 
                 <button onClick={handleDelete}>🗑️</button>
             : null}
         </div>

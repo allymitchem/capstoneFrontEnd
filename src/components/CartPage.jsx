@@ -7,7 +7,9 @@ import { patchBook } from "../api/books"
 import { getCart, markCartInactive } from "../api/carts"
 
 const CartPage = ({ cart, setCart, user }) => {
+
   const navigate = useNavigate()
+
   async function handleCheckout(event) {
     event.preventDefault()
     //this does not checkout a guest user yet
@@ -33,27 +35,30 @@ const CartPage = ({ cart, setCart, user }) => {
     }
   }
 
-  return (
-    <div className="cart_page">
-      {cart && cart.items.length
-        ? cart.items.map((elem) => {
-            return (
-              <CartItem
-                key={`cart_page_elem_${elem.itemId}`}
-                elem={elem}
-                cart={cart}
-                setCart={setCart}
-                user={user}
-              />
-            )
-          })
-        : "Life is full and overflowing with the new. But it is necessary to empty out the old to make room for the new to enter. - Eileen Caddy"}
-      <p>
-        Subtotal: ${cart.items.reduce((sum, elem) => (sum += elem.price * elem.quantity), 0) / 100}
-      </p>
-      <button onClick={handleCheckout}>Checkout</button>
-    </div>
-  )
+
+    return (
+        <div className="cart_page">
+            {cart && cart.items.length ? 
+            <div>
+                {cart.items.map((elem) => {
+                    console.log(elem)
+                    return (
+                        <CartItem
+                        key={`cart_page_elem_${elem.itemId}`}
+                        elem={elem}
+                        cart={cart}
+                        setCart={setCart}
+                        user={user}
+                        />
+                    )
+                })}
+                <p>Subtotal: ${cart.items.reduce((sum, elem) => (sum += elem.price * elem.quantity), 0) / 100}</p>
+                <button onClick={handleCheckout}>Checkout</button>
+            </div>
+            : "Life is full and overflowing with the new. But it is necessary to empty out the old to make room for the new to enter. - Eileen Caddy"}
+        </div>
+    )
+
 }
 
 export default CartPage

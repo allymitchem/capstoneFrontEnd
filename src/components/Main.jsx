@@ -43,7 +43,7 @@ const Main = () => {
         if (localCart) {
           setCart(JSON.parse(localCart))
         } else {
-          localCart.removeItem("cart")
+          localStorage.removeItem("cart")
           setCart({ id: 0, userId: 0, creatorName: "guest", items: [] })
         }
       }

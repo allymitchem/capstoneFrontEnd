@@ -12,9 +12,12 @@ const AdminBooksList = ({bookList, setBookList}) => {
             return (
               <div  key={`bookList-id${book.id}`}>
                 <div className="book">
-                <h3><NavLink to= {`/${book.id}`}>{book.title}</NavLink></h3>
-                <p>{book.author}</p>
+                <h3><NavLink to= {`/${book.id}`}>Title: {book.title}</NavLink></h3>
+                <p>Author: {book.author}</p>
+                <p>Price: ${book.price/100}</p>
+                <p>In Stock: {book.numInStock}</p>
                 <img src={book.imageURL} />
+                <p>Year Published: {book.year}</p>
                 <DeleteBookButton book={book} bookList={bookList} setBookList={setBookList}/>
 
                 </div>

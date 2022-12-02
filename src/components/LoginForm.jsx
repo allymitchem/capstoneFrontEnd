@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { loginUser } from "../api/users";
 import { Link, useNavigate } from "react-router-dom";
 const LoginForm = ({ user, setUser }) => {
+    const [errorMessage, setErrorMessage]= useState("")
     const [formData, setFormData] = useState({
         username: "",
         password: "",
@@ -25,11 +26,19 @@ const LoginForm = ({ user, setUser }) => {
             setUser(loggedUser.user);
             navigate("/products");
         }
-        
-        if (!token) {
-          alert(loggedUser.message);
+        if (loggedUser){
+         
+          setErrorMessage("")
         }
-        setFormData({ username: "", password: "" });
+        if (!token) {
+          console.log(loggedUser)
+          setErrorMessage(loggedUser.message)
+        
+        }
+        setFormData({ username: "", password: "" })
+        
+
+        
     }
 
 
@@ -80,7 +89,12 @@ const LoginForm = ({ user, setUser }) => {
                         Not a member? Sign up
                     </Link>
                 </form>
+                
+                
             )}
+            {errorMessage ? errorMessage : null}
+
+
         </div>
     );
 };

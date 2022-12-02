@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { patchBook } from "../api/books";
 
-const EditBookForm = ({book, setBook}) => {
+const EditBookForm = ({book, setBook, setReady}) => {
 
   const [inputField, setInputField] = useState({
     title: book.title,
@@ -29,7 +29,7 @@ const EditBookForm = ({book, setBook}) => {
     // const year = inputField.year
     // const price = inputField.price
     // const numInStock = inputField.numInStock
-
+    setReady(false)
   }
 
   return (
