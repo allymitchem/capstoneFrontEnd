@@ -9,23 +9,25 @@ const BookPage = ({ user, cart, setCart }) => {
     const [book, setBook] = useState(null)
     const [quantity, setQuantity] = useState(1)
     const [readyToEdit, setReadyToEdit] = useState(false)
+    const [indexInCart, setIndexInCart] = useState(-1)
     const {itemId} = useParams()
 
-   
-
-    // console.log("current book", book)
 
     useEffect(() => {
         async function callGetBook() {
             const bookData = await getBook(itemId)
-            setBook(bookData)
+            if (bookData) {
+                const newIndexInCart = cart.items.findIndex((elem) => elem.itemId === bookData.id)
+                console.log(newIndexInCart);
+                setIndexInCart(newIndexInCart)
+                setBook(bookData)
+            }
         }
         callGetBook()
-    },[])
+    },[cart])
 
     async function handleAdd(event) {
         event.preventDefault()
-        const indexInCart = cart.items.findIndex((elem) => elem.itemId === book.id)
 
         if (cart.userId) {
             if (indexInCart === -1) {
@@ -35,7 +37,8 @@ const BookPage = ({ user, cart, setCart }) => {
                 newCart.items.push(newCartItem)
                 setCart(newCart)
             } else {
-                const newCartItem = await updateBookQuantity({cartItemId: cart.items[indexInCart].id, quantity: cart.items[indexInCart].quantity + Number(quantity)})
+                const newQuantity = cart.items[indexInCart].quantity + Number(quantity)
+                const newCartItem = await updateBookQuantity({cartItemId: cart.items[indexInCart].id, quantity: newQuantity})
                 const newCart = {...cart}
                 newCart.items = [...cart.items]
                 newCart.items[indexInCart].quantity = newCartItem.quantity
@@ -63,16 +66,16 @@ const BookPage = ({ user, cart, setCart }) => {
     async function handleDelete(event) {
         event.preventDefault()
 
-        const indexInCart = cart.items.findIndex((elem) => elem.itemId === book.id)
-
         if (user.id) {
             await deleteBookFromCart(cart.items[indexInCart].id)
             const newCart = {...cart}
             newCart.items = cart.items.filter((_, index) => index != indexInCart)
+            setIndexInCart(-1)
             setCart(newCart)
         } else {
             const newCart = {...cart}
             newCart.items = cart.items.filter((_, index) => index != indexInCart)
+            setIndexInCart(-1)
             setCart(newCart)
             saveLocalCart(newCart)
         }
@@ -89,9 +92,10 @@ const BookPage = ({ user, cart, setCart }) => {
                         <img src={book.imageURL} />
                         <div className="next_to_picture">
                             <p>${book.price/100}</p>
-                            <input type='number' value={quantity} onChange={(elem) => setQuantity(elem.target.value)}/>
+                            {indexInCart !== -1 ? <p>Quantity in Cart: {cart.items[indexInCart].quantity}</p> : null}
+                            <input type='number' min="1" value={quantity} onChange={(elem) => setQuantity(elem.target.value)}/>
                             <button onClick={handleAdd}>Add to 🛒</button>
-                            {cart.items.findIndex((elem) => elem.itemId === book.id) !== -1 ? 
+                            {indexInCart !== -1 ?
                                 <button onClick={handleDelete}>🗑️</button>
                             : null}
                                 
@@ -99,7 +103,7 @@ const BookPage = ({ user, cart, setCart }) => {
                                 <button onClick={() => {setReadyToEdit(!readyToEdit)}}>Admin Edit</button>
                             : null}
                             {readyToEdit ?
-                                <EditBookForm book={book} setBook={setBook}/>
+                                <EditBookForm book={book} setBook={setBook} setReady={setReadyToEdit}/>
                             : null}
                             {/* {cart.userId ==1 ?
                             <DeleteBookButton book={book} setBook={setBook}/>
