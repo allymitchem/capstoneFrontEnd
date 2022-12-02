@@ -53,6 +53,7 @@ export async function updateBookQuantity({cartItemId, quantity}) {
         body: JSON.stringify({quantity})
     }
     includeToken(reqObj)
+    console.log(reqObj)
 
     try {
         const response = await fetch(url + `/cartItems/${cartItemId}`, reqObj)
@@ -79,7 +80,26 @@ export async function deleteBookFromCart(cartItemId) {
     } catch (error) {
         //error handling
     }
-} 
+}
+
+export async function markCartInactive(cartId) {
+    const reqObj = {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({active: null})
+    }
+    includeToken(reqObj)
+
+    try {
+        const response = await fetch(url + `/carts/${cartId}`, reqObj)
+        const result = await response.json()
+        return result
+    } catch (error) {
+        //error handling
+    }
+}
 
 //not technically an api call but it makes sense for it to live here
 export function saveLocalCart(cart) {
