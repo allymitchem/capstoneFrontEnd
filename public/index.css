@@ -63,7 +63,7 @@ body {
   padding:1rem;
 }
 
-.add_book_form{
+.add_book_form, .edit_form{
   display:flex;
   flex-direction: column;
 }
