@@ -18,7 +18,6 @@ const BookPage = ({ user, cart, setCart }) => {
             const bookData = await getBook(itemId)
             if (bookData) {
                 const newIndexInCart = cart.items.findIndex((elem) => elem.itemId === bookData.id)
-                console.log(newIndexInCart);
                 setIndexInCart(newIndexInCart)
                 setBook(bookData)
             }
@@ -87,11 +86,12 @@ const BookPage = ({ user, cart, setCart }) => {
         <div className="book_page">
             {book ? 
                 <>
-                    <h1>{book.title} <small>{book.author}</small></h1>
+                    <h1>{book.title}</h1>
+                    <h3>{book.author}</h3>
                     <div>
                         <img src={book.imageURL} />
                         <div className="next_to_picture">
-                            <p>${book.price/100}</p>
+                            <h2>${book.price/100}</h2>
                             {indexInCart !== -1 ? <p>Quantity in Cart: {cart.items[indexInCart].quantity}</p> : null}
                             <input type='number' min="1" value={quantity} onChange={(elem) => setQuantity(elem.target.value)}/>
                             <button onClick={handleAdd}>Add to 🛒</button>
