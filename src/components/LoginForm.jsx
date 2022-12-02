@@ -32,13 +32,16 @@ const LoginForm = ({ user, setUser }) => {
         setFormData({ username: "", password: "" });
     }
 
-    async function logOutButton() {
-        localStorage.removeItem("token");
-        localStorage.removeItem("username");
-        localStorage.removeItem;
-        setFormData({ username: "", password: "" });
-        setUser({ id: 0, username: "guest" });
-    }
+
+  async function logOutButton () {
+    localStorage.removeItem("token")
+    localStorage.removeItem("username")
+    setFormData({username: "", password: ""})
+    setUser({id: 0, username: "guest"})
+    navigate("/products")
+
+  }
+
 
     return (
         <div>

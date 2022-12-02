@@ -34,7 +34,7 @@ const EditBookForm = ({book, setBook}) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form  className ="edit_form" onSubmit={handleSubmit}>
         <label>Title:</label>
         <input
         type="text"

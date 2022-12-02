@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getBook } from "../api/books";
 import { addBookToCart, deleteBookFromCart, saveLocalCart, updateBookQuantity } from "../api/carts";
-import {EditBookForm} from "./"
+import {EditBookForm, DeleteBookButton} from "./"
 
 
 const BookPage = ({ user, cart, setCart }) => {
@@ -11,9 +11,9 @@ const BookPage = ({ user, cart, setCart }) => {
     const [readyToEdit, setReadyToEdit] = useState(false)
     const {itemId} = useParams()
 
-    const navigate = useNavigate()
+   
 
-    console.log("current book", book)
+    // console.log("current book", book)
 
     useEffect(() => {
         async function callGetBook() {
@@ -78,12 +78,7 @@ const BookPage = ({ user, cart, setCart }) => {
         }
     }
 
-    async function deleteBookDB(event){
-        event.preventDefault()
-
-
-        navigate("/admin")
-    }
+   
 
     return (
         <div className="book_page">
@@ -106,9 +101,9 @@ const BookPage = ({ user, cart, setCart }) => {
                             {readyToEdit ?
                                 <EditBookForm book={book} setBook={setBook}/>
                             : null}
-                            {cart.userId ==1 ?
-                                <button>Delete Book</button>
-                            : null}
+                            {/* {cart.userId ==1 ?
+                            <DeleteBookButton book={book} setBook={setBook}/>
+                            : null} */}
                         </div>
                     </div>
                     <p>{book.description}</p>
