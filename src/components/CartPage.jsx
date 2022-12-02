@@ -33,7 +33,6 @@ const CartPage = ({ cart, setCart, user }) => {
     <div className="cart_page">
       {cart && cart.items.length
         ? cart.items.map((elem) => {
-            console.log(elem)
             return (
               <CartItem
                 key={`cart_page_elem_${elem.itemId}`}
