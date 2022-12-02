@@ -2,19 +2,28 @@ import React from 'react';
 import BookList from './BookList';
 
 import {CartItem} from './'
-import { getAllBooks } from '../api/books';
+import { patchBook } from '../api/books';
+import { getCart, markCartInactive } from '../api/carts';
 
 const CartPage = ({cart, setCart, user}) => {
 
 
     async function handleCheckout(event) {
         event.preventDefault()
+        //this does not checkout a guest user yet
 
         //check that we have enough stock
         const newStock = cart.items.map(elem => {return {...elem, numInStock: elem.numInStock - elem.quantity}})
         if (newStock.every((elem) => elem.numInStock > 0)) {
             //remove the cart quantity from the stock
+            for (const book of newStock) {
+                await patchBook(book.itemId,{numInStock: book.numInStock})
+            }
             //mark the cart as inactive
+            const deadCart = await markCartInactive(cart.id)
+            //get a new cart
+            const cartData = await getCart(user.id)
+            setCart(cartData)
         } else {
             alert("There is not enough stock")
         }

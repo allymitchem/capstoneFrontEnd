@@ -6,7 +6,7 @@ import Book from './Book';
 
 const CartItem = ({elem, cart, user, setCart}) => {
     const [quantity, setQuantity] = useState(elem.quantity)
-    
+
     // console.log(cart.items)
     // console.log(elem, "element")
     
