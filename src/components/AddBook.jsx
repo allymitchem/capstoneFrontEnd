@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import { postBook } from "../api/books";
 
 const AddBook = ({bookList, setBookList}) => {
+
+    const [confirmationMessage, setConfirmationMessage] = useState("")
     const [formData, setFormData] = useState({
         title: "",
         author: "",
@@ -34,83 +36,109 @@ const AddBook = ({bookList, setBookList}) => {
 
         setFormData(createdBook)
          setBookList([...bookList, createdBook])
+        
+         if (createdBook) {
+          setConfirmationMessage("Your book has been added!")
+        }
+
+        setFormData({ 
+        title: "",
+        author: "",
+        imageURL: "",
+        description: "",
+        year: 0,
+        price: 0,
+        numInStock: 0
+      })
+
+   
+     
+
     }
 
-    return (
+    return ( 
         <div >
           <form className="add_book_form" onSubmit={handleSubmit}>
-            <label>Title: </label>
+            <label>Title <span style={{color: "red"}}>*</span> </label>
             <input 
             type="text"
             placeholder="Title"
             required
-            onChange={(event) =>
-                setFormData({ ...formData, title: event.target.value })
-              }
+            onChange={(event) => {
+                setFormData({ ...formData, title: event.target.
+                  value })
+                setConfirmationMessage("")
+              }}
             value={formData.title}
             />
-            <label>Author: </label>
+            <label>Author <span style={{color: "red"}}>*</span></label>
             <input 
             type="text"
             placeholder="Author"
             required
-            onChange={(event) =>
+            onChange={(event) => {
                 setFormData({ ...formData, author: event.target.value })
-              }
+                setConfirmationMessage("")
+              }}
             value={formData.author}
             />
-            <label>Image URL: </label>
+            <label>Image URL </label>
             <input 
             type="text"
             placeholder="Image URL"
-            required
-            onChange={(event) =>
+            onChange={(event) => {
                 setFormData({ ...formData, imageURL: event.target.value })
-              }
+                setConfirmationMessage("")
+              }}
             value={formData.imageURL}
             />
-            <label>Description: </label>
+            <label>Description <span style={{color: "red"}}>*</span> </label>
             <input 
             type="text"
             placeholder="Description"
             required
-            onChange={(event) =>
+            onChange={(event) => {
                 setFormData({ ...formData, description: event.target.value })
-              }
+                setConfirmationMessage("")
+              }}
             value={formData.description}
             />
-            <label>Year: </label>
+            <label>Year </label>
             <input 
             type="number"
             placeholder="Year"
-            required
-            onChange={(event) =>
+            onChange={(event) => {
                 setFormData({ ...formData, year: event.target.value })
-              }
+                setConfirmationMessage("")
+              }}
             value={formData.year}
             />
-            <label>Price: </label>
+            <label>Price <span style={{color: "red"}}>*</span></label>
             <input 
             type="number"
             placeholder="Price"
             required
-            onChange={(event) =>
+            onChange={(event) => {
                 setFormData({ ...formData, price: event.target.value })
-              }
+                setConfirmationMessage("")
+              }}
             value={formData.price}
             />
-            <label>Number In Stock: </label>
+            <label>Number In Stock <span style={{color: "red"}}>*</span></label>
             <input 
             type="text"
             placeholder="Number in stock"
             required
-            onChange={(event) =>
+            onChange={(event) => {
                 setFormData({ ...formData, numInStock: event.target.value })
-              }
+                setConfirmationMessage("")
+              }}
             value={formData.numInStock}
             />
             <button type="submit">Add Book</button>
-
+              {formData ? 
+              <div>{confirmationMessage}</div>
+            : null}
           </form>
         </div>
     )
