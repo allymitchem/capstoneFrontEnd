@@ -38,11 +38,9 @@ export async function loginUser(username, password) {
       },
       body: JSON.stringify({ username, password }),
     };
-
+    console.log(reqObj);
     const response = await fetch(url + "/users/login", reqObj);
-    console.log(response, "this is response");
     const result = await response.json();
-    console.log(result, "this is result");
     return result;
   } catch (error) {
     console.log("this fetch isn't working");

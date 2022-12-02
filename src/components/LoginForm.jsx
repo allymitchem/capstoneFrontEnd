@@ -2,80 +2,84 @@ import React, { useState } from "react";
 import { loginUser } from "../api/users";
 import { Link, useNavigate } from "react-router-dom";
 const LoginForm = ({ user, setUser }) => {
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-  });
-const navigate = useNavigate()
-  
-  const userToken = localStorage.getItem("token");
+    const [formData, setFormData] = useState({
+        username: "",
+        password: "",
+    });
+    const navigate = useNavigate();
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    const username = formData.username;
-    const password = formData.password;
-    const loggedUser = await loginUser(username, password);
-    // console.log(loggedUser.user)
-    
-    const token = loggedUser.token;
+    async function handleSubmit(event) {
+        event.preventDefault();
+        const username = formData.username;
+        const password = formData.password;
+        const loggedUser = await loginUser(username, password);
 
-    if (token) {
-    // console.log(token);
-    localStorage.removeItem("token");
-    localStorage.setItem("token", token);
-    localStorage.removeItem("username");
-    localStorage.setItem("username", username); 
-    navigate("/products")
+        const token = loggedUser.token;
+
+        if (token) {
+            console.log(token);
+            localStorage.removeItem("token");
+            localStorage.setItem("token", token);
+            localStorage.removeItem("username");
+            localStorage.setItem("username", username);
+            setUser(loggedUser.user);
+            navigate("/products");
+        }
+        
+        if (!token) {
+          alert(loggedUser.message);
+        }
+        setFormData({ username: "", password: "" });
     }
 
-    setFormData({ username: "", password: "" });
-    setUser(loggedUser.user);
-  
-    console.log(token, "line 29 component");
-    if (!token) {
-      alert(loggedUser.message);
+    async function logOutButton() {
+        localStorage.removeItem("token");
+        localStorage.removeItem("username");
+        localStorage.removeItem;
+        setFormData({ username: "", password: "" });
+        setUser({ id: 0, username: "guest" });
     }
-  }
 
-  async function logOutButton () {
-    localStorage.removeItem("token")
-    localStorage.removeItem("username")
-    localStorage.removeItem
-    setFormData({username: "", password: ""})
-    setUser({id: 0, username: "guest"})
-  }
-
-  return ( userToken ?
-    <button onClick={logOutButton}>Logout</button> :
-    <div>
-      <form className="login_form" onSubmit={handleSubmit}>
-        <input
-          placeholder="Username"
-          type="text"
-          className="login_input"
-          required
-          onChange={(e) =>
-            setFormData({ ...formData, username: e.target.value })
-          }
-          value={formData.username}
-        />
-        <input
-          placeholder="Password"
-          type="password"
-          className="login_input"
-          required
-          onChange={(e) =>
-            setFormData({ ...formData, password: e.target.value })
-          }
-          value={formData.password}
-        />
-        <button type="submit">Submit</button>
-        <Link className="register_link" to="register">
-          Not a member? Sign up
-        </Link>
-      </form>
-    </div>
-  );
+    return (
+        <div>
+            {user.id ? (
+                <button onClick={logOutButton}>Logout</button>
+            ) : (
+                <form className="login_form" onSubmit={handleSubmit}>
+                    <input
+                        placeholder="Username"
+                        type="text"
+                        className="login_input"
+                        required
+                        onChange={(e) =>
+                            setFormData({
+                                ...formData,
+                                username: e.target.value,
+                            })
+                        }
+                        value={formData.username}
+                    />
+                    <input
+                        placeholder="Password"
+                        type="password"
+                        className="login_input"
+                        required
+                        onChange={(e) =>
+                            setFormData({
+                                ...formData,
+                                password: e.target.value,
+                            })
+                        }
+                        value={formData.password}
+                    />
+                    <button type="submit">Submit</button>
+                    <Link className="register_link" to="register">
+                        Not a member? Sign up
+                    </Link>
+                </form>
+            )}
+        </div>
+    );
 };
 
 export default LoginForm;
