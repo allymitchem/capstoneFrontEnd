@@ -25,6 +25,25 @@ export async function getCart(userId) {
     }
 }
 
+export async function getCheckedOutCart(cartId) {
+    const reqObj = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }
+    includeToken(reqObj)
+
+    try {
+        const response = await fetch(url + `/carts/${cartId}`, reqObj)
+        const result = await response.json()
+        return result
+    } catch (error) {
+        //do some error handling        
+    }
+
+}
+
 export async function addBookToCart({cartId, itemId, quantity}) {
     const reqObj = {
         method: 'POST',
@@ -106,3 +125,5 @@ export function saveLocalCart(cart) {
     localStorage.removeItem("cart");
     localStorage.setItem("cart", JSON.stringify(cart));
 }
+
+

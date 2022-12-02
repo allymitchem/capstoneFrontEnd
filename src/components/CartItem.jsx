@@ -35,19 +35,33 @@ const CartItem = ({elem, cart, user, setCart}) => {
     async function handleOnChange(event) {
         event.preventDefault()
         console.log(quantity, "this is the quantity state")
-        if(cart.userId) {
-            const updatedBook = await updateBookQuantity({cartItemId: cart.items[indexInCart].id, quantity: quantity})
-            const updatedCart = {...cart}
-            updatedCart.items = [...cart.items]
-            updatedCart.items[indexInCart].quantity = Number(quantity)
-            setCart(updatedCart)
-        }else {
-            const updatedCart = {...cart}
-            updatedCart.items = [...cart.items]
-            updatedCart.items[indexInCart].quantity = Number(quantity)
-            setCart(updatedCart)
-            saveLocalCart(updatedCart)
-        } 
+        if (quantity > 0) {
+            if(cart.userId) {
+                await updateBookQuantity({cartItemId: cart.items[indexInCart].id, quantity: quantity})
+                const updatedCart = {...cart}
+                updatedCart.items = [...cart.items]
+                updatedCart.items[indexInCart].quantity = Number(quantity)
+                setCart(updatedCart)
+            }else {
+                const updatedCart = {...cart}
+                updatedCart.items = [...cart.items]
+                updatedCart.items[indexInCart].quantity = Number(quantity)
+                setCart(updatedCart)
+                saveLocalCart(updatedCart)
+            }             
+        } else if(cart && user.id) {
+            const unwantedBook = (cart.items[indexInCart].id)
+            const deletedBook = await deleteBookFromCart(unwantedBook)
+            console.log(deletedBook)
+            const newCart = {...cart}
+            newCart.items = cart.items.filter(book => book.itemId !== deletedBook.itemId)
+            setCart(newCart)
+        } else {            
+            const newCart = {...cart}
+            newCart.items = cart.items.filter(book => book.itemId !== elem.itemId)
+            setCart(newCart)
+            saveLocalCart(newCart)
+        }
     }
    
 
@@ -55,7 +69,7 @@ const CartItem = ({elem, cart, user, setCart}) => {
         <div className="cart_list">          
             <img src={elem.imageURL}/>
             <p>${elem.price/100}</p>
-            <input type='number' value={quantity} onChange={(e) => {setQuantity(e.target.value)}}/>
+            <input type='number' min="0" value={quantity} onChange={(e) => {setQuantity(e.target.value)}}/>
             <button onClick={handleOnChange}>Change Quantity</button>
             {/* <p>Quantity: {elem.quantity}</p> */}
             <button onClick={handleDelete}>Remove From Cart</button> 
