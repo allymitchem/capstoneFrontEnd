@@ -43,6 +43,8 @@ const navigate = useNavigate()
     localStorage.removeItem
     setFormData({username: "", password: ""})
     setUser({id: 0, username: "guest"})
+    navigate("/products")
+
   }
 
   return ( userToken ?

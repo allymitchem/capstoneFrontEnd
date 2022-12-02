@@ -14,3 +14,6 @@ export {default as CartItem} from './CartItem'
 export {default as AddBook} from './AddBook'
 export {default as EditBookForm} from './EditBookForm'
 export {default as DeleteBookButton} from './DeleteBookButton'
+export {default as AllUsersList} from './AllUsersList'
+export {default as AdminBooksList} from './AdminBooksList'
+ 
