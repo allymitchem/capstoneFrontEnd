@@ -37,14 +37,17 @@ const CartItem = ({elem, cart, user, setCart}) => {
         console.log(quantity, "this is the quantity state")
         if(cart.userId) {
             const updatedBook = await updateBookQuantity({cartItemId: cart.items[indexInCart].id, quantity: quantity})
-            console.log(updatedBook)
             const updatedCart = {...cart}
-            // setCart(updatedCart)
+            updatedCart.items = [...cart.items]
+            updatedCart.items[indexInCart].quantity = Number(quantity)
+            setCart(updatedCart)
         }else {
-            
-        }
-        
-        
+            const updatedCart = {...cart}
+            updatedCart.items = [...cart.items]
+            updatedCart.items[indexInCart].quantity = Number(quantity)
+            setCart(updatedCart)
+            saveLocalCart(updatedCart)
+        } 
     }
    
 
