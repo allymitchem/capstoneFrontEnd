@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Navbar, ProductsPage, Register, BookPage, Admin, CartPage, CheckoutConfirmation } from "./"
-import { getCart } from "../api/carts"
+import { getActiveCart } from "../api/carts"
 import { getCurrentUser } from "../api/users"
 
 const Main = () => {
@@ -31,7 +31,7 @@ const Main = () => {
     setTimeout(() => {
       if (user.id) {
         async function callGetCart() {
-          const cartData = await getCart(user.id)
+          const cartData = await getActiveCart(user.id)
           if (cartData) {
             setCart(cartData)
           }

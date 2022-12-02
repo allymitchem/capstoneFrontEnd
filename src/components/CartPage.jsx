@@ -4,7 +4,7 @@ import BookList from "./BookList"
 
 import { CartItem, CheckoutConfirmation } from "./"
 import { patchBook } from "../api/books"
-import { getCart, markCartInactive } from "../api/carts"
+import { getActiveCart, markCartInactive } from "../api/carts"
 
 const CartPage = ({ cart, setCart, user }) => {
 
@@ -27,7 +27,7 @@ const CartPage = ({ cart, setCart, user }) => {
       const deadCart = await markCartInactive(cart.id)
       console.log(deadCart, "this is the dead cart")
       //get a new cart
-      const newCartData = await getCart(user.id)
+      const newCartData = await getActiveCart(user.id)
       setCart(newCartData)
       navigate(`/CheckoutConfirmation/${deadCart.id}`)
     } else {

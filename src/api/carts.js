@@ -7,7 +7,7 @@ function includeToken(paramObj) {
     }
 }
 
-export async function getCart(userId) {
+export async function getActiveCart(userId) {
     const reqObj = {
         method: 'GET',
         headers: {
@@ -17,7 +17,7 @@ export async function getCart(userId) {
     includeToken(reqObj)
 
     try {
-        const response = await fetch(url + `/carts/${userId}`, reqObj)
+        const response = await fetch(url + `/carts/active/${userId}`, reqObj)
         const result = await response.json()
         return result
     } catch (error) {
