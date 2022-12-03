@@ -18,15 +18,15 @@ const CheckoutConfirmation = ({ cart }) => {
     return (
         <div>
             <h2>Thank you for Shopping With Us!</h2>
-            <p>We are getting your order ready!</p>
             <p>
-                <Link to="/products">Continue Shopping</Link>
+                Did you forget something?<Link to="/products">Continue Shopping</Link>
             </p>
-            <p></p>
+
+            <p>Here's Your Order</p>
             {checkedOutCart.items
                 ? checkedOutCart.items.map((elem) => {
                       return (
-                          <>
+                          <div key={`elem_id${elem.id}`}>
                               <img src={elem.imageURL} />
                               <p>
                                   <b>Price: </b>${elem.price / 100}
@@ -35,7 +35,7 @@ const CheckoutConfirmation = ({ cart }) => {
                                   <b>Quantity: </b>
                                   {elem.quantity}
                               </p>
-                          </>
+                          </div>
                       )
                   })
                 : null}
