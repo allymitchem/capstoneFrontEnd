@@ -106,7 +106,6 @@ export async function patchBook (itemId, book) {
         includeToken(reqObj)
         const response = await fetch(url + `/items/${itemId}`, reqObj)
         const result = await response.json()
-        console.log(result)
         return result
     } catch (error) {
     console.log(error)
