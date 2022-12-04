@@ -67,3 +67,63 @@ body {
   display:flex;
   flex-direction: column;
 }
+
+/* BEGINNING OF CART PAGE CSS */
+
+.cart_list {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  max-height: 15rem;
+  min-width: 425px;
+
+}
+
+
+.cart_img {
+  display: flex;
+  align-self: center;
+  width: 15rem;
+  flex-grow: 1;
+  padding: 2rem;
+  border: 1px solid black;
+    
+}
+
+.cart_img img {
+  width: 5rem;
+  
+}
+
+
+.cart_img p {
+  flex-grow: 1;
+  margin: 0;
+  margin-left: 45rem;
+}
+
+.cart_price {
+  display: inline-block;
+ flex-grow: 1;
+ min-height: 50%;
+
+}
+
+.cart_quantity_buttons {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding: 1rem;
+  
+  
+}
+
+.cart_quantity_buttons button, input {
+  margin: 2px;
+  max-width: 10rem;
+}
+
+.cart_quantity_button input {
+  text-align: center;
+}
+

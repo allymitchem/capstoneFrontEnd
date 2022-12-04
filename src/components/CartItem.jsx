@@ -66,13 +66,23 @@ const CartItem = ({elem, cart, user, setCart}) => {
    
 
     return (
-        <div className="cart_list">          
-            <img src={elem.imageURL}/>
-            <p>${elem.price/100}</p>
-            <input type='number' min="0" value={quantity} onChange={(e) => {setQuantity(e.target.value)}}/>
-            <button onClick={handleOnChange}>Change Quantity</button>
-            {/* <p>Quantity: {elem.quantity}</p> */}
-            <button onClick={handleDelete}>Remove From Cart</button> 
+        <div className="cart_list">
+            <div className='cart_img'>
+                <img src={elem.imageURL}/>
+                <p>${elem.price/100}</p>
+            </div>
+            {/* <div className="cart_price">
+                
+            </div> */}
+            <div className='cart_quantity_buttons'>
+                <input type='number' min="0" value={quantity}     onChange={(e) => {setQuantity(e.target.value)}}/>
+                <button onClick={handleOnChange}>Change Quantity</button>
+                <button onClick={handleDelete}>Remove From Cart</button> 
+            </div>
+            {/* <div className="cart_quantity_button">
+            </div>
+            <div className='cart_remove_button'>
+            </div> */}
                     
         </div>
         

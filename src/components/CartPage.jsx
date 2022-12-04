@@ -35,6 +35,7 @@ const CartPage = ({ cart, setCart, user }) => {
 
     return (
         <div className="cart_page">
+            <h2>"Wear the old coat and buy the new book." ~ Austin Phelps</h2>
             {cart && cart.items.length ? (
                 <div>
                     {cart.items.map((elem) => {
