@@ -92,7 +92,9 @@ const Book = ({ item, cart, setCart }) => {
         </button>
 
         {cart.items.findIndex((elem) => elem.itemId === thisBook.id) !== -1 ? (
-          <button onClick={handleDelete}>🗑️</button>
+          <button onClick={handleDelete}><span className="material-symbols-outlined">
+          delete
+          </span></button>
         ) : null}
       </div>
     </div>
