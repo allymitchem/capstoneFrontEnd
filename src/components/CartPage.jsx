@@ -35,7 +35,9 @@ const CartPage = ({ cart, setCart, user }) => {
 
     return (
         <div className="cart_page">
+            <div className="quote">
             <h2>"Wear the old coat and buy the new book." ~ Austin Phelps</h2>
+            </div>
             {cart && cart.items.length ? (
                 <div>
                     {cart.items.map((elem) => {
@@ -49,12 +51,14 @@ const CartPage = ({ cart, setCart, user }) => {
                             />
                         )
                     })}
+                    <div className="total_checkout">
                     <p>
                         Subtotal: $
                         {cart.items.reduce((sum, elem) => (sum += elem.price * elem.quantity), 0) /
                             100}
                     </p>
                     <button onClick={handleCheckout}>Checkout</button>
+                    </div>
                 </div>
             ) : (
                 "Life is full and overflowing with the new. But it is necessary to empty out the old to make room for the new to enter. - Eileen Caddy"
