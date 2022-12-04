@@ -35,9 +35,11 @@ const CartPage = ({ cart, setCart, user }) => {
 
     return (
         <div className="cart_page">
+            {cart.items.length ?
             <div className="quote">
             <h2>"Wear the old coat and buy the new book." ~ Austin Phelps</h2>
-            </div>
+            </div> : null}
+
             {cart && cart.items.length ? (
                 <div>
                     {cart.items.map((elem) => {
@@ -61,7 +63,7 @@ const CartPage = ({ cart, setCart, user }) => {
                     </div>
                 </div>
             ) : (
-                "Life is full and overflowing with the new. But it is necessary to empty out the old to make room for the new to enter. - Eileen Caddy"
+                <h2>Life is full and overflowing with the new. But it is necessary to empty out the old to make room for the new to enter. <br/>~ Eileen Caddy</h2>
             )}
         </div>
     )
