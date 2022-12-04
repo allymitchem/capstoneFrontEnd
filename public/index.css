@@ -44,19 +44,41 @@ body {
   /* justify-content: center; */
 }
 
+.book_admin{
+  margin: 1rem;
+  padding: .75rem;
+  border: black solid 1px;
+  background-color:rgb(255, 255, 255);
+  font-family:'Abel', sans-serif;
+  max-width:250px;
+  display:flex;
+  flex-direction: column;
+  border-radius: 5px;
+  font-size: 16px;
+  color:black;
+}
+
 .book_image {
   width:150px;
+  height:200px;
   align-self: center;
   border-radius: 5px;
   /* border:1px solid black; */
   box-shadow: 4px 4px 4px rgb(205, 201, 199)
 }
-.book_title{
+.book_title {
   color:#374f59;
   text-decoration: none;
   border-bottom:dotted 2px #a56435;
   font-size: 25px;
 }
+
+/* .admin_book_title{
+  color:#374f59;
+  text-decoration: none;
+  border-bottom:dotted 2px #a56435;
+  font-size: 25px;
+} */
 
 .book_author{
   color:#a56435;
@@ -158,15 +180,25 @@ body {
   border:1px solid black;
   margin:1rem;
   padding:1rem;
+  border-radius: 5px;
 }
 
 .all_books_list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  font-family: 'Abel';
 }
 
 .admin_tabs{
   padding:1rem;
+  font-family:'Alumni Sans Pinstripe', sans-serif;
+  font-size:25px;
+  font-weight: bold;
+  color:#184C44;
+  background-color: white;
+  margin:10px;
+  border-radius: 5px;;
+  /* color:#a56435 */
 }
 
 .add_book_form, .edit_form{
@@ -188,6 +220,11 @@ body {
 .landing_name{
   color:#a56435;
   font-size:35px;
+}
+
+.landing_image{
+  width:400px;
+  float:right;
 }
 
 .logo{
@@ -223,7 +260,7 @@ body {
 }
 
 .nav_buttons  {
-  /* border:none; */
+  
   margin-right:10px;
   text-decoration: none;
   color: #a56435;
@@ -231,7 +268,7 @@ body {
   padding-right:10px;
   font-family:'Alumni Sans Pinstripe', sans-serif;
   font-size:25px;  
-  /* position:fixed; */
+ 
 }
 
  .nav_buttons li:last-child {
@@ -240,6 +277,10 @@ border-right:none;
 
 li {
   display:inline;
+}
+
+#cart_nav{
+  font-size:20px
 }
 
 
@@ -256,13 +297,22 @@ li {
   
 }
 
-.login_input{
+.login_input,  .login_button {
   font-family: 'Abel', sans-serif;
 }
+
+
 
 
 .navbar_box{
   display:flex;
   flex-direction: column;
+  margin-bottom: none;
 }
 
+.user_info{
+  font-family:'Abel', sans-serif;
+  font-size:16px;
+  color:black;
+ 
+}

@@ -11,13 +11,13 @@ const AdminBooksList = ({bookList, setBookList}) => {
             // console.log(book, "this is book")
             return (
               <div  key={`bookList-id${book.id}`}>
-                <div className="book">
-                <h3><NavLink to= {`/${book.id}`}>Title: {book.title}</NavLink></h3>
+                <div className="book_admin">
+                <NavLink className="admin_book_title" to= {`/${book.id}`}>Title: {book.title}</NavLink>
                 <p>Author: {book.author}</p>
-                <p>Price: ${book.price/100}</p>
-                <p>In Stock: {book.numInStock}</p>
-                <img src={book.imageURL} />
                 <p>Year Published: {book.year}</p>
+                <p>Price: ${book.price/100}</p>
+                <img className="book_image"src={book.imageURL} />
+                <p>In Stock: {book.numInStock}</p>
                 <DeleteBookButton book={book} bookList={bookList} setBookList={setBookList}/>
 
                 </div>
