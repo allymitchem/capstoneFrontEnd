@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { Navbar, ProductsPage, Register, BookPage, Admin, CartPage, CheckoutConfirmation } from "./"
+import { Navbar, ProductsPage, Register, BookPage, Admin, CartPage, CheckoutConfirmation, LandingPage, LoginForm } from "./"
 import { getActiveCart } from "../api/carts"
 import { getCurrentUser } from "../api/users"
 
@@ -53,7 +53,16 @@ const Main = () => {
   return (
     <div id="main">
       <BrowserRouter>
+      <div className="logo_nav">
+        <div>
+        <img  className="logo" src="https://res.cloudinary.com/fsa2/image/upload/v1670130351/Site%20Images/1_iiznr4.png"/>
+        </div>
+        <div className="navbar_box">
+        <LoginForm user={user} setUser={setUser}/>
         <Navbar user={user} setUser={setUser} cart={cart} />
+        </div>
+       
+      </div>
         <Routes>
           <Route
             path="products"
@@ -64,6 +73,7 @@ const Main = () => {
           <Route path="admin" element={<Admin />} />
           <Route path="cart" element={<CartPage cart={cart} setCart={setCart} user={user} />} />
           <Route path="checkoutConfirmation/:userId" element={<CheckoutConfirmation />} />
+          <Route path="/" element={<LandingPage/>}/>
         </Routes>
       </BrowserRouter>
     </div>

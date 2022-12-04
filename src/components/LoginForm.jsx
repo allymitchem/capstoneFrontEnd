@@ -53,11 +53,14 @@ const LoginForm = ({ user, setUser }) => {
 
 
     return (
-        <div>
+        <div className="login_box">
             {user.id ? (
-                <button onClick={logOutButton}>Logout</button>
+                <div id="logout_button">
+                <Link className="logout"  onClick={logOutButton}>Logout</Link>
+                </div>
             ) : (
                 <form className="login_form" onSubmit={handleSubmit}>
+                    <div>
                     <input
                         placeholder="Username"
                         type="text"
@@ -84,7 +87,8 @@ const LoginForm = ({ user, setUser }) => {
                         }
                         value={formData.password}
                     />
-                    <button type="submit">Submit</button>
+                    <button className="login_button" type="submit">Submit</button>
+                    </div>
                     <Link className="register_link" to="register">
                         Not a member? Sign up
                     </Link>

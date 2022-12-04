@@ -62,14 +62,17 @@ const Book = ({item, cart, setCart}) => {
 
     return (
         <div className="book">
-            <h3><NavLink to={`/${thisBook.id}`}>{thisBook.title}</NavLink></h3>
-            <p>{thisBook.author}</p>
-            <img src={thisBook.imageURL} />
-            <p>${thisBook.price/100}</p>
+            <h3><NavLink className="book_title" to={`/${thisBook.id}`}>{thisBook.title}</NavLink></h3>
+            <p className="book_author">{thisBook.author}</p>
+            <img className ="book_image" src={thisBook.imageURL} />
+            <div className="price_cart_trash">
+            <p className="book_price">${thisBook.price/100}</p>
             <button onClick={handleAdd}>🛒</button>
+            
             {(cart.items.findIndex((elem) => elem.itemId === thisBook.id) !== -1) ? 
                 <button onClick={handleDelete}>🗑️</button>
             : null}
+            </div>
         </div>
     )
 }
