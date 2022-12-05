@@ -76,7 +76,11 @@ body {
 .cart_page  {
   display:flex;
   flex-direction: column;
-  background-color: rgb(247, 246, 246); 
+  
+}
+
+.cart_page {
+  background-color: rgb(247, 246, 246);
 
 }
 .cart_list {

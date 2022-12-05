@@ -71,21 +71,23 @@ const CartItem = ({ elem, cart, user, setCart }) => {
                 <div className="cart_book_info">
                     <h2>{elem.title}</h2>
                     <h4>By: {elem.author}</h4>
-                    <p id="instock" >In Stock: {elem.numInStock}</p>
+                    <p id="instock">In Stock: {elem.numInStock}</p>
                     <div className="cart_quantity_buttons">
-                    <input
-                        type="number"
-                        min="0"
-                        value={quantity}
-                        onChange={(e) => {
-                            setQuantity(e.target.value)
-                        }}
-                    />
-                    <button onClick={handleOnChange}>Change Quantity</button>
-                    <button id="trashcan" onClick={handleDelete}><img src="https://res.cloudinary.com/fsa2/image/upload/v1670189401/Site%20Images/trashcan_ymuvv6.png"/></button>
+                        <input
+                            type="number"
+                            min="0"
+                            value={quantity}
+                            onChange={(e) => {
+                                setQuantity(e.target.value)
+                            }}
+                        />
+                        <button onClick={handleOnChange}>Change Quantity</button>
+                        <button onClick={handleDelete}>
+                            <span class="material-symbols-outlined">delete</span>
+                        </button>
+                    </div>
                 </div>
-                </div>
-                
+
                 <div className="cart_price">
                     <p>${elem.price / 100}</p>
                 </div>
