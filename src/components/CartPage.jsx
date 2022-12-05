@@ -11,26 +11,31 @@ const CartPage = ({ cart, setCart, user }) => {
 
     async function handleCheckout(event) {
         event.preventDefault()
-        //this does not checkout a guest user yet
-
-        //check that we have enough stock
-        const newStock = cart.items.map((elem) => {
-            return { ...elem, numInStock: elem.numInStock - elem.quantity }
-        })
-        if (newStock.every((elem) => elem.numInStock > 0)) {
-            //remove the cart quantity from the stock
-            for (const book of newStock) {
-                await patchBook(book.itemId, { numInStock: book.numInStock })
+        
+        if (user.id) {
+            //check that we have enough stock
+            const newStock = cart.items.map((elem) => {
+                return { ...elem, numInStock: elem.numInStock - elem.quantity }
+            })
+            if (newStock.every((elem) => elem.numInStock > 0)) {
+                //remove the cart quantity from the stock
+                for (const book of newStock) {
+                    await patchBook(book.itemId, { numInStock: book.numInStock })
+                }
+                //mark the cart as inactive
+                const deadCart = await markCartInactive(cart.id)
+                //get a new cart
+                const newCartData = await getActiveCart(user.id)
+                setCart(newCartData)
+                navigate(`/CheckoutConfirmation/${deadCart.id}`)
+            } else {
+                //need better message here with specifics
+                alert("There is not enough stock")
             }
-            //mark the cart as inactive
-            const deadCart = await markCartInactive(cart.id)
-            //get a new cart
-            const newCartData = await getActiveCart(user.id)
-            setCart(newCartData)
-            navigate(`/CheckoutConfirmation/${deadCart.id}`)
         } else {
-            alert("There is not enough stock")
+            alert("You must be logged in to checkout. Don't worry your cart will be saved")
         }
+
     }
 
     return (
