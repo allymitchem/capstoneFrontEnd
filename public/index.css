@@ -378,7 +378,7 @@ input {
 }
 
 .landing_page {
-  margin: 1rem;
+  margin: 2rem;
   height: 300px;
   background-color: white;
   border-radius: 5px;
@@ -386,11 +386,17 @@ input {
   font-family:'Alumni Sans Pinstripe', sans-serif;
   font-size: 35px;
   color:#374f59;
+  display:flex;
+  /* justify-content: center; */
 }
 
 .landing_name{
   color:#a56435;
   font-size:35px;
+}
+
+.landing_text{
+  width:550px;
 }
 
 .landing_image{

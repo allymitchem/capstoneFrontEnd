@@ -8,6 +8,17 @@ import { getActiveCart, markCartInactive } from "../api/carts"
 
 const CartPage = ({ cart, setCart, user }) => {
     const navigate = useNavigate()
+    const initialTotal = cart.items.reduce(
+        (sum, elem) => (sum += elem.price * elem.quantity),
+        0
+    ) / 100 
+    const subTotal = Math.round(initialTotal * 100)/100
+    const taxedAmount = (subTotal * .0875) + subTotal
+    const total = Math.round(taxedAmount * 100)/100
+    const tax = subTotal * .0875
+    const moreTax = Math.round(tax * 100)/100
+
+
 
     async function handleCheckout(event) {
         event.preventDefault()
@@ -61,11 +72,13 @@ const CartPage = ({ cart, setCart, user }) => {
                         <h2>Order Summary</h2>
                         <div className="subtotal_checkout">
                         <p>
-                            Subtotal: $
-                            {cart.items.reduce(
-                                (sum, elem) => (sum += elem.price * elem.quantity),
-                                0
-                            ) / 100}
+                            Subtotal: ${`${subTotal}`}
+                        </p>
+                        <p>
+                            Estimated Tax: ${`${moreTax}`}
+                        </p>
+                        <p>
+                            Total: ${`${total}`}
                         </p>
                         <button onClick={handleCheckout}>Checkout</button>
                         </div>
