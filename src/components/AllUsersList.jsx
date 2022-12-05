@@ -4,7 +4,7 @@ const AllUsersList = ({userList}) => {
 return (
     <div>
     {" "}
-    All Users
+    
     {userList.map((user) => {
       return (
         <div className="all_users_list" key={`userList-id${user.id}`}>

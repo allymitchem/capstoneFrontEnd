@@ -135,7 +135,7 @@ const AddBook = ({bookList, setBookList}) => {
               }}
             value={formData.numInStock}
             />
-            <button type="submit">Add Book</button>
+            <button className="add_book_button" type="submit">Add Book</button>
               {formData ? 
               <div>{confirmationMessage}</div>
             : null}

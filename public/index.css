@@ -201,9 +201,23 @@ body {
   /* color:#a56435 */
 }
 
-.add_book_form, .edit_form{
+ .edit_form{
+  display:flex;
+  flex-direction: column; 
+}
+
+.add_book_form{
   display:flex;
   flex-direction: column;
+  font-family:'Abel', sans-serif;
+  font-size:18px;
+}
+
+.add_book_button{
+  width:100px;
+  align-self: center;
+  margin-top:5px;
+  font-family:'Abel', sans-serif;
 }
 
 .landing_page {

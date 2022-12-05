@@ -131,7 +131,9 @@ const BookPage = ({ user, cart, setCart }) => {
                     setReadyToEdit(!readyToEdit);
                   }}
                 >
-                  Admin Edit
+                  <span class="material-symbols-outlined">
+edit
+</span>
                 </button>
               ) : null}
               {readyToEdit ? (
