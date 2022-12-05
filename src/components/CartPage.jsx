@@ -9,12 +9,12 @@ import { getActiveCart, markCartInactive } from "../api/carts"
 const CartPage = ({ cart, setCart, user }) => {
     const [errorMessage, setErrorMessage] = useState(false)
     const navigate = useNavigate()
-    const initialTotal = cart.items.reduce(
+    const subTotal = cart.items.reduce(
         (sum, elem) => (sum += elem.price * elem.quantity),
         0
     ) / 100 
-    const tax = initialTotal * .0875
-    const taxedAmount = (initialTotal * 1.0875)
+    const tax = subTotal * .0875
+    const taxedTotal = (subTotal * 1.0875)
 
     async function handleCheckout(event) {
         event.preventDefault()
@@ -73,16 +73,16 @@ const CartPage = ({ cart, setCart, user }) => {
                         <h2>Order Summary</h2>
                         <div className="subtotal_checkout">
                         <p>
-                            Subtotal: ${`${Number.parseFloat(initialTotal).toFixed(2)}`}
+                            Subtotal: ${`${Number.parseFloat(subTotal).toFixed(2)}`}
                         </p>
                         <p>
                             Estimated Tax: ${`${Number.parseFloat(tax).toFixed(2)}`}
                         </p>
                         <p>
-                            Total: ${`${Number.parseFloat(taxedAmount).toFixed(2)}`}
+                            Total: ${`${Number.parseFloat(taxedTotal).toFixed(2)}`}
                         </p>
                         <button onClick={handleCheckout}>Checkout</button>
-                        {errorMessage ? <p>You must be a member to checkout. Please Sign in above or <Link to="/register">Register</Link></p> : null}
+                        {errorMessage ? <p>You must be a member to checkout, don't worry your cart will be saved. Please Sign in above or <Link to="/register">Register</Link></p> : null}
                         </div>
                     </div></>
                 

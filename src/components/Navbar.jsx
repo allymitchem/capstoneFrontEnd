@@ -11,18 +11,19 @@ const Navbar = ({user, setUser, cart}) => {
                 
             <div className="navbar_box">
                 <LoginForm user={user} setUser={setUser}/>
-                <ul className='nav_links'>
-                    <li><Link to="/" className="nav_buttons">Home</Link></li>
-                    <li><Link to="products" className= "nav_buttons">Products</Link></li>
+                <div className='nav_link_list'>
+                    <Link to="/" className="nav_link">Home</Link>
+                    <Link to="products" className="nav_link">Products</Link>
                     {user && user.id == 1 ? 
-                        <li><Link to="admin" className= "nav_buttons">Admin</Link></li> 
+                        <Link to="admin" className="nav_link">Admin</Link> 
                     : null}
                     {cart.items.length ?
-                        <li><Link to="cart" className= "nav_buttons" id="cart_nav"><span className="material-symbols-outlined">
-                        shopping_cart
-                        </span>({cart.items.length})</Link></li>
+                        <Link to="cart" className="nav_link" id="cart_nav_link">
+                            <span className="material-symbols-outlined">shopping_cart</span>
+                            ({cart.items.length})
+                        </Link>
                     : null} 
-                </ul>
+                </div>
             </div>
         </div>
     );
