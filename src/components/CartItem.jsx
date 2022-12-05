@@ -63,13 +63,13 @@ const CartItem = ({ elem, cart, user, setCart }) => {
     }
 
     return (
-        <div className="cart_list">
+        <div className="cart_item">
             <div className="cart_img">
                 <img src={elem.imageURL} />
                 <div className="cart_book_info">
                     <NavLink className="cart_book_title" to={`/${elem.itemId}`}>{elem.title}</NavLink>
                     <h4>By: {elem.author}</h4>
-                    <p className={outOfStock ? "out_of_stock" : "in_stock"}>In Stock: {elem.numInStock} {outOfStock ? '*** NOT ENOUGH IN STOCK ***' : null}</p>
+                    <p className={outOfStock ? "out_of_stock" : "in_stock"}>In Stock: {elem.numInStock} {outOfStock ? '*NOT ENOUGH IN STOCK*' : null}</p>
                     <div className="cart_quantity_buttons">
                         <input
                             className="quantity_input"
