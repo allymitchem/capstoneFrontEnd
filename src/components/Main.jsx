@@ -55,7 +55,7 @@ const Main = () => {
       <BrowserRouter>
       <div className="logo_nav">
         <div>
-        <img  className="logo" src="https://res.cloudinary.com/fsa2/image/upload/v1670130351/Site%20Images/1_iiznr4.png"/>
+        <img  className="logo" src="https://res.cloudinary.com/fsa2/image/upload/v1670213973/Site%20Images/1_nljlde.png"/>
         </div>
         <div className="navbar_box">
         <LoginForm user={user} setUser={setUser}/>

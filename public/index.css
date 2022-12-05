@@ -28,7 +28,7 @@ body {
 
 .products_page .book_list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .book {
@@ -118,6 +118,7 @@ body {
 
 .book_page_image{
   width:250px;
+  max-height: 375px;
   border-radius: 5px;
   margin-right:7px;
 }
@@ -361,7 +362,7 @@ input {
 
 .logo{
   margin-top:none;
-  width:285px;
+  width:270px;
 }
 
 .logo_nav{
@@ -387,19 +388,18 @@ input {
 }
 
 .nav_buttons  {
-  
   margin-right:10px;
   text-decoration: none;
   color: #a56435;
   border-right: 1px solid #a56435;
   padding-right:10px;
   font-family:'Alumni Sans Pinstripe', sans-serif;
-  font-size:25px;  
+  font-size:30px;  
  
 }
 
  .nav_buttons li:last-child {
-border-right:none;
+  border-right:none;
 }
 
 li {
@@ -435,6 +435,7 @@ li {
   display:flex;
   flex-direction: column;
   margin-bottom: none;
+  margin-top: 65px;
 }
 
 .user_info{
