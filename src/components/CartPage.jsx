@@ -38,7 +38,11 @@ const CartPage = ({ cart, setCart, user }) => {
             <div className="quote">
                 {cart.items.length ? (
                     <h2>"Wear the old coat and buy the new book." ~ Austin Phelps</h2>
-                ) : null}
+                ) : ( <div className="empty_cart"><h2 >
+                Life is full and overflowing with the new. But it is necessary to empty out the
+                old to make room for the new to enter. <br />~ Eileen Caddy
+            </h2>
+            <img className="book_graphic" src="https://res.cloudinary.com/fsa2/image/upload/v1670217226/Site%20Images/Untitled_design_awbszy.png"/></div>)}
             </div>
 
             {cart && cart.items.length ? (
@@ -65,12 +69,7 @@ const CartPage = ({ cart, setCart, user }) => {
                         <button onClick={handleCheckout}>Checkout</button>
                     </div></>
                 
-            ) : (
-                <h2>
-                    Life is full and overflowing with the new. But it is necessary to empty out the
-                    old to make room for the new to enter. <br />~ Eileen Caddy
-                </h2>
-            )}
+            ) : null }
         </div>
     )
 }

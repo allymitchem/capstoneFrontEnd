@@ -255,14 +255,20 @@ input {
 .order_summary {
     margin-right: 5rem;
     border: 1px solid black;
+    padding:10px;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Abel', sans-serif;
 }
 .order_summary h2 {
     text-align: center;
+    font-family: 'Abel', sans-serif;
+    color:#374f59;
 }
 
 .total_checkout button {
     width: 7rem;
     margin-top: 1rem;
+    
 }
 
 .total_checkout p {
@@ -271,12 +277,30 @@ input {
     margin-top: 3rem;
 }
 
+.empty_cart{
+  font-family: 'Abel', sans-serif;
+  background-color: rgb(255, 255, 255);
+  height:200px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+ 
+}
+
+.book_graphic{
+  width:100px;
+}
+
 .quote {
     grid-column: 1 / -1;
 }
 
 .quote h2 {
     text-align: center;
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
+    color:#433B31;
+
 }
 
 #trashcan img {
