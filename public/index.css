@@ -10,20 +10,88 @@ body {
   background-color: rgb(247, 246, 246);
 }
 
+/* NavBar Css */
+
 #navbar {
   font-family: 'Poller One', Arial, sans-serif;
   flex-grow: 1;
-  max-height: 40px;
-  min-height: 40px;
  
   color: rgb(108, 131, 122);
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  padding-right: 2rem; 
+  margin-top:1rem;
+}
+
+.logo{
+  margin-top:none;
+  width:270px;
+}
+
+.navbar_box{
+  display:flex;
+  flex-direction: column;
+  margin-bottom: none;
+  margin-top: 65px;
+}
+
+#logout_button{
+  display:flex;
+  flex-grow:1;
   justify-content: flex-end;
  
-  margin-top:65px;
+}
+
+.logout{
+  color:#184C44;
+  text-decoration: none;
+  margin-right:10px;
+  font-family:'Alumni Sans Pinstripe', sans-serif;
+  font-size:30px;
+  font-weight: bold;
+}
+
+.nav_links li  {
+  margin-right:10px;
+  text-decoration: none;
+  color: #a56435;
+  border-right: 1px solid #a56435;
+  padding-right:10px;
+  font-family:'Alumni Sans Pinstripe', sans-serif;
+  font-size:30px;  
+ 
+}
+
+ .nav_links li:last-of-type {
+  border-right:none;
+}
+
+li {
+  display:inline;
+}
+
+#cart_nav{
+  font-size:20px
+}
+
+
+.login_form{
+  display: flex;
+  justify-content: flex-end;
+  border: 1px solid #a56435;
+  border-radius: 2px;
+  flex-direction: column;
+  margin-right:5px;
+  padding:5px;
+  font-family:'Alumni Sans Pinstripe', sans-serif;
+  font-weight:bolder;
   
-  
+}
+
+.login_input,  .login_button {
+  font-family: 'Abel', sans-serif;
 }
 
 .products_page .book_list {
@@ -407,83 +475,12 @@ input {
   float:right;
 }
 
-.logo{
-  margin-top:none;
-  width:270px;
-}
-
-.logo_nav{
-  display: flex;
-  align-items: center;
-  justify-content:space-between;
-}
-
-#logout_button{
-  display:flex;
-  flex-grow:1;
-  justify-content: flex-end;
- 
-}
-
-.logout{
-  color:#184C44;
-  text-decoration: none;
-  margin-right:10px;
-  font-family:'Alumni Sans Pinstripe', sans-serif;
-  font-size:30px;
-  font-weight: bold;
-}
-
-.nav_buttons  {
-  margin-right:10px;
-  text-decoration: none;
-  color: #a56435;
-  border-right: 1px solid #a56435;
-  padding-right:10px;
-  font-family:'Alumni Sans Pinstripe', sans-serif;
-  font-size:30px;  
- 
-}
-
- .nav_buttons li:last-child {
-  border-right:none;
-}
-
-li {
-  display:inline;
-}
-
-#cart_nav{
-  font-size:20px
-}
-
-
-.login_form{
-  display: flex;
-  justify-content: flex-end;
-  border: 1px solid #a56435;
-  border-radius: 2px;
-  flex-direction: column;
-  margin-right:5px;
-  padding:5px;
-  font-family:'Alumni Sans Pinstripe', sans-serif;
-  font-weight:bolder;
-  
-}
-
-.login_input,  .login_button {
-  font-family: 'Abel', sans-serif;
-}
 
 
 
 
-.navbar_box{
-  display:flex;
-  flex-direction: column;
-  margin-bottom: none;
-  margin-top: 65px;
-}
+
+
 
 .user_info{
   font-family:'Abel', sans-serif;
