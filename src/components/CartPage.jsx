@@ -59,6 +59,7 @@ const CartPage = ({ cart, setCart, user }) => {
                     })}</div>
                     <div className="order_summary">
                         <h2>Order Summary</h2>
+                        <div className="subtotal_checkout">
                         <p>
                             Subtotal: $
                             {cart.items.reduce(
@@ -67,6 +68,7 @@ const CartPage = ({ cart, setCart, user }) => {
                             ) / 100}
                         </p>
                         <button onClick={handleCheckout}>Checkout</button>
+                        </div>
                     </div></>
                 
             ) : null }

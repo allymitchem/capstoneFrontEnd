@@ -107,7 +107,9 @@ const BookPage = ({ user, cart, setCart }) => {
             <div className="next_to_picture">
               <h2>Price: ${book.price / 100}</h2>
               {indexInCart !== -1 ? (
-                <p className="quant_book_page">Quantity in Cart: {cart.items[indexInCart].quantity}</p>
+                <p className="quant_book_page">
+                  Quantity in Cart: {cart.items[indexInCart].quantity}
+                </p>
               ) : null}
               <input
                 className="quant_input"
@@ -117,12 +119,14 @@ const BookPage = ({ user, cart, setCart }) => {
                 onChange={(elem) => setQuantity(elem.target.value)}
               />
               <button onClick={handleAdd}>
-                <span className="material-symbols-outlined">add_shopping_cart</span>
+                <span className="material-symbols-outlined">
+                  add_shopping_cart
+                </span>
               </button>
               {indexInCart !== -1 ? (
-                <button onClick={handleDelete}><span className="material-symbols-outlined">
-                delete
-                </span></button>
+                <button onClick={handleDelete}>
+                  <span className="material-symbols-outlined">delete</span>
+                </button>
               ) : null}
 
               {cart.userId == 1 ? (
@@ -131,9 +135,7 @@ const BookPage = ({ user, cart, setCart }) => {
                     setReadyToEdit(!readyToEdit);
                   }}
                 >
-                  <span class="material-symbols-outlined">
-edit
-</span>
+                  <span className="material-symbols-outlined">edit</span>
                 </button>
               ) : null}
               {readyToEdit ? (

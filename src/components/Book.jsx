@@ -88,7 +88,7 @@ const Book = ({ item, cart, setCart }) => {
       <div className="price_cart_trash">
         <p className="book_price">${thisBook.price / 100}</p>
         <button onClick={handleAdd}>
-          <span class="material-symbols-outlined">add_shopping_cart</span>
+          <span className="material-symbols-outlined">add_shopping_cart</span>
         </button>
 
         {cart.items.findIndex((elem) => elem.itemId === thisBook.id) !== -1 ? (

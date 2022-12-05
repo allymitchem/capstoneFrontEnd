@@ -1,12 +1,12 @@
 import React, { useReducer, useState } from "react"
 import { deleteBookFromCart, saveLocalCart, updateBookQuantity } from "../api/carts"
 import Book from "./Book"
-
+import { NavLink } from "react-router-dom"
 const CartItem = ({ elem, cart, user, setCart }) => {
     const [quantity, setQuantity] = useState(elem.quantity)
 
     // console.log(cart.items)
-    // console.log(elem, "element")
+    console.log(elem, "element")
 
     const indexInCart = cart.items.findIndex((book) => book.itemId == elem.itemId)
 
@@ -69,11 +69,14 @@ const CartItem = ({ elem, cart, user, setCart }) => {
             <div className="cart_img">
                 <img src={elem.imageURL} />
                 <div className="cart_book_info">
-                    <h2>{elem.title}</h2>
+                <NavLink className="cart_book_title" to={`/${elem.itemId}`}>
+          {elem.title}
+        </NavLink>
                     <h4>By: {elem.author}</h4>
                     <p id="instock">In Stock: {elem.numInStock}</p>
                     <div className="cart_quantity_buttons">
                         <input
+                            className="quantity_input"
                             type="number"
                             min="0"
                             value={quantity}
@@ -81,9 +84,9 @@ const CartItem = ({ elem, cart, user, setCart }) => {
                                 setQuantity(e.target.value)
                             }}
                         />
-                        <button onClick={handleOnChange}>Change Quantity</button>
+                        <button onClick={handleOnChange}>Update</button>
                         <button onClick={handleDelete}>
-                            <span class="material-symbols-outlined">delete</span>
+                            <span className="material-symbols-outlined">delete</span>
                         </button>
                     </div>
                 </div>
