@@ -35,13 +35,14 @@ const CartPage = ({ cart, setCart, user }) => {
 
     return (
         <div className="cart_page">
-            {cart.items.length ?
             <div className="quote">
-            <h2>"Wear the old coat and buy the new book." ~ Austin Phelps</h2>
-            </div> : null}
+                {cart.items.length ? (
+                    <h2>"Wear the old coat and buy the new book." ~ Austin Phelps</h2>
+                ) : null}
+            </div>
 
             {cart && cart.items.length ? (
-                <div>
+                <><div className="cart_items">
                     {cart.items.map((elem) => {
                         return (
                             <CartItem
@@ -49,21 +50,26 @@ const CartPage = ({ cart, setCart, user }) => {
                                 elem={elem}
                                 cart={cart}
                                 setCart={setCart}
-                                user={user}
-                            />
+                                user={user} />
                         )
-                    })}
-                    <div className="total_checkout">
-                    <p>
-                        Subtotal: $
-                        {cart.items.reduce((sum, elem) => (sum += elem.price * elem.quantity), 0) /
-                            100}
-                    </p>
-                    <button onClick={handleCheckout}>Checkout</button>
-                    </div>
-                </div>
+                    })}</div>
+                    <div className="order_summary">
+                        <h2>Order Summary</h2>
+                        <p>
+                            Subtotal: $
+                            {cart.items.reduce(
+                                (sum, elem) => (sum += elem.price * elem.quantity),
+                                0
+                            ) / 100}
+                        </p>
+                        <button onClick={handleCheckout}>Checkout</button>
+                    </div></>
+                
             ) : (
-                <h2>Life is full and overflowing with the new. But it is necessary to empty out the old to make room for the new to enter. <br/>~ Eileen Caddy</h2>
+                <h2>
+                    Life is full and overflowing with the new. But it is necessary to empty out the
+                    old to make room for the new to enter. <br />~ Eileen Caddy
+                </h2>
             )}
         </div>
     )
