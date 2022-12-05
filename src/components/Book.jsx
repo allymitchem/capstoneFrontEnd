@@ -83,7 +83,7 @@ const Book = ({ item, cart, setCart }) => {
           {thisBook.title}
         </NavLink>
       </h3>
-      <p className="book_author">{thisBook.author}</p>
+      <p className="book_author">By: {thisBook.author}</p>
       <img className="book_image" src={thisBook.imageURL} />
       <div className="price_cart_trash">
         <p className="book_price">${thisBook.price / 100}</p>
