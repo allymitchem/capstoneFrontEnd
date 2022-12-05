@@ -1,4 +1,6 @@
 const url = 'https://graceshopper-backend.onrender.com/api'
+// const url = 'http://localhost:3000/api'
+
 
 function includeToken(paramObj) {
     const localToken = localStorage.getItem("token")

@@ -1,4 +1,5 @@
 const url = 'https://graceshopper-backend.onrender.com/api'
+// const url = 'http://localhost:3000/api'
 
 function includeToken(paramObj) {
     const localToken = localStorage.getItem("token")
@@ -63,6 +64,29 @@ export async function addBookToCart({cartId, itemId, quantity}) {
     }
 }
 
+export async function mergeLocalCart(userCart, localCart) {
+    const addedBooks =[]
+    const promises = localCart.items.map(element => {
+        const indexInCart = userCart.items.findIndex(elem => elem.itemId == element.itemId)
+
+        if (indexInCart === -1) {
+            addedBooks.push({...element})
+            return addBookToCart({cartId: userCart.id, itemId: element.itemId, quantity: element.quantity})
+        } else {
+            const existingBook = userCart.items[indexInCart]
+            existingBook.quantity += element.quantity
+            return updateBookQuantity(({cartItemId: existingBook.id, quantity: existingBook.quantity}))
+        }
+    })
+    const changedBooks = await Promise.all(promises)
+    addedBooks.forEach(element => {
+        const cartItemId = changedBooks.find(elem => elem.itemId == element.itemId).id
+        element.id = cartItemId
+        userCart.items.push(element)
+    })
+    return changedBooks
+}
+
 export async function updateBookQuantity({cartItemId, quantity}) {
     const reqObj = {
         method: 'PATCH',
@@ -72,7 +96,6 @@ export async function updateBookQuantity({cartItemId, quantity}) {
         body: JSON.stringify({quantity})
     }
     includeToken(reqObj)
-    console.log(reqObj)
 
     try {
         const response = await fetch(url + `/cartItems/${cartItemId}`, reqObj)
