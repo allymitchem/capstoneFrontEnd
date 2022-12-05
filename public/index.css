@@ -41,8 +41,7 @@ body {
 #logout_button{
   display:flex;
   flex-grow:1;
-  justify-content: flex-end;
- 
+  justify-content: flex-end; 
 }
 
 .logout{
@@ -60,7 +59,8 @@ body {
 }
 
 .nav_links li:last-of-type {
- border-right:none;
+  margin-right: 0px;
+  border-right:none;
 }
 
 .nav_buttons {
@@ -69,8 +69,7 @@ body {
   
   padding-right:10px;
   font-family:'Alumni Sans Pinstripe', sans-serif;
-  font-size:30px;  
- 
+  font-size:30px;   
 }
 
 
