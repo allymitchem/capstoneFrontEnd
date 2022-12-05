@@ -37,6 +37,7 @@ const CartPage = ({ cart, setCart, user }) => {
                 navigate(`/CheckoutConfirmation/${deadCart.id}`)
             } else {
                 //need better message here with specifics
+                
                 alert("There is not enough stock")
             }
         } else {

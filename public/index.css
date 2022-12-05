@@ -399,8 +399,12 @@ input {
         height: 2rem;
 }
 
-#instock {
+.in_stock {
         color: green;
+}
+
+.out_of_stock {
+    color: red;
 }
 
 .all_users_list{

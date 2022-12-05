@@ -4,11 +4,9 @@ import Book from "./Book"
 import { NavLink } from "react-router-dom"
 const CartItem = ({ elem, cart, user, setCart }) => {
     const [quantity, setQuantity] = useState(elem.quantity)
-
-    // console.log(cart.items)
-    console.log(elem, "element")
-
+    
     const indexInCart = cart.items.findIndex((book) => book.itemId == elem.itemId)
+    const outOfStock = (cart.items[indexInCart].numInStock - cart.items[indexInCart].quantity) < 0
 
     async function handleDelete(event) {
         event.preventDefault()
@@ -69,11 +67,9 @@ const CartItem = ({ elem, cart, user, setCart }) => {
             <div className="cart_img">
                 <img src={elem.imageURL} />
                 <div className="cart_book_info">
-                <NavLink className="cart_book_title" to={`/${elem.itemId}`}>
-          {elem.title}
-        </NavLink>
+                    <NavLink className="cart_book_title" to={`/${elem.itemId}`}>{elem.title}</NavLink>
                     <h4>By: {elem.author}</h4>
-                    <p id="instock">In Stock: {elem.numInStock}</p>
+                    <p className={outOfStock ? "out_of_stock" : "in_stock"}>In Stock: {elem.numInStock} {outOfStock ? '*** NOT ENOUGH IN STOCK ***' : null}</p>
                     <div className="cart_quantity_buttons">
                         <input
                             className="quantity_input"
