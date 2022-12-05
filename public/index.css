@@ -109,6 +109,7 @@ body {
 
 .cart_img img {
     height: 15rem;
+    border-radius: 5px;
 }
 
 .cart_book_info {
