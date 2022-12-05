@@ -27,17 +27,17 @@ body {
 }
 
 .products_page .book_list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .book {
-
+  width: 14rem;
   margin: 1rem;
   padding: .75rem;
   background-color:rgb(255, 255, 255);
   font-family:'Alumni Sans Pinstripe', sans-serif;
-  max-width:250px;
   display:flex;
   flex-direction: column;
   border-radius: 5px;
@@ -69,8 +69,12 @@ body {
 .book_title {
   color:#374f59;
   text-decoration: none;
-  border-bottom:dotted 2px #a56435;
+  border-bottom:solid 2px #a56435;
   font-size: 25px;
+}
+
+.book_title:hover {
+  border-bottom:solid 3px #184C44
 }
 
 
@@ -134,11 +138,10 @@ body {
 }
 
 .next_to_picture {
-
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  width:110px;
+  width:80px;
  
 }
 
@@ -151,7 +154,7 @@ body {
   font-size: 16px;
   font-family: 'Abel', sans-serif;
   font-weight:bold;
- 
+  width: 70px;
 }
 
 

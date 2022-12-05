@@ -42,7 +42,7 @@ const Main = () => {
             }
             callGetCart()
         } else {
-        //since the user is not logged in check if they have a cart in local storage
+            //since the user is not logged in check if they have a cart in local storage
             const localCart = localStorage.getItem("cart")
             if (localCart) {
                 setCart(JSON.parse(localCart))
