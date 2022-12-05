@@ -8,14 +8,21 @@ const Navbar = ({user, setUser, cart}) => {
     return (
         <>
             <div id='navbar'>
-                <h2>SHEDS & DIGNITY</h2>
-                <Link to="products"><button className= "nav_buttons">Products</button></Link>
-                <LoginForm user={user} setUser={setUser}/>
-                {user && user.id == 1 ? 
-                <Link to="admin"><button>Admin</button></Link> : null}
+            <ul>
+                {/* <h2>SHEDS & DIGNITY</h2> */}
+               <li> <Link to="/" className="nav_buttons">Home</Link></li>
+                <li><Link to="products" className= "nav_buttons">Products</Link></li>
+                {/* <img className="logo" src="https://res.cloudinary.com/fsa2/image/upload/v1670045518/Site%20Images/Logo_for_Website_1_1_kses4h.png"/> */}
+                {/* <LoginForm user={user} setUser={setUser}/> */}
+               <li>{user && user.id == 1 ? 
+                <Link to="admin" className= "nav_buttons">Admin</Link> : null}
                 {cart.items.length ?
-                    <Link to="cart"><button>Cart 🛒 ({cart.items.length})</button></Link>
+                    <Link to="cart" className= "nav_buttons" id="cart_nav"><span class="material-symbols-outlined">
+                    shopping_cart
+                    </span>({cart.items.length})</Link>
                 : null}
+                </li> 
+                </ul>
             </div>
         </>
     );
