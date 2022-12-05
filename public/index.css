@@ -34,6 +34,7 @@ body {
   display:flex;
   flex-direction: column;
   margin-bottom: none;
+  align-items: center;
   margin-top: 65px;
 }
 
@@ -53,20 +54,25 @@ body {
   font-weight: bold;
 }
 
-.nav_links li  {
+.nav_links li {
   margin-right:10px;
+  border-right: 1px solid #a56435;
+}
+
+.nav_links li:last-of-type {
+ border-right:none;
+}
+
+.nav_buttons {
   text-decoration: none;
   color: #a56435;
-  border-right: 1px solid #a56435;
+  
   padding-right:10px;
   font-family:'Alumni Sans Pinstripe', sans-serif;
   font-size:30px;  
  
 }
 
- .nav_links li:last-of-type {
-  border-right:none;
-}
 
 li {
   display:inline;
