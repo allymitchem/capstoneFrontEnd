@@ -8,6 +8,17 @@ import { getActiveCart, markCartInactive } from "../api/carts"
 
 const CartPage = ({ cart, setCart, user }) => {
     const navigate = useNavigate()
+    const initialTotal = cart.items.reduce(
+        (sum, elem) => (sum += elem.price * elem.quantity),
+        0
+    ) / 100 
+    const subTotal = Math.round(initialTotal * 100)/100
+    const taxedAmount = (subTotal * .0875) + subTotal
+    const total = Math.round(taxedAmount * 100)/100
+    const tax = subTotal * .0875
+    const moreTax = Math.round(tax * 100)/100
+
+
 
     async function handleCheckout(event) {
         event.preventDefault()
@@ -35,8 +46,18 @@ const CartPage = ({ cart, setCart, user }) => {
 
     return (
         <div className="cart_page">
+            <div className="quote">
+                {cart.items.length ? (
+                    <h2>"Wear the old coat and buy the new book." ~ Austin Phelps</h2>
+                ) : ( <div className="empty_cart"><h2 >
+                Life is full and overflowing with the new. But it is necessary to empty out the
+                old to make room for the new to enter. <br />~ Eileen Caddy
+            </h2>
+            <img className="book_graphic" src="https://res.cloudinary.com/fsa2/image/upload/v1670217226/Site%20Images/Untitled_design_awbszy.png"/></div>)}
+            </div>
+
             {cart && cart.items.length ? (
-                <div>
+                <><div className="cart_items">
                     {cart.items.map((elem) => {
                         return (
                             <CartItem
@@ -44,20 +65,26 @@ const CartPage = ({ cart, setCart, user }) => {
                                 elem={elem}
                                 cart={cart}
                                 setCart={setCart}
-                                user={user}
-                            />
+                                user={user} />
                         )
-                    })}
-                    <p>
-                        Subtotal: $
-                        {cart.items.reduce((sum, elem) => (sum += elem.price * elem.quantity), 0) /
-                            100}
-                    </p>
-                    <button onClick={handleCheckout}>Checkout</button>
-                </div>
-            ) : (
-                "Life is full and overflowing with the new. But it is necessary to empty out the old to make room for the new to enter. - Eileen Caddy"
-            )}
+                    })}</div>
+                    <div className="order_summary">
+                        <h2>Order Summary</h2>
+                        <div className="subtotal_checkout">
+                        <p>
+                            Subtotal: ${`${subTotal}`}
+                        </p>
+                        <p>
+                            Estimated Tax: ${`${moreTax}`}
+                        </p>
+                        <p>
+                            Total: ${`${total}`}
+                        </p>
+                        <button onClick={handleCheckout}>Checkout</button>
+                        </div>
+                    </div></>
+                
+            ) : null }
         </div>
     )
 }
