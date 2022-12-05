@@ -18,4 +18,5 @@ export {default as AllUsersList} from './AllUsersList'
 export {default as AdminBooksList} from './AdminBooksList'
 export {default as CheckoutConfirmation} from './CheckoutConfirmation'
 export {default as LandingPage} from './LandingPage'
+export {default as UserDashboard} from './UserDashboard'
  

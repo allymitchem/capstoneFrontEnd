@@ -3,6 +3,7 @@ import { deleteBook } from "../api/books";
 import { useNavigate } from "react-router-dom";
 import { updateBookQuantity } from "../api/carts";
 
+//Deleting book from book list, only available for admin
 const DeleteBookButton = ({book, bookList, setBookList}) => {
     // const navigate = useNavigate()
 
