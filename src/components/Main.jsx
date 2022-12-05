@@ -77,7 +77,7 @@ const Main = () => {
           <Route path="admin" element={<Admin />} />
           <Route path="cart" element={<CartPage cart={cart} setCart={setCart} user={user} />} />
 
-          <Route path="checkoutConfirmation/:userId" element={<CheckoutConfirmation />} />
+          <Route path="checkoutConfirmation/:cartId" element={<CheckoutConfirmation />} />
           <Route path="/" element={<LandingPage/>}/>
 
         </Routes>

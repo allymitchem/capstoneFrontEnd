@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom"
 import { getAnyCart } from "../api/carts"
 import { CartItem } from "./"
 
-const CheckoutConfirmation = ({ cart }) => {
+const CheckoutConfirmation = () => {
     const { cartId } = useParams()
     const [checkedOutCart, setCheckedOutCart] = useState({})
 

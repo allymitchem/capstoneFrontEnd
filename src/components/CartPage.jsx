@@ -24,7 +24,7 @@ const CartPage = ({ cart, setCart, user }) => {
             const newStock = cart.items.map((elem) => {
                 return { ...elem, numInStock: elem.numInStock - elem.quantity }
             })
-            if (newStock.every((elem) => elem.numInStock > 0)) {
+            if (newStock.every((elem) => elem.numInStock >= 0)) {
                 //remove the cart quantity from the stock
                 for (const book of newStock) {
                     await patchBook(book.itemId, { numInStock: book.numInStock })
