@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
@@ -25,12 +26,13 @@ body {
   
 }
 
-.products_page .book_list{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+.products_page .book_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .book {
+
   margin: 1rem;
   padding: .75rem;
   /* border: black solid 1px; */
@@ -115,10 +117,11 @@ body {
   padding:15px;
   border-radius: 5px;
 
+
 }
 
 .book_page div {
-  display: flex;
+    display: flex;
 }
 
 .book_page_image{
@@ -138,6 +141,7 @@ body {
 }
 
 .next_to_picture {
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -161,14 +165,135 @@ body {
 .book_description{
   font-size:20px;
   font-family: 'Abel', sans-serif;
+
 }
 
-.register_form{
-  display:flex;
-  flex-direction: column;
-  margin:150px;
+.register_form {
+    display: flex;
+    flex-direction: column;
+    margin: 150px;
 }
 
+
+
+
+/* BEGINNING OF CART PAGE CSS */
+
+
+.cart_page {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-content: space-around;
+    column-gap: 5rem;
+}
+
+.cart_list {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5rem;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.cart_items {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.cart_img {
+    display: flex;
+    align-self: center;
+    width: 15rem;
+    flex-grow: 1;
+    padding: 1rem;
+    background: rgb(255, 255, 255);
+    margin-top: 20px;
+    margin-bottom: 15px;
+
+}
+
+.cart_img img {
+    height: 15rem;
+    border-radius: 5px;
+}
+
+.cart_book_info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-left: 1rem;
+}
+
+.cart_book_info h2,
+h4,
+p {
+    margin: 5px 0;
+}
+
+.cart_price {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    font-size: 20px;
+}
+
+.cart_quantity_buttons {
+    display: flex;
+    align-self: flex-end;
+}
+
+.cart_quantity_buttons button,
+input {
+    margin: 2px;
+    max-width: 10rem;
+}
+
+.cart_quantity_button input {
+    text-align: center;
+}
+
+.total_checkout {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 2rem;
+}
+
+.order_summary {
+    margin-right: 5rem;
+    border: 1px solid black;
+}
+.order_summary h2 {
+    text-align: center;
+}
+
+.total_checkout button {
+    width: 7rem;
+    margin-top: 1rem;
+}
+
+.total_checkout p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 3rem;
+}
+
+.quote {
+    grid-column: 1 / -1;
+}
+
+.quote h2 {
+    text-align: center;
+}
+
+#trashcan img {
+    width: 2rem;
+    height: 2rem;
+}
+
+#instock {
+    color: green;
+    }
 .register_link{
   color:#184C44;
   text-decoration:none;
@@ -329,4 +454,5 @@ li {
   font-size:16px;
   color:black;
  
+
 }
