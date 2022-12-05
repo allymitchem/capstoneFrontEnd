@@ -10,6 +10,7 @@ const Register = () => {
     
     const [registerMessage, setRegisterMessage]= useState({})
     console.log(registerMessage,"this is register message")
+    
     async function handleSubmit(event){
         
         event.preventDefault()

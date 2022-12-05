@@ -1,5 +1,5 @@
-import React from "react"
-import { useNavigate } from "react-router-dom"
+import React, { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
 import BookList from "./BookList"
 
 import { CartItem, CheckoutConfirmation } from "./"
@@ -7,18 +7,14 @@ import { patchBook } from "../api/books"
 import { getActiveCart, markCartInactive } from "../api/carts"
 
 const CartPage = ({ cart, setCart, user }) => {
+    const [errorMessage, setErrorMessage] = useState(false)
     const navigate = useNavigate()
     const initialTotal = cart.items.reduce(
         (sum, elem) => (sum += elem.price * elem.quantity),
         0
     ) / 100 
-    const subTotal = Math.round(initialTotal * 100)/100
-    const taxedAmount = (subTotal * .0875) + subTotal
-    const total = Math.round(taxedAmount * 100)/100
-    const tax = subTotal * .0875
-    const moreTax = Math.round(tax * 100)/100
-
-
+    const tax = initialTotal * .0875
+    const taxedAmount = (initialTotal * 1.0875)
 
     async function handleCheckout(event) {
         event.preventDefault()
@@ -44,7 +40,7 @@ const CartPage = ({ cart, setCart, user }) => {
                 alert("There is not enough stock")
             }
         } else {
-            alert("You must be logged in to checkout. Don't worry your cart will be saved")
+            setErrorMessage(true)
         }
 
     }
@@ -77,15 +73,16 @@ const CartPage = ({ cart, setCart, user }) => {
                         <h2>Order Summary</h2>
                         <div className="subtotal_checkout">
                         <p>
-                            Subtotal: ${`${subTotal}`}
+                            Subtotal: ${`${Number.parseFloat(initialTotal).toFixed(2)}`}
                         </p>
                         <p>
-                            Estimated Tax: ${`${moreTax}`}
+                            Estimated Tax: ${`${Number.parseFloat(tax).toFixed(2)}`}
                         </p>
                         <p>
-                            Total: ${`${total}`}
+                            Total: ${`${Number.parseFloat(taxedAmount).toFixed(2)}`}
                         </p>
                         <button onClick={handleCheckout}>Checkout</button>
+                        {errorMessage ? <p>You must be a member to checkout. Please Sign in above or <Link to="/register">Register</Link></p> : null}
                         </div>
                     </div></>
                 
