@@ -106,6 +106,29 @@ body {
 
 /* Products Page CSS */
 
+.products_page {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.search_bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+  padding: 0rem 2rem;
+}
+
+.search_input {
+  flex-grow: 4;
+}
+
+.search_button {
+  flex: 1;
+}
+
 .products_page .book_list {
   display: flex;
   flex-wrap: wrap;
@@ -319,7 +342,12 @@ p {
   align-self: flex-start;
 }
 
-.cart_quantity_buttons button,input {
+.cart_quantity_buttons button {
+        margin: 2px;
+        max-width: 10rem;
+}
+
+.cart_quantity_buttons input {
   margin: 2px;
   max-width: 10rem;
 }
