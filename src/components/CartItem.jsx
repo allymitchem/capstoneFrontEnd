@@ -46,7 +46,6 @@ const CartItem = ({ elem, cart, user, setCart }) => {
         } else if (cart && user.id) {
             const unwantedBook = cart.items[indexInCart].id
             const deletedBook = await deleteBookFromCart(unwantedBook)
-            console.log(deletedBook)
             const newCart = { ...cart }
             newCart.items = cart.items.filter((book) => book.itemId !== deletedBook.itemId)
             setCart(newCart)

@@ -19,7 +19,6 @@ const DeleteBookButton = ({book, bookList, setBookList}) => {
                 }
                 return true
             })
-            console.log(updatedBooks, "updated books")
             setBookList(updatedBooks)
         }
     }

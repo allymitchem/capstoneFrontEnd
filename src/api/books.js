@@ -70,10 +70,9 @@ export async function postBook (
         includeToken(reqObj)
         const response = await fetch(url + "/items", reqObj)
         const result = await response.json()
-        console.log(result)
         return result
       } catch (error) {
-        console.log(error)
+        console.error(error)
       }
     }
 
@@ -91,7 +90,7 @@ export async function deleteBook (itemId) {
         const result =  await response.json()
         return result
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 
@@ -110,6 +109,6 @@ export async function patchBook (itemId, book) {
         const result = await response.json()
         return result
     } catch (error) {
-    console.log(error)
+    console.error(error)
     }
 }

@@ -9,7 +9,6 @@ const Register = () => {
     })
     
     const [registerMessage, setRegisterMessage]= useState({})
-    console.log(registerMessage,"this is register message")
     
     //On change, input fields get sent to the state. Then, we store that state into some variables. Then, those variables are sent to the registerUser function which makes a call to post a new user to our database. We then retrieve a token and set it to local storage. We then send the registeringUser object to the registerMessage state and render a message if the token is not true via an alert.
     async function handleSubmit(event){
@@ -21,7 +20,6 @@ const Register = () => {
 
         const registeringUser = await registerUser(username, password, email)
         const token = registeringUser.token
-        console.log(registeringUser)
         setRegisterMessage(registeringUser)
 
         localStorage.removeItem("token")

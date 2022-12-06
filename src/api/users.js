@@ -24,7 +24,7 @@ export async function getCurrentUser() {
         return result;
 
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 
@@ -42,7 +42,7 @@ export async function loginUser(username, password) {
         const result = await response.json();
         return result;
     } catch (error) {
-        console.log("this fetch isn't working");
+        console.error("this fetch isn't working");
     }
 }
 
@@ -57,10 +57,9 @@ export async function registerUser(username, password, email) {
         };
         const response = await fetch(url + "/users/register", reqObj);
         const result = await response.json();
-        console.log(result, "result in register api");
         return result;
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 
@@ -79,7 +78,7 @@ export async function adminUserData(){
      
         return result
     }catch(error){
-        console.log(error)
+        console.error(error)
     }
 
 }
@@ -97,7 +96,6 @@ export async function updateUser( user){
         includeToken(reqObj)
         const response = await fetch(url + "/users/me", reqObj);
         const result = await response.json();
-        console.log(result, "this is update user result api")
         return result
     }catch(error){
         console.error(error)
