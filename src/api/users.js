@@ -83,3 +83,23 @@ export async function adminUserData(){
     }
 
 }
+
+export async function updateUser( user){
+    try{ 
+        const reqObj = {
+            method:"PATCH",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body:JSON.stringify(user)
+
+        }
+        includeToken(reqObj)
+        const response = await fetch(url + "/users/me", reqObj);
+        const result = await response.json();
+        console.log(result, "this is update user result api")
+        return result
+    }catch(error){
+        console.error(error)
+    }
+}

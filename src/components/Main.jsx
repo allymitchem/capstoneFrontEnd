@@ -76,8 +76,13 @@ const Main = () => {
           <Route path=":itemId" element={<BookPage user={user} cart={cart} setCart={setCart} />} />
           <Route path="admin" element={<Admin />} />
           <Route path="cart" element={<CartPage cart={cart} setCart={setCart} user={user} />} />
-          <Route path="dashboard" element={<UserDashboard user={user}/>}/>
+
+ 
           <Route path="checkoutConfirmation/:cartId" element={<CheckoutConfirmation />} />
+
+          <Route path="dashboard" element={<UserDashboard user={user} setUser={setUser} />}/>
+ 
+
           <Route path="/" element={<LandingPage/>}/>
 
 

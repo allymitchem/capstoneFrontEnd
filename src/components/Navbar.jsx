@@ -17,7 +17,7 @@ const Navbar = ({user, setUser, cart}) => {
                <li>{user && user.id == 1 ? 
                 <Link to="admin" className= "nav_buttons">Admin</Link> : null}
                 </li>
-                <li> <Link className="nav_buttons" to="dashboard">My Account</Link></li>
+                <li>{user.id ? <Link className="nav_buttons" to="dashboard">My Account</Link> : null}</li>
                 <li>{cart.items.length ?
                     <Link to="cart" className= "nav_buttons" id="cart_nav"><span className="material-symbols-outlined">
                     shopping_cart
