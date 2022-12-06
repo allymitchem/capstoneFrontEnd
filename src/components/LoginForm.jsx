@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { loginUser } from "../api/users";
 import { Link, useNavigate } from "react-router-dom";
+
 const LoginForm = ({ user, setUser }) => {
     const [errorMessage, setErrorMessage]= useState("")
     const [formData, setFormData] = useState({
@@ -33,10 +34,7 @@ const LoginForm = ({ user, setUser }) => {
           setErrorMessage(loggedUser.message)
         
         }
-        setFormData({ username: "", password: "" })
-        
-
-        
+        setFormData({ username: "", password: "" }) 
     }
 
 
