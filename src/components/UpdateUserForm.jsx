@@ -31,7 +31,7 @@ const UpdateUserForm = ({user, setUser, readyToEdit, setReadyToEdit}) => {
 
     return(
     <div>
-        <form onSubmit={handleSubmit} className="update_user_form">
+        <form className="update_user_form" onSubmit={handleSubmit} >
             <label>Username: </label>
                 <input
                 type="text"
@@ -122,7 +122,7 @@ const UpdateUserForm = ({user, setUser, readyToEdit, setReadyToEdit}) => {
                     }
                 value={inputField.expiration}
                 />
-                 <button type="submit">Update Info</button>
+                 <button className="update_user_button" type="submit">Update</button>
         </form>
         
     </div>

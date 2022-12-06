@@ -7,7 +7,6 @@ const UserInfo =({user, setUser})=>{
     console.log(user, "this is user")
     return(
         <div>
-            I am user info
             <div className="user_profile_info">
                 <div>Username: {user.username}</div>
                 <div>Password: {user.password}</div>
