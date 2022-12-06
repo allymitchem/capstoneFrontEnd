@@ -25,7 +25,6 @@ const Register = () => {
         const registeringUser = await registerUser(username, password, email, firstName, lastName)
         console.log(registeringUser)
         const token = registeringUser.token
-        console.log(registeringUser)
         setRegisterMessage(registeringUser)
 
         localStorage.removeItem("token")

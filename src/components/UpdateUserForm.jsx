@@ -20,8 +20,6 @@ const UpdateUserForm = ({user, setUser, readyToEdit, setReadyToEdit}) => {
         event.preventDefault()
 
         const editedUser = await updateUser(inputField)
-        console.log(editedUser, "this is edited user")
-        console.log(setUser(editedUser, "this is set user"))
         if (editedUser){
         setUser(editedUser)
         setReadyToEdit(false)

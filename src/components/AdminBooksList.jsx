@@ -10,7 +10,6 @@ const AdminBooksList = ({bookList, setBookList}) => {
     return (
         <div className="all_books_list">
           {bookList.length ? bookList.map((book) => {
-            // console.log(book, "this is book")
             return (
               <div  key={`bookList-id${book.id}`}>
                 <div className="book_admin">

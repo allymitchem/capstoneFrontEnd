@@ -30,7 +30,6 @@ const LoginForm = ({ user, setUser }) => {
           setErrorMessage("")
         }
         if (!token) {
-          console.log(loggedUser)
           setErrorMessage(loggedUser.message)
         
         }
