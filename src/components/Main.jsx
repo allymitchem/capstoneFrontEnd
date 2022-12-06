@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { getActiveCart, mergeLocalCart } from "../api/carts"
-import { Navbar, ProductsPage, Register, BookPage, Admin, CartPage, CheckoutConfirmation, LandingPage, LoginForm, UserDashboard } from "./"
+import { Navbar, ProductsPage, Register, BookPage, Admin, CartPage, CheckoutConfirmation, LandingPage, LoginForm, UserDashboard, OrderHistory } from "./"
 import { getCurrentUser } from "../api/users"
 
 const Main = () => {
@@ -78,6 +78,7 @@ const Main = () => {
           <Route path="cart" element={<CartPage cart={cart} setCart={setCart} user={user} />} />
           <Route path="dashboard" element={<UserDashboard/>}/>
           <Route path="checkoutConfirmation/:userId" element={<CheckoutConfirmation />} />
+          <Route path="orderHistory/:userId" element={<OrderHistory />} />
           <Route path="/" element={<LandingPage/>}/>
 
 
