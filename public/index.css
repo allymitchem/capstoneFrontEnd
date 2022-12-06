@@ -111,27 +111,20 @@ body {
 }
 
 .search_bar {
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   
   padding: 0rem 2rem;
-  background-color: aquamarine;
 }
 
 .search_input {
-  /* display: flex; */
-  width: 1000px;
-  /* min-width: 0; */
-  /* flex-grow: 1; */
-  background-color: bisque;
+  flex-grow: 4;
 }
 
 .search_button {
-  /* width: 20%; */
-  /* flex: 4; */
+  flex: 1;
 }
 
 .products_page .book_list {
@@ -357,10 +350,15 @@ p {
         align-self: flex-start;
 }
 
-.cart_quantity_buttons button,
-input {
+/* whats happening here? */
+.cart_quantity_buttons button {
         margin: 2px;
         max-width: 10rem;
+}
+
+.cart_quantity_buttons input {
+  margin: 2px;
+  max-width: 10rem;
 }
 
 .cart_quantity_button input {
