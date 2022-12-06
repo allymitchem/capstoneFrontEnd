@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { loginUser } from "../api/users";
 import { Link, useNavigate } from "react-router-dom";
+
 const LoginForm = ({ user, setUser }) => {
     const [errorMessage, setErrorMessage]= useState("")
     const [formData, setFormData] = useState({
@@ -19,11 +20,8 @@ const LoginForm = ({ user, setUser }) => {
         const token = loggedUser.token;
 
         if (token) {
-            console.log(token);
             localStorage.removeItem("token");
             localStorage.setItem("token", token);
-            localStorage.removeItem("username");
-            localStorage.setItem("username", username);
             setUser(loggedUser.user);
             navigate("/products");
         }
@@ -36,28 +34,23 @@ const LoginForm = ({ user, setUser }) => {
           setErrorMessage(loggedUser.message)
         
         }
-        setFormData({ username: "", password: "" })
-        
-
-        
+        setFormData({ username: "", password: "" }) 
     }
 
 
-  async function logOutButton () {
-    navigate("/products")
-    localStorage.removeItem("token")
-    localStorage.removeItem("username")
-    setFormData({username: "", password: ""})
-    setUser({id: 0, username: "guest"})
-
-  }
+    function logOutButton () {
+        localStorage.removeItem("token")
+        setFormData({username: "", password: ""})
+        setUser({id: 0, username: "guest"})
+        navigate("/products")
+    }
 
 
     return (
         <div className="login_box">
             {user.id ? (
                 <div id="logout_button">
-                <Link className="logout"  onClick={logOutButton}>Logout</Link>
+                <button className="logout"  onClick={logOutButton}>Logout</button>
                 </div>
             ) : (
                 <form className="login_form" onSubmit={handleSubmit}>
