@@ -15,7 +15,7 @@ const OrderHistory = ({ user }) => {
             }
             getOrderHistory()
         }
-    }, [user])
+    }, [])
 
     return (
         <div className="order_history">

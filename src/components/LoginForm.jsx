@@ -19,7 +19,6 @@ const LoginForm = ({ user, setUser }) => {
         const token = loggedUser.token;
 
         if (token) {
-            console.log(token);
             localStorage.removeItem("token");
             localStorage.setItem("token", token);
             localStorage.removeItem("username");
@@ -43,14 +42,14 @@ const LoginForm = ({ user, setUser }) => {
     }
 
 
-  async function logOutButton () {
-    localStorage.removeItem("token")
-    localStorage.removeItem("username")
-    setFormData({username: "", password: ""})
-    setUser({id: 0, username: "guest"})
-    navigate("/products")
+    async function logOutButton () {
+        localStorage.removeItem("token")
+        localStorage.removeItem("username")
+        setFormData({username: "", password: ""})
+        setUser({id: 0, username: "guest"})
+        navigate("products")
 
-  }
+    }
 
 
     return (
