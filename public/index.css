@@ -99,9 +99,16 @@ body {
   font-weight: bolder;
 }
 
-.login_input,
-.login_button {
-  font-family: "Abel", sans-serif;
+
+.login_error_message{
+  display: flex;
+  justify-content: center;
+  font-family: 'Abel', sans-serif;
+  color: #a56435;
+}
+
+.login_input,  .login_button {
+    font-family: 'Abel', sans-serif;
 }
 
 /* Products Page CSS */
@@ -259,10 +266,65 @@ body {
   font-family: "Abel", sans-serif;
 }
 
+.register_container{
+  display: flex;
+  justify-content: center;
+  background: rgb(255, 255, 255);
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.register_title{
+  display: flex;
+  justify-content: center;
+  font-family: 'Abel', sans-serif;
+  font-size: xx-large;
+  color:#184C44;
+}
+
 .register_form {
   display: flex;
   flex-direction: column;
-  margin: 150px;
+  justify-content: space-between;
+  padding: 100px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: solid 2px black;
+  border-radius: 5px;
+}
+
+.input_container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.register_label{
+  display: flex;
+  align-items: center;
+  font-family: 'Abel', sans-serif;
+  color:#a56435;
+}
+
+.register_input{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: 'Abel', sans-serif;
+}
+
+.register_button{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: 'Abel', sans-serif;
+}
+
+.register_message{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-family: 'Abel', sans-serif;
+  color:#a56435;
+  font-size: x-large;
+  padding-top: 80px;
 }
 
 /* BEGINNING OF CART PAGE CSS */

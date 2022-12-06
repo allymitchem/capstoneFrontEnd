@@ -1,7 +1,7 @@
 import React from "react";
 
 const AllUsersList = ({userList}) => {
-
+console.log(userList)
 //This component gives the admin access to user information on the admin page.
 
 return (
@@ -14,6 +14,14 @@ return (
           <div className="user_info">
             <b>ID: </b>
             {user.id}
+          </div>
+          <div className="user_info">
+            <b>First Name: </b>
+            {user.firstName}
+          </div>
+          <div className="user_info">
+            <b>Last Name: </b>
+            {user.lastName}
           </div>
           <div className="user_info">
             <b>Username: </b>
