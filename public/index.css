@@ -113,6 +113,8 @@ body {
 }
 
 .search_bar {
+  font-family: "Abel", sans-serif;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -126,6 +128,7 @@ body {
 }
 
 .search_button {
+  font-family: "Abel", sans-serif;
   flex: 1;
 }
 
