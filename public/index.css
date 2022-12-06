@@ -1,105 +1,107 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bellefair&display=swap");
 
 body {
-    font-family: 'Raleway', Arial, sans-serif;
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    background-color: rgb(247, 246, 246);
+  font-family: "Raleway", Arial, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  background-color: rgb(247, 246, 246);
 }
 
 /* Navbar CSS */
 
 #navbar {
-    font-family: 'Poller One', Arial, sans-serif;
-    flex-grow: 1;
- 
-    color: rgb(108, 131, 122);
+  font-family: "Poller One", Arial, sans-serif;
+  flex-grow: 1;
 
-    display: flex;
-    align-items:flex-end;
-    justify-content: space-between;
+  color: rgb(108, 131, 122);
 
-    padding-right: 2rem; 
-    margin-top:1rem;
-    margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  padding-right: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-.logo{
-    width:270px;
+.logo {
+  width: 270px;
 }
 
-.navbar_box{
-    display:flex;
-    flex-direction: column;
-    margin-bottom: none;
-    align-items: flex-end;
+.navbar_box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: none;
+  align-items: flex-end;
 }
 
-.register_link{
-    color:#184C44;
-    text-decoration:none;
-    align-self: center;
-    font-size:20px;
+.register_link {
+  color: #184c44;
+  text-decoration: none;
+  align-self: center;
+  font-size: 20px;
 }
 
-#logout_button{
-    display:flex;
-    flex-grow:1;
-    justify-content: flex-end; 
+#logout_button {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
 }
 
-.logout{
-    color:#184C44;
-    text-decoration: none;
-    margin-right:10px;
-    font-family:'Alumni Sans Pinstripe', sans-serif;
-    font-size:30px;
-    font-weight: bold;
+.logout {
+  color: #184c44;
+  text-decoration: none;
+  margin-right: 10px;
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  border: none;
+  background-color: rgb(247, 246, 246);
 }
 
 .nav_link_list {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .nav_link {
-    text-decoration: none;
-    color: #a56435;
-    margin-right:10px;
-    border-right: 1px solid #a56435;
-    
-    padding-right:10px;
-    font-family:'Alumni Sans Pinstripe', sans-serif;
-    font-size:30px;  
+  text-decoration: none;
+  color: #a56435;
+  margin-right: 10px;
+  border-right: 1px solid #a56435;
+
+  padding-right: 10px;
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+  font-size: 30px;
 }
 
 .nav_link:last-of-type {
-    margin-right: 0px;
-    border-right:none;
+  margin-right: 0px;
+  border-right: none;
 }
 
 #cart_nav_link {
-    font-size:24px
+  font-size: 24px;
 }
 
-
-.login_form{
-    display: flex;
-    justify-content: flex-end;
-    border: 1px solid #a56435;
-    border-radius: 2px;
-    flex-direction: column;
-    margin-right:5px;
-    padding:5px;
-    font-family:'Alumni Sans Pinstripe', sans-serif;
-    font-weight:bolder;
-    
+.login_form {
+  display: flex;
+  justify-content: flex-end;
+  border: 1px solid #a56435;
+  border-radius: 2px;
+  flex-direction: column;
+  margin-right: 5px;
+  padding: 5px;
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+  font-weight: bolder;
 }
 
-.login_input,  .login_button {
-    font-family: 'Abel', sans-serif;
+.login_input,
+.login_button {
+  font-family: "Abel", sans-serif;
 }
 
 /* Products Page CSS */
@@ -128,229 +130,218 @@ body {
 }
 
 .products_page .book_list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .book {
-    display:flex;
-    flex-direction: column;
-    width: 14rem;
-    margin: 1rem;
-    padding: .75rem;
-    background-color:rgb(255, 255, 255);
-    font-family:'Alumni Sans Pinstripe', sans-serif;
-    border-radius: 5px; 
+  display: flex;
+  flex-direction: column;
+  width: 14rem;
+  margin: 1rem;
+  padding: 0.75rem;
+  background-color: rgb(255, 255, 255);
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+  border-radius: 5px;
 }
 
 .book_admin {
-    margin: 1rem;
-    padding: .75rem;
-    border: black solid 1px;
-    background-color:rgb(255, 255, 255);
-    font-family:'Abel', sans-serif;
-    max-width:250px;
-    display:flex;
-    flex-direction: column;
-    border-radius: 5px;
-    font-size: 16px;
-    color:black;
+  margin: 1rem;
+  padding: 0.75rem;
+  border: black solid 1px;
+  background-color: rgb(255, 255, 255);
+  font-family: "Abel", sans-serif;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  font-size: 16px;
+  color: black;
 }
 
 .book_image {
-    width:150px;
-    height:200px;
-    align-self: center;
-    border-radius: 5px;
-    /* border:1px solid black; */
-    box-shadow: 4px 4px 4px rgb(205, 201, 199)
+  width: 150px;
+  height: 200px;
+  align-self: center;
+  border-radius: 5px;
+  /* border:1px solid black; */
+  box-shadow: 4px 4px 4px rgb(205, 201, 199);
 }
 .book_title {
-    color:#374f59;
-    text-decoration: none;
-    border-bottom:solid 2px #a56435;
-    font-size: 25px;
+  color: #374f59;
+  text-decoration: none;
+  border-bottom: solid 2px #a56435;
+  font-size: 25px;
 }
 
 .book_title:hover {
-    border-bottom:solid 3px #184C44
+  border-bottom: solid 3px #184c44;
 }
 
-
-.book_author{
-    color:#a56435;
-    font-size: 20px;
-    font-weight: bold;
+.book_author {
+  color: #a56435;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.book_price{
-    font-size:25px;
-    font-weight: bold;
-    margin-top:20px;
+.book_price {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 20px;
 }
 
 .book button {
-    width:35px;
-    height:35px;
-    padding: 5px;
-    margin-top: 20px;
-    margin-left:10px;
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+  margin-top: 20px;
+  margin-left: 10px;
 }
 
 .price_cart_trash {
-    display:flex; 
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.book_page{
-    font-family:'Alumni Sans Pinstripe', sans-serif;
-    background-color: white;
-    margin-right:30px;
-    margin-left:30px;
-    padding:15px;
-    border-radius: 5px;
+.book_page {
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+  background-color: white;
+  margin-right: 30px;
+  margin-left: 30px;
+  padding: 15px;
+  border-radius: 5px;
 }
 
 .book_page div {
-        display: flex;
+  display: flex;
 }
 
-.book_page_image{
-    width:250px;
-    max-height: 375px;
-    border-radius: 5px;
-    margin-right:7px;
+.book_page_image {
+  width: 250px;
+  max-height: 375px;
+  border-radius: 5px;
+  margin-right: 7px;
 }
 
-.book_page_title{
-    color:#184C44; 
+.book_page_title {
+  color: #184c44;
 }
 
-.book_page_author{
-    font-size: 22px;
-    color:#a56435;
-    font-weight: bold;
+.book_page_author {
+  font-size: 22px;
+  color: #a56435;
+  font-weight: bold;
 }
 
 .next_to_picture {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width:80px;
- 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 80px;
 }
 
-.quant_book_page{
-    font-size: 21px;
-    font-weight:bold;
+.quant_book_page {
+  font-size: 21px;
+  font-weight: bold;
 }
 
-.quant_input{
-    font-size: 16px;
-    font-family: 'Abel', sans-serif;
-    font-weight:bold;
-    width: 70px;
+.quant_input {
+  font-size: 16px;
+  font-family: "Abel", sans-serif;
+  font-weight: bold;
+  width: 70px;
 }
 
-
-.book_description{
-    font-size:20px;
-    font-family: 'Abel', sans-serif;
-
+.book_description {
+  font-size: 20px;
+  font-family: "Abel", sans-serif;
 }
 
 .register_form {
-        display: flex;
-        flex-direction: column;
-        margin: 150px;
+  display: flex;
+  flex-direction: column;
+  margin: 150px;
 }
-
-
-
 
 /* BEGINNING OF CART PAGE CSS */
 
-
 .cart_page {
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
-        justify-content: space-around;
-        column-gap: 5rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  justify-content: space-around;
+  column-gap: 5rem;
 }
 
 .cart_item {
-        display: flex;
-        flex-direction: row;
-        margin-left: 5rem;
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-        font-family: 'Abel', sans-serif;
-        color:#433B31;
-
+  display: flex;
+  flex-direction: row;
+  margin-left: 5rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  font-family: "Abel", sans-serif;
+  color: #433b31;
 }
 .cart_list {
-        grid-column-start: 1;
-        grid-column-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 .cart_img {
-        display: flex;
-        align-self: center;
-        width: 15rem;
-        flex-grow: 1;
-        padding: 1rem;
-        background: rgb(255, 255, 255);
-        margin-top: 20px;
-        margin-bottom: 15px;
-
+  display: flex;
+  align-self: center;
+  width: 15rem;
+  flex-grow: 1;
+  padding: 1rem;
+  background: rgb(255, 255, 255);
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .cart_img img {
-        height: 10rem;
-        border-radius: 5px;
+  height: 10rem;
+  border-radius: 5px;
 }
 
 .cart_book_info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-between;
-        margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-left: 1rem;
 }
 
 .cart_book_info h2,
 h4,
 p {
-        margin: 5px;
+  margin: 5px;
 }
 
 .cart_book_info button {
-    font-family: 'Abel', sans-serif;
+  font-family: "Abel", sans-serif;
 }
 
-.cart_book_title{
-    color:#433B31;
+.cart_book_title {
+  color: #433b31;
 }
 
-.quantity_input{
-    width:50px;
+.quantity_input {
+  width: 50px;
 }
 
 .cart_price {
-        display: flex;
-        justify-content: flex-end;
-        flex-grow: 1;
-        font-size: 20px;
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+  font-size: 20px;
 }
 
 .cart_quantity_buttons {
-        display: flex;
-        align-self: flex-start;
+  display: flex;
+  align-self: flex-start;
 }
 
-/* whats happening here? */
 .cart_quantity_buttons button {
         margin: 2px;
         max-width: 10rem;
@@ -362,170 +353,175 @@ p {
 }
 
 .cart_quantity_button input {
-        text-align: center;
+  text-align: center;
 }
 
 .total_checkout {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 2rem;
 }
 
 .order_summary {
-        margin-right: 5rem;
-        border: 1px solid black;
-        padding:10px;
-        background-color: rgb(255, 255, 255);
-        font-family: 'Abel', sans-serif;
-        display:flex;
-        flex-direction: column;
-        justify-content: space-between;
-        max-height:500px; 
-     
+  margin-right: 5rem;
+  border: 1px solid black;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  font-family: "Abel", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 500px;
 }
 .order_summary h2 {
-        text-align: center;
-        font-family: 'Abel', sans-serif;
-        color:#374f59;
+  text-align: center;
+  font-family: "Abel", sans-serif;
+  color: #374f59;
 }
 
 .order_summary button {
-    font-family: 'Abel', sans-serif;
-    font-size: 15px;
+  font-family: "Abel", sans-serif;
+  font-size: 15px;
 }
 
-.empty_cart{
-    font-family: 'Abel', sans-serif;
-    background-color: rgb(255, 255, 255);
-    height:200px;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
- 
+.empty_cart {
+  font-family: "Abel", sans-serif;
+  background-color: rgb(255, 255, 255);
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.book_graphic{
-    width:100px;
+.book_graphic {
+  width: 100px;
 }
-
 
 .quote {
-        grid-column: 1 / -1;
+  grid-column: 1 / -1;
 }
 
 .quote h2 {
-        text-align: center;
-        font-family: 'Alumni Sans Pinstripe', sans-serif;
-        color:#433B31;
-
+  text-align: center;
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+  color: #433b31;
 }
 
 #trashcan img {
-        width: 2rem;
-        height: 2rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .in_stock {
-        color: green;
+  color: green;
 }
 
 .out_of_stock {
-    color: red;
+  color: red;
 }
 
-.all_users_list{
-    border:1px solid black;
-    margin:1rem;
-    padding:1rem;
-    border-radius: 5px;
+.all_users_list {
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
 }
 
 .all_books_list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    font-family: 'Abel';
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-family: "Abel";
 }
 
-.admin_tabs{
-    padding:1rem;
-    font-family:'Alumni Sans Pinstripe', sans-serif;
-    font-size:25px;
-    font-weight: bold;
-    color:#184C44;
-    background-color: white;
-    margin:10px;
-    border-radius: 5px;;
-    /* color:#a56435 */
+.admin_tabs {
+  padding: 1rem;
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #184c44;
+  background-color: white;
+  margin: 10px;
+  border-radius: 5px;
+  /* color:#a56435 */
 }
 
- .edit_form{
-    display:flex;
-    flex-direction: column; 
+.edit_form {
+  display: flex;
+  flex-direction: column;
 }
 
-.add_book_form{
-    display:flex;
-    flex-direction: column;
-    font-family:'Abel', sans-serif;
-    font-size:18px;
+.add_book_form {
+  display: flex;
+  flex-direction: column;
+  font-family: "Abel", sans-serif;
+  font-size: 18px;
 }
 
-.add_book_button{
-    width:100px;
-    align-self: center;
-    margin-top:5px;
-    font-family:'Abel', sans-serif;
+.add_book_button {
+  width: 100px;
+  align-self: center;
+  margin-top: 5px;
+  font-family: "Abel", sans-serif;
 }
 
 .landing_page {
-    margin: 2rem;
-    height: 300px;
-    background-color: white;
-    border-radius: 5px;
-    padding:20px;
-    font-family:'Alumni Sans Pinstripe', sans-serif;
-    font-size: 35px;
-    color:#374f59;
-    display:flex;
-    /* justify-content: center; */
+  margin: 2rem;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+  color: #374f59;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.landing_name{
-    color:#a56435;
-    font-size:35px;
+.landing_text {
+  width: 600px;
+  color: black;
+  text-align: center;
+  font-size: 28px;
 }
 
-.landing_text{
-    width:550px;
+.sheds_dignity {
+  font-family: "Bellefair", serif;
+  color: #184c44;
+  font-size: 32px;
 }
 
-.landing_image{
-    width:400px;
-    float:right;
+.and {
+  font-family: "Caveat", cursive;
+  size: 10px;
+
+  color: #a56435;
 }
 
-.user_info{
-    font-family:'Abel', sans-serif;
-    font-size:16px;
-    color:black;
- 
+.landing_image {
+  width: 70px;
+  float: right;
+}
+
+.user_info {
+  font-family: "Abel", sans-serif;
+  font-size: 12px;
+  color: black;
 }
 
 .checkout_header {
-  font-family: 'Abel', sans-serif;
+  font-family: "Abel", sans-serif;
   display: flex;
-  color:#374f59;
+  color: #374f59;
   text-decoration: none;
-  border-bottom:solid 2px #a56435;
+  border-bottom: solid 2px #a56435;
   margin-left: 40px;
   margin-right: 40px;
   font-size: 25px;
   justify-content: center;
 }
-.checkout_reminder{
-  font-family: 'Abel', sans-serif;
+.checkout_reminder {
+  font-family: "Abel", sans-serif;
   display: flex;
   justify-content: center;
   color: #374f59;
@@ -538,25 +534,25 @@ p {
   color: #a56435;
 }
 
-.continue_shopping:hover{
-  border-bottom: solid 2px #184C44;
+.continue_shopping:hover {
+  border-bottom: solid 2px #184c44;
 }
 
-.checkout_order{
-  font-family: 'Abel', sans-serif;
+.checkout_order {
+  font-family: "Abel", sans-serif;
   width: 110px;
   padding-top: 40px;
   margin-left: 35px;
   border-bottom: solid 2px #a56435;
 }
 
-.checkout_total{
-  font-family: 'Abel', sans-serif;
+.checkout_total {
+  font-family: "Abel", sans-serif;
   padding-top: 10px;
   margin-left: 35px;
 }
 
-.checkout_book_box{
+.checkout_book_box {
   justify-items: space-around;
   width: 60%;
   margin-left: 100px;
@@ -565,28 +561,28 @@ p {
   border-bottom: solid 2px black;
 }
 
-.checkout_book_sub{
+.checkout_book_sub {
   display: flex;
   background-color: rgb(255, 255, 255);
   align-items: flex-start;
 }
 
-.checkout_book_info{
-        display: flex;
-        flex-direction: column;
-        margin-left: 1rem;
-        justify-self: center;
+.checkout_book_info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  justify-self: center;
 }
 
-.checkout_title{
-  font-family: 'Abel', sans-serif;
+.checkout_title {
+  font-family: "Abel", sans-serif;
 }
 
-.checkout_author{
-  font-family: 'Abel', sans-serif;
+.checkout_author {
+  font-family: "Abel", sans-serif;
 }
 
-.checkout_img{
+.checkout_img {
   display: flex;
   align-self: center;
   height: 10rem;
@@ -594,77 +590,63 @@ p {
   padding: 10px;
 }
 
-
-.user_info{
-  font-family:'Abel', sans-serif;
-  font-size:16px;
-  color:black;
-
- 
+.user_info {
+  font-family: "Abel", sans-serif;
+  font-size: 16px;
+  color: black;
 }
-
 
 /* ORDER HISTORY SECTION */
 
 .order_history {
   margin-right: 10rem;
   margin-left: 10rem;
-  /* border: 1px solid black; */
-  /* padding:10px; */
-  /* background-color: rgb(255, 255, 255); */
-  font-family: 'Abel', sans-serif;
-  /* display:flex;
-  flex-direction: column;
-  justify-content: space-between; */
-
-
+  font-family: "Abel", sans-serif;
 }
 
-.user_profile_info{
-  border:1px solid black;
-  margin:10px;
+.user_profile_info {
+  border: 1px solid black;
+  margin: 10px;
   border-radius: 5px;
-  padding:10px;
-  font-family:'Abel', sans-serif; 
+  padding: 10px;
+  font-family: "Abel", sans-serif;
   background-color: rgb(255, 255, 255);
-  display:flex;
+  display: flex;
   flex-direction: column;
-  color:black;
+  color: black;
   font-size: 18px;
 }
 .edit_user_button {
-  margin-left:10px;
+  margin-left: 10px;
 }
 
-
-.update_user_form{
-  border:1px solid #184C44;
-  margin:15px;
+.update_user_form {
+  border: 1px solid #184c44;
+  margin: 15px;
   border-radius: 5px;
-  padding:5px;
-  display:flex;
+  padding: 5px;
+  display: flex;
   flex-direction: column;
-  font-family:'Abel', sans-serif; 
+  font-family: "Abel", sans-serif;
   background-color: rgb(255, 255, 255);
-  color:black;
-  font-size:18px;
+  color: black;
+  font-size: 18px;
 }
 
-.update_user_button{
-  width:70px;
+.update_user_button {
+  width: 70px;
   /* margin:10px; */
-  font-family:'Abel', sans-serif; 
-  
+  font-family: "Abel", sans-serif;
 }
 
 .user_tabs {
   background-color: rgb(255, 255, 255);
-  margin:10px;
-  font-family:'Alumni Sans Pinstripe', sans-serif;
-  font-weight:bold;
-  font-size:25px;
-  color:#184C44;
-  padding:1rem;
+  margin: 10px;
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  color: #184c44;
+  padding: 1rem;
 }
 
 .order_history img {
@@ -674,31 +656,29 @@ p {
 }
 
 .order_items {
-  border: 1px solid #374f59;
-  margin: 2rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size:15px;
+  margin: 1rem;
   padding: 1rem;
+  color:black;
 }
+
 
 .single_item {
   border-top: 1px solid #374f59;
   padding: 1rem;
 }
 
-/* .user_dashboard {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 2rem;
-} */
 
-.checkout_price{
-  font-family: 'Abel', sans-serif;
+.checkout_price {
+  font-family: "Abel", sans-serif;
 }
 
-.checkout_quantity{
-  font-family: 'Abel', sans-serif;
+.checkout_quantity {
+  font-family: "Abel", sans-serif;
 }
 
 .checkout_book_box:last-child {
   border-bottom: none;
 }
-
