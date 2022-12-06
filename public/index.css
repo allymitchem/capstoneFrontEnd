@@ -257,7 +257,7 @@ body {
         column-gap: 5rem;
 }
 
-.cart_list {
+.cart_item {
         display: flex;
         flex-direction: row;
         margin-left: 5rem;
@@ -267,7 +267,7 @@ body {
         color:#433B31;
 
 }
-.cart_items {
+.cart_list {
         grid-column-start: 1;
         grid-column-end: 3;
 }
@@ -324,7 +324,7 @@ p {
 
 .cart_quantity_buttons {
         display: flex;
-        align-self: flex-end;
+        align-self: flex-start;
 }
 
 .cart_quantity_buttons button,
@@ -399,8 +399,12 @@ input {
         height: 2rem;
 }
 
-#instock {
+.in_stock {
         color: green;
+}
+
+.out_of_stock {
+    color: red;
 }
 
 .all_users_list{
