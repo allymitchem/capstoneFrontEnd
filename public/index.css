@@ -319,8 +319,7 @@ p {
   align-self: flex-start;
 }
 
-.cart_quantity_buttons button,
-input {
+.cart_quantity_buttons button,input {
   margin: 2px;
   max-width: 10rem;
 }
@@ -574,13 +573,7 @@ input {
 .order_history {
   margin-right: 10rem;
   margin-left: 10rem;
-  /* border: 1px solid black; */
-  /* padding:10px; */
-  /* background-color: rgb(255, 255, 255); */
   font-family: "Abel", sans-serif;
-  /* display:flex;
-  flex-direction: column;
-  justify-content: space-between; */
 }
 
 .user_profile_info {
