@@ -1,6 +1,7 @@
 
 import React from "react";
 import UserInfo from "./UserInfo";
+import OrderHistory from "./OrderHistory";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
