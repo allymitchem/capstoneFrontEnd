@@ -1,12 +1,12 @@
 import React from "react";
 import UserInfo from "./UserInfo";
 
-const UserDashboard =  () => {
+const UserDashboard =  ({user, setUser }) => {
 
     return (
         <div>
             I am user dashboard
-            <UserInfo/>
+            <UserInfo user={user} setUser={setUser}/>
         </div>
         
     )

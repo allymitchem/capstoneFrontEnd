@@ -486,6 +486,15 @@ li {
   font-family:'Abel', sans-serif;
   font-size:16px;
   color:black;
- 
+}
 
+.user_profile_info{
+  border:1px solid black;
+  margin:10px;
+  border-radius: 5px;
+  padding:5px;
+  font-family:'Abel', sans-serif; 
+  background-color: rgb(255, 255, 255);
+  display:flex;
+  flex-direction: column;
 }
