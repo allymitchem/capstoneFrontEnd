@@ -3,6 +3,7 @@ import { patchBook } from "../api/books";
 
 const EditBookForm = ({book, setBook, setReady}) => {
 
+    //We set the state of the input fields to auto fill with the details of the book selected.
     const [inputField, setInputField] = useState({
         title: book.title,
         author: book.author,
@@ -13,22 +14,14 @@ const EditBookForm = ({book, setBook, setReady}) => {
         numInStock: book.numInStock
     })
 
+    //On submission, we send the updated state from the return to the database via the patchBook function. We then set editedBook as the variable containing the updated version of the book. That then gets passed to the book state via setBook. At that point, ready state is then set to false which then closes our form.
     async function handleSubmit (event) {
         event.preventDefault()
         
-
-
         const editedBook = await patchBook(book.id, inputField)
         
         setBook(editedBook)
 
-        // const title = inputField.title
-        // const author = inputField.author
-        // const imageURL = inputField.imageURL
-        // const description = inputField.description
-        // const year = inputField.year
-        // const price = inputField.price
-        // const numInStock = inputField.numInStock
         setReady(false)
     }
 

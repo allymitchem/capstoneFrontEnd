@@ -4,6 +4,8 @@ import { postBook } from "../api/books";
 const AddBook = ({bookList, setBookList}) => {
 
     const [confirmationMessage, setConfirmationMessage] = useState("")
+
+    //Setting the state to falsy values.
     const [formData, setFormData] = useState({
         title: "",
         author: "",
@@ -15,6 +17,7 @@ const AddBook = ({bookList, setBookList}) => {
     })
     console.log(formData, "this is form data")
 
+    //On change of the input fields, the values of the inputs get sent to the formData state. On submission, we then store those values in variables which get sent to our database via the postBook call. We then pass the createdBook variable to the bookList state which adds our new book to the bookList state. If createdBook is true(meaning it was submitted under the required guidelines), then we receive a confirmation message. The state then resets to allow the admin to add another book if they'd like.
     async function handleSubmit(event){
         event.preventDefault()
         const title = formData.title
@@ -51,14 +54,12 @@ const AddBook = ({bookList, setBookList}) => {
         numInStock: 0
       })
 
-   
-     
-
     }
 
     return ( 
         <div >
           <form className="add_book_form" onSubmit={handleSubmit}>
+
             <label>Title <span style={{color: "red"}}>*</span> </label>
             <input 
             type="text"
@@ -71,6 +72,7 @@ const AddBook = ({bookList, setBookList}) => {
               }}
             value={formData.title}
             />
+
             <label>Author <span style={{color: "red"}}>*</span></label>
             <input 
             type="text"
@@ -82,6 +84,7 @@ const AddBook = ({bookList, setBookList}) => {
               }}
             value={formData.author}
             />
+
             <label>Image URL </label>
             <input 
             type="text"
@@ -92,6 +95,7 @@ const AddBook = ({bookList, setBookList}) => {
               }}
             value={formData.imageURL}
             />
+
             <label>Description <span style={{color: "red"}}>*</span> </label>
             <input 
             type="text"
@@ -103,6 +107,7 @@ const AddBook = ({bookList, setBookList}) => {
               }}
             value={formData.description}
             />
+
             <label>Year </label>
             <input 
             type="number"
@@ -113,6 +118,7 @@ const AddBook = ({bookList, setBookList}) => {
               }}
             value={formData.year}
             />
+
             <label>Price <span style={{color: "red"}}>*</span></label>
             <input 
             type="number"
@@ -124,7 +130,10 @@ const AddBook = ({bookList, setBookList}) => {
               }}
             value={formData.price}
             />
-            <label>Number In Stock <span style={{color: "red"}}>*</span></label>
+
+            <label>Number In Stock <span style={{color: "red"}}>*</span>
+            </label>
+
             <input 
             type="text"
             placeholder="Number in stock"
@@ -135,6 +144,7 @@ const AddBook = ({bookList, setBookList}) => {
               }}
             value={formData.numInStock}
             />
+
             <button className="add_book_button" type="submit">Add Book</button>
               {formData ? 
               <div>{confirmationMessage}</div>
