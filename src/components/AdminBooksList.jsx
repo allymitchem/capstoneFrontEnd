@@ -5,6 +5,8 @@ import {DeleteBookButton} from './'
 //list of books for admin view, includes delete button to remove from list
 const AdminBooksList = ({bookList, setBookList}) => {
 
+  //This component lists the books on the admin page and allows for deletion.
+
     return (
         <div className="all_books_list">
           {bookList.length ? bookList.map((book) => {

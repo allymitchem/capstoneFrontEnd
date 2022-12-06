@@ -9,22 +9,26 @@ import { getActiveCart, markCartInactive } from "../api/carts"
 const CartPage = ({ cart, setCart, user }) => {
     const [errorMessage, setErrorMessage] = useState(false)
     const navigate = useNavigate()
-    const initialTotal = cart.items.reduce(
+
+    const subTotal = cart.items.reduce(
         (sum, elem) => (sum += elem.price * elem.quantity),
         0
     ) / 100 
-    const tax = initialTotal * .0875
-    const taxedAmount = (initialTotal * 1.0875)
+    const tax = subTotal * .0875
+    const taxedTotal = (subTotal * 1.0875)
+
+    const newStock = cart.items.map((elem) => {
+        return { ...elem, numInStock: elem.numInStock - elem.quantity }
+    })
+    const readyToCheckout = newStock.every((elem) => elem.numInStock >= 0)
 
     async function handleCheckout(event) {
         event.preventDefault()
         
         if (user.id) {
             //check that we have enough stock
-            const newStock = cart.items.map((elem) => {
-                return { ...elem, numInStock: elem.numInStock - elem.quantity }
-            })
-            if (newStock.every((elem) => elem.numInStock > 0)) {
+            
+            if (readyToCheckout) {
                 //remove the cart quantity from the stock
                 for (const book of newStock) {
                     await patchBook(book.itemId, { numInStock: book.numInStock })
@@ -37,6 +41,7 @@ const CartPage = ({ cart, setCart, user }) => {
                 navigate(`/CheckoutConfirmation/${deadCart.id}`)
             } else {
                 //need better message here with specifics
+
                 alert("There is not enough stock")
             }
         } else {
@@ -58,7 +63,7 @@ const CartPage = ({ cart, setCart, user }) => {
             </div>
 
             {cart && cart.items.length ? (
-                <><div className="cart_items">
+                <><div className="cart_list">
                     {cart.items.map((elem) => {
                         return (
                             <CartItem
@@ -73,16 +78,16 @@ const CartPage = ({ cart, setCart, user }) => {
                         <h2>Order Summary</h2>
                         <div className="subtotal_checkout">
                         <p>
-                            Subtotal: ${`${Number.parseFloat(initialTotal).toFixed(2)}`}
+                            Subtotal: ${`${Number.parseFloat(subTotal).toFixed(2)}`}
                         </p>
                         <p>
                             Estimated Tax: ${`${Number.parseFloat(tax).toFixed(2)}`}
                         </p>
                         <p>
-                            Total: ${`${Number.parseFloat(taxedAmount).toFixed(2)}`}
+                            Total: ${`${Number.parseFloat(taxedTotal).toFixed(2)}`}
                         </p>
-                        <button onClick={handleCheckout}>Checkout</button>
-                        {errorMessage ? <p>You must be a member to checkout. Please Sign in above or <Link to="/register">Register</Link></p> : null}
+                        <button disabled={readyToCheckout ? false : true} onClick={handleCheckout}>Checkout</button>
+                        {errorMessage ? <p>You must be a member to checkout, don't worry your cart will be saved. Please Sign in above or <Link to="/register">Register</Link></p> : null}
                         </div>
                     </div></>
                 

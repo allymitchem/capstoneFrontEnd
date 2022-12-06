@@ -5,12 +5,11 @@ import { updateBookQuantity } from "../api/carts";
 
 //Deleting book from book list, only available for admin
 const DeleteBookButton = ({book, bookList, setBookList}) => {
-    // const navigate = useNavigate()
+
+    //This button/component is available via the AdminBooksList page to delete any book in the database.
 
     async function handleDelete(event){
         event.preventDefault()
-        // const toDelete = event.target.id
-        // console.log(event.target.id, "this is todelete")
         const removedBook = await deleteBook(book.id)
         
         if (removedBook){
@@ -23,7 +22,6 @@ const DeleteBookButton = ({book, bookList, setBookList}) => {
             console.log(updatedBooks, "updated books")
             setBookList(updatedBooks)
         }
-        // navigate("/admin")
     }
 
     return (
