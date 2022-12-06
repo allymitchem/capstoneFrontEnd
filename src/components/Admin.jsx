@@ -13,6 +13,8 @@ import {
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
+//This component is essentially the admin hub that passes our 3 primary components for the admin page into it and lists them via the react-tabs ability.
+
 const Admin = () => {
   const [userList, setUserList] = useState([]);
   const [bookList, setBookList] = useState([]);

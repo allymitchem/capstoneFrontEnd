@@ -9,6 +9,7 @@ const LoginForm = ({ user, setUser }) => {
     });
     const navigate = useNavigate();
 
+    //On change of the input fields, the formData state is updated. On submission, username and password are sent to the middleware for verification of if the user exists. If token is true, we remove any previous token and username from local storage and reset those. Then, we navigate to products. If token is not true, we set and error message below the form.
     async function handleSubmit(event) {
         event.preventDefault();
         const username = formData.username;

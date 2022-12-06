@@ -145,9 +145,6 @@ const BookPage = ({ user, cart, setCart }) => {
                   setReady={setReadyToEdit}
                 />
               ) : null}
-              {/* {cart.userId ==1 ?
-                            <DeleteBookButton book={book} setBook={setBook}/>
-                            : null} */}
             </div>
           </div>
           <p className="book_description">{book.description}</p>

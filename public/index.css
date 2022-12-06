@@ -474,17 +474,102 @@ input {
     float:right;
 }
 
-
-
-
-
-
-
-
 .user_info{
     font-family:'Abel', sans-serif;
     font-size:16px;
     color:black;
  
+}
 
+.checkout_header {
+  font-family: 'Abel', sans-serif;
+  display: flex;
+  color:#374f59;
+  text-decoration: none;
+  border-bottom:solid 2px #a56435;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-size: 25px;
+  justify-content: center;
+}
+.checkout_reminder{
+  font-family: 'Abel', sans-serif;
+  display: flex;
+  justify-content: center;
+  color: #374f59;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.continue_shopping {
+  text-decoration: none;
+  color: #a56435;
+}
+
+.continue_shopping:hover{
+  border-bottom: solid 2px #184C44;
+}
+
+.checkout_order{
+  font-family: 'Abel', sans-serif;
+  width: 110px;
+  padding-top: 40px;
+  margin-left: 35px;
+  border-bottom: solid 2px #a56435;
+}
+
+.checkout_total{
+  font-family: 'Abel', sans-serif;
+  padding-top: 10px;
+  margin-left: 35px;
+}
+
+.checkout_book_box{
+  justify-items: space-around;
+  width: 60%;
+  margin-left: 100px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-bottom: solid 2px black;
+}
+
+.checkout_book_sub{
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  align-items: flex-start;
+}
+
+.checkout_book_info{
+        display: flex;
+        flex-direction: column;
+        margin-left: 1rem;
+        justify-self: center;
+}
+
+.checkout_title{
+  font-family: 'Abel', sans-serif;
+}
+
+.checkout_author{
+  font-family: 'Abel', sans-serif;
+}
+
+.checkout_img{
+  display: flex;
+  align-self: center;
+  height: 10rem;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.checkout_price{
+  font-family: 'Abel', sans-serif;
+}
+
+.checkout_quantity{
+  font-family: 'Abel', sans-serif;
+}
+
+.checkout_book_box:last-child {
+  border-bottom: none;
 }
