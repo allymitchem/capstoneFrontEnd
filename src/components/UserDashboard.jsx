@@ -1,10 +1,15 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {OrderHistory} from "./"
+import { pastCarts } from "../api/carts";
 
-const UserDashboard =  () => {
+const UserDashboard =  ({user}) => {
+
 
     return (
-        <div>
+        <div className="user_dashboard">
             I am user dashboard
+
+            <OrderHistory  user={user}/>
         </div>
     )
 }

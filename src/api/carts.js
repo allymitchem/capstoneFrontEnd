@@ -162,7 +162,7 @@ export async function pastCarts (userId) {
     includeToken(reqObj)
 
     try {
-        const response = await fetch(url + `/inactive/${userId}`, reqObj)
+        const response = await fetch(url + `/carts/inactive/${userId}`, reqObj)
         const result = await response.json()
         return result
     } catch (error) {
