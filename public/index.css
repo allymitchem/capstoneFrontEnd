@@ -111,23 +111,27 @@ body {
 }
 
 .search_bar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    /* width: 100%; */
-
-    background-color: aquamarine;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  width: 100%;
+  
+  padding: 0rem 2rem;
+  background-color: aquamarine;
 }
 
 .search_input {
-  /* width: 80%; */
-  flex: 4;
+  /* display: flex; */
+  width: 1000px;
+  /* min-width: 0; */
+  /* flex-grow: 1; */
+  background-color: bisque;
 }
 
 .search_button {
   /* width: 20%; */
-  flex: 1;
+  /* flex: 4; */
 }
 
 .products_page .book_list {

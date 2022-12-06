@@ -26,7 +26,7 @@ const ProductsPage = ({cart, setCart, user}) => {
     return (
         <div className="products_page">
             <div className="search_bar">
-                <input type='text' className='search_input' value={searchStr} onChange={(e) => {setSearchStr(e.target.value)}}></input>
+                <input type='text' className='search_input' value={searchStr} onChange={(e) => {setSearchStr(e.target.value)}}/>
                 <button className="search_button" onClick={handleSearch}>Search</button>
             </div>
             {bookList.length ? <BookList list={bookList} setList={setBookList} cart={cart} setCart={setCart} user={user}/> : null}
