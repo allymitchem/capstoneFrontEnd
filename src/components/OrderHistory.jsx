@@ -25,10 +25,10 @@ const OrderHistory = ({ user }) => {
                     return (
                         <div key={`order_${order.id}`}className="order_items">
                             <h3>Order No. {order.id}</h3>
-                            <h4>Total: ${order.items.reduce(
+                            <h4>Total: ${Number.parseFloat(order.items.reduce(
                         (sum, elem) => ((sum += elem.price * elem.quantity) * 1.0875),
                         0
-                    ) / 100 }</h4>
+                    ) / 100).toFixed(2) }</h4>
                     {/* <h4>Total: ${`${Number.parseFloat(order.items.reduce(
                         (sum, elem) => ((sum += elem.price * elem.quantity) * 1.0875))).toFixed(2)}`}</h4> */}
                     {order.items.map((item) => {
