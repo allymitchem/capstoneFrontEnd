@@ -44,11 +44,11 @@ const LoginForm = ({ user, setUser }) => {
 
 
   async function logOutButton () {
+    navigate("/products")
     localStorage.removeItem("token")
     localStorage.removeItem("username")
     setFormData({username: "", password: ""})
     setUser({id: 0, username: "guest"})
-    navigate("/products")
 
   }
 
@@ -97,8 +97,9 @@ const LoginForm = ({ user, setUser }) => {
                 
                 
             )}
+            <div className="login_error_message">
             {errorMessage ? errorMessage : null}
-
+            </div>
 
         </div>
     );
