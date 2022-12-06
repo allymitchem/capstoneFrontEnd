@@ -26,7 +26,6 @@ const Main = () => {
     useEffect(() => {
     //if a user is logged in then get their cart from DB
     setTimeout(() => {
-        console.log('I ran inside the timeout in main');
         if (user.id) {
             async function callGetCart() {
                 const userCart = await getActiveCart(user.id)

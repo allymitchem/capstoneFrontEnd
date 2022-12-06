@@ -24,7 +24,7 @@ export async function getCurrentUser() {
         return result;
 
     } catch (error) {
-        //report an error
+        console.log(error);
     }
 }
 

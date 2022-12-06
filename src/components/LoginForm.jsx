@@ -21,8 +21,6 @@ const LoginForm = ({ user, setUser }) => {
         if (token) {
             localStorage.removeItem("token");
             localStorage.setItem("token", token);
-            localStorage.removeItem("username");
-            localStorage.setItem("username", username);
             setUser(loggedUser.user);
             navigate("/products");
         }
@@ -42,12 +40,11 @@ const LoginForm = ({ user, setUser }) => {
     }
 
 
-    async function logOutButton () {
+    function logOutButton () {
         localStorage.removeItem("token")
-        localStorage.removeItem("username")
         setFormData({username: "", password: ""})
         setUser({id: 0, username: "guest"})
-        navigate("products")
+        navigate("/products")
 
     }
 
@@ -56,7 +53,7 @@ const LoginForm = ({ user, setUser }) => {
         <div className="login_box">
             {user.id ? (
                 <div id="logout_button">
-                <Link className="logout"  onClick={logOutButton}>Logout</Link>
+                <button className="logout"  onClick={logOutButton}>Logout</button>
                 </div>
             ) : (
                 <form className="login_form" onSubmit={handleSubmit}>

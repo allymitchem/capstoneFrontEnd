@@ -11,11 +11,8 @@ const CartItem = ({ elem, cart, user, setCart }) => {
     async function handleDelete(event) {
         event.preventDefault()
         const unwantedBook = cart.items[indexInCart].id
-        console.log(cart.items[indexInCart])
-        // console.log(unwantedBook, "this is the unwantedBook index")
         if (cart && user.id) {
             const deletedBook = await deleteBookFromCart(unwantedBook)
-            console.log(deletedBook)
             const newCart = { ...cart }
             newCart.items = cart.items.filter((book) => book.itemId !== deletedBook.itemId)
             setCart(newCart)
@@ -29,7 +26,6 @@ const CartItem = ({ elem, cart, user, setCart }) => {
 
     async function handleOnChange(event) {
         event.preventDefault()
-        console.log(quantity, "this is the quantity state")
         if (quantity > 0) {
             if (cart.userId) {
                 await updateBookQuantity({

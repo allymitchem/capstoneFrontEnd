@@ -22,7 +22,7 @@ export async function getActiveCart(userId) {
         const result = await response.json()
         return result
     } catch (error) {
-        //do some error handling        
+        console.log(error);        
     }
 }
 
@@ -40,7 +40,7 @@ export async function getAnyCart(cartId) {
         const result = await response.json()
         return result
     } catch (error) {
-        //do some error handling        
+        console.log(error);        
     }
 
 }
@@ -60,7 +60,7 @@ export async function addBookToCart({cartId, itemId, quantity}) {
         const result = await response.json()
         return result
     } catch (error) {
-        //error handling
+        console.log(error);
     }
 }
 
@@ -102,7 +102,7 @@ export async function updateBookQuantity({cartItemId, quantity}) {
         const result = await response.json()
         return result
     } catch (error) {
-        //error handling
+        console.log(error);
     }
 }
 
@@ -120,7 +120,7 @@ export async function deleteBookFromCart(cartItemId) {
         const result = await response.json()
         return result
     } catch (error) {
-        //error handling
+        console.log(error);
     }
 }
 
@@ -139,7 +139,7 @@ export async function markCartInactive(cartId) {
         const result = await response.json()
         return result
     } catch (error) {
-        //error handling
+        console.log(error);
     }
 }
 
@@ -166,7 +166,7 @@ export async function pastCarts (userId) {
         const result = await response.json()
         return result
     } catch (error) {
-        //error handling
+        console.log(error);
     }
 
 }

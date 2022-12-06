@@ -22,7 +22,7 @@ export async function getAllBooks() {
         const result = await response.json()
         return result
     } catch (error) {
-        //do something here for sure
+        console.error(error)
     }
 }
 
@@ -39,7 +39,7 @@ export async function getBook(itemId) {
         const result = await response.json()
         return result
     } catch (error) {
-        //do something here for sure
+        console.error(error)
     }
 }
 
