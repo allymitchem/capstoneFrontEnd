@@ -547,9 +547,10 @@ li {
 .user_tabs {
   background-color: rgb(255, 255, 255);
   margin:10px;
-  font-family:'Abel', sans-serif;
+  font-family:'Alumni Sans Pinstripe', sans-serif;
+  font-weight:bold;
   font-size:25px;
-  color:#374f59;
+  color:#184C44;
   padding:1rem;
 }
 
