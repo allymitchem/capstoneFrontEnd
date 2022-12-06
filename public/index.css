@@ -566,6 +566,102 @@ input {
   padding: 10px;
 }
 
+
+.user_info{
+  font-family:'Abel', sans-serif;
+  font-size:16px;
+  color:black;
+
+ 
+}
+
+
+/* ORDER HISTORY SECTION */
+
+.order_history {
+  margin-right: 10rem;
+  margin-left: 10rem;
+  /* border: 1px solid black; */
+  /* padding:10px; */
+  /* background-color: rgb(255, 255, 255); */
+  font-family: 'Abel', sans-serif;
+  /* display:flex;
+  flex-direction: column;
+  justify-content: space-between; */
+
+
+}
+
+.user_profile_info{
+  border:1px solid black;
+  margin:10px;
+  border-radius: 5px;
+  padding:10px;
+  font-family:'Abel', sans-serif; 
+  background-color: rgb(255, 255, 255);
+  display:flex;
+  flex-direction: column;
+  color:black;
+  font-size: 18px;
+}
+.edit_user_button {
+  margin-left:10px;
+}
+
+
+.update_user_form{
+  border:1px solid #184C44;
+  margin:15px;
+  border-radius: 5px;
+  padding:5px;
+  display:flex;
+  flex-direction: column;
+  font-family:'Abel', sans-serif; 
+  background-color: rgb(255, 255, 255);
+  color:black;
+  font-size:18px;
+}
+
+.update_user_button{
+  width:70px;
+  /* margin:10px; */
+  font-family:'Abel', sans-serif; 
+  
+}
+
+.user_tabs {
+  background-color: rgb(255, 255, 255);
+  margin:10px;
+  font-family:'Alumni Sans Pinstripe', sans-serif;
+  font-weight:bold;
+  font-size:25px;
+  color:#184C44;
+  padding:1rem;
+}
+
+.order_history img {
+  height: 12rem;
+  width: 8rem;
+  border-radius: 5px;
+}
+
+.order_items {
+  border: 1px solid #374f59;
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.single_item {
+  border-top: 1px solid #374f59;
+  padding: 1rem;
+}
+
+/* .user_dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+} */
+
 .checkout_price{
   font-family: 'Abel', sans-serif;
 }
@@ -577,3 +673,4 @@ input {
 .checkout_book_box:last-child {
   border-bottom: none;
 }
+

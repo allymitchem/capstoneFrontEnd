@@ -1,5 +1,5 @@
-const url = 'https://graceshopper-backend.onrender.com/api'
-// const url = 'http://localhost:3000/api'
+// const url = 'https://graceshopper-backend.onrender.com/api'
+const url = 'http://localhost:3000/api'
 
 function includeToken(paramObj) {
     const localToken = localStorage.getItem("token")
@@ -147,6 +147,28 @@ export async function markCartInactive(cartId) {
 export function saveLocalCart(cart) {
     localStorage.removeItem("cart");
     localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+
+// gets the inactive carts for an order history
+
+export async function pastCarts (userId) {
+    const reqObj = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }
+    includeToken(reqObj)
+
+    try {
+        const response = await fetch(url + `/carts/inactive/${userId}`, reqObj)
+        const result = await response.json()
+        return result
+    } catch (error) {
+        //error handling
+    }
+
 }
 
 

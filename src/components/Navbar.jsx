@@ -6,6 +6,7 @@ import LoginForm from './LoginForm';
 const Navbar = ({user, setUser, cart}) => {
 
     return (
+
         <div id='navbar'>
             <img  className="logo" src="https://res.cloudinary.com/fsa2/image/upload/v1670213973/Site%20Images/1_nljlde.png"/>
                 
@@ -24,6 +25,7 @@ const Navbar = ({user, setUser, cart}) => {
                         </Link>
                     : null} 
                 </div>
+
             </div>
         </div>
     );

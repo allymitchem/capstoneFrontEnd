@@ -1,5 +1,5 @@
-const url = 'https://graceshopper-backend.onrender.com/api'
-// const url = 'http://localhost:3000/api'
+// const url = 'https://graceshopper-backend.onrender.com/api'
+const url = 'http://localhost:3000/api'
 
 
 function includeToken(paramObj) {
@@ -82,4 +82,24 @@ export async function adminUserData(){
         console.log(error)
     }
 
+}
+
+export async function updateUser( user){
+    try{ 
+        const reqObj = {
+            method:"PATCH",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body:JSON.stringify(user)
+
+        }
+        includeToken(reqObj)
+        const response = await fetch(url + "/users/me", reqObj);
+        const result = await response.json();
+        console.log(result, "this is update user result api")
+        return result
+    }catch(error){
+        console.error(error)
+    }
 }

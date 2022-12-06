@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import {DeleteBookButton} from './'
 
-
+//list of books for admin view, includes delete button to remove from list
 const AdminBooksList = ({bookList, setBookList}) => {
 
   //This component lists the books on the admin page and allows for deletion.

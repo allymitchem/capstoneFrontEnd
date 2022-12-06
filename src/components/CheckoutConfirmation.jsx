@@ -4,8 +4,10 @@ import { getAnyCart } from "../api/carts";
 import { CartItem } from "./";
 
 const CheckoutConfirmation = () => {
-  const { cartId } = useParams();
-  const [checkedOutCart, setCheckedOutCart] = useState({});
+
+    const { cartId } = useParams()
+    const [checkedOutCart, setCheckedOutCart] = useState({})
+
 
   useEffect(() => {
     async function orderedCart() {
