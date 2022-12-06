@@ -150,3 +150,25 @@ export function saveLocalCart(cart) {
 }
 
 
+// gets the inactive carts for an order history
+
+export async function pastCarts (userId) {
+    const reqObj = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }
+    includeToken(reqObj)
+
+    try {
+        const response = await fetch(url + `/carts/inactive/${userId}`, reqObj)
+        const result = await response.json()
+        return result
+    } catch (error) {
+        //error handling
+    }
+
+}
+
+

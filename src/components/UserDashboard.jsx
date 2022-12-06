@@ -1,3 +1,4 @@
+
 import React from "react";
 import UserInfo from "./UserInfo";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
@@ -16,7 +17,7 @@ const UserDashboard =  ({user, setUser }) => {
                 <UserInfo user={user} setUser={setUser}/>
             </TabPanel>
             <TabPanel>
-
+                 <OrderHistory  user={user}/>
             </TabPanel>
         </Tabs>
       

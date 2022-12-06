@@ -486,6 +486,25 @@ li {
   font-family:'Abel', sans-serif;
   font-size:16px;
   color:black;
+
+ 
+}
+
+
+/* ORDER HISTORY SECTION */
+
+.order_history {
+  margin-right: 10rem;
+  margin-left: 10rem;
+  /* border: 1px solid black; */
+  /* padding:10px; */
+  /* background-color: rgb(255, 255, 255); */
+  font-family: 'Abel', sans-serif;
+  /* display:flex;
+  flex-direction: column;
+  justify-content: space-between; */
+
+
 }
 
 .user_profile_info{
@@ -503,6 +522,7 @@ li {
 .edit_user_button {
   margin-left:10px;
 }
+
 
 .update_user_form{
   border:1px solid #184C44;
@@ -532,3 +552,26 @@ li {
   color:#374f59;
   padding:1rem;
 }
+
+.order_history img {
+  height: 12rem;
+  width: 8rem;
+  border-radius: 5px;
+}
+
+.order_items {
+  border: 1px solid #374f59;
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.single_item {
+  border-top: 1px solid #374f59;
+  padding: 1rem;
+}
+
+/* .user_dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+} */

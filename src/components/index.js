@@ -19,6 +19,10 @@ export {default as AdminBooksList} from './AdminBooksList'
 export {default as CheckoutConfirmation} from './CheckoutConfirmation'
 export {default as LandingPage} from './LandingPage'
 export {default as UserDashboard} from './UserDashboard'
+
+export {default as OrderHistory} from './OrderHistory'
+
 export {default as UserInfo} from './UserInfo'
 export {default as UpdateUserForm} from './UpdateUserForm'
+
  
