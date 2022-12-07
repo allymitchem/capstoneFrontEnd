@@ -9,6 +9,7 @@ const AddBook = ({bookList, setBookList}) => {
     const [formData, setFormData] = useState({
         title: "",
         author: "",
+        genre: "",
         imageURL: "",
         description: "",
         year: 0,
@@ -22,6 +23,7 @@ const AddBook = ({bookList, setBookList}) => {
         event.preventDefault()
         const title = formData.title
         const author = formData.author
+        const genre = formData.genre
         const imageURL = formData.imageURL
         const description = formData.description
         const year = formData.year
@@ -31,6 +33,7 @@ const AddBook = ({bookList, setBookList}) => {
         const createdBook = await postBook(
             title, 
             author, 
+            genre,
             imageURL, 
             description, 
             year, 
@@ -47,6 +50,7 @@ const AddBook = ({bookList, setBookList}) => {
         setFormData({ 
         title: "",
         author: "",
+        genre: "",
         imageURL: "",
         description: "",
         year: 0,
@@ -84,6 +88,27 @@ const AddBook = ({bookList, setBookList}) => {
               }}
             value={formData.author}
             />
+
+            <label>Genre <span style={{color: "red"}}>*</span></label>
+            <select  
+            type="text"
+            placeholder="Genre"
+            required
+            
+            onChange={(event) => {
+                setFormData({ ...formData, genre: event.target.value })
+                setConfirmationMessage("")
+
+              }}
+            value={formData.genre}
+            >
+              Choose Genre
+            <option value="fantasy">Fantasy</option>
+            <option value="mystery">Mystery</option>
+            <option value="classics">Classics</option>
+            <option value="romance">Romance</option>
+            <option value="youngAdult">Young Adult</option>
+            </select>
 
             <label>Image URL </label>
             <input 

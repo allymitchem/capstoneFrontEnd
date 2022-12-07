@@ -45,7 +45,8 @@ export async function getBook(itemId) {
 
 export async function postBook (
     title, 
-    author, 
+    author,
+    genre, 
     imageURL, 
     description, 
     year, 
@@ -61,6 +62,7 @@ export async function postBook (
           body: JSON.stringify({ 
             title, 
             author, 
+            genre,
             imageURL, 
             description, 
             year, 
