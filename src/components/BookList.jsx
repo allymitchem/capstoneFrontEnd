@@ -10,12 +10,12 @@ const BookList = ({list, setList, cart, setCart, user}) => {
         return book.title.toLowerCase().includes(text) ||
         book.author.toLowerCase().includes(text)
     }
-    const booksToDisplay = list.filter(book => handleSearch(book, searchString))
+    const booksToDisplay = list.filter(book => handleSearch(book, searchString.toLowerCase()))
 
 
     return (
         <>        
-            <input type="search" placeholder=" 🔍 Search by Title or Author" value={searchString} onChange={e => setSearchString(e.target.value.toLowerCase())}/>
+            <input type="search" placeholder=" 🔍 Search by Title or Author" value={searchString} onChange={e => setSearchString(e.target.value)}/>
             {searchString.length
             ? <div className="book_list">
                 {booksToDisplay.length && booksToDisplay.map((elem) => <Book key={`book_${elem.id}`} item={elem} user={user} cart={cart} setCart={setCart}/>)}
