@@ -105,7 +105,9 @@ const BookPage = ({ user, cart, setCart }) => {
           <div>
             <img className="book_page_image" src={book.imageURL} />
             <div className="next_to_picture">
-              <h2>Price: ${book.price / 100}</h2>
+              <h2> Genre: {book.genre}</h2>
+              <h2> Published: {book.year}</h2>
+              <h2> Price: ${book.price / 100}</h2>
               {indexInCart !== -1 ? (
                 <p className="quant_book_page">
                   Quantity in Cart: {cart.items[indexInCart].quantity}

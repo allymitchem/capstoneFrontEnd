@@ -270,7 +270,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  width: 80px;
+  width: 30%;
 }
 
 .quant_book_page {
@@ -283,6 +283,11 @@ img {
   font-family: "Abel", sans-serif;
   font-weight: bold;
   width: 70px;
+}
+
+.next_to_picture button {
+  width: 70px;
+  margin-top: .2rem;
 }
 
 .book_description {
