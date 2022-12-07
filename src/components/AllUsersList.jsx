@@ -1,7 +1,6 @@
 import React from "react";
 
 const AllUsersList = ({userList}) => {
-console.log(userList)
 //This component gives the admin access to user information on the admin page.
 
 return (

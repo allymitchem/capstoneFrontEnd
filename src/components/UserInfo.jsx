@@ -4,7 +4,7 @@ import UpdateUserForm from "./UpdateUserForm";
 
 const UserInfo =({user, setUser})=>{
     const [readyToEdit, setReadyToEdit] = useState(false)
-    console.log(user, "this is user")
+    
     return(
         <div>
             <div className="user_profile_info">

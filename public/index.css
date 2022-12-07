@@ -155,9 +155,9 @@ body {
   border:none;
 }
 
-/* .categories button:active{
-  background-color: aquamarine;
-} */
+.categories button:hover{
+  color: #a56435;
+}
 .book {
   display: flex;
   flex-direction: column;

@@ -10,7 +10,7 @@ const BookList = ({list, setList, cart, setCart, user}) => {
         return book.title.toLowerCase().includes(text) ||
         book.author.toLowerCase().includes(text)
     }
-    const booksToDisplay = list.filter(book => handleSearch(book, searchString))
+    const booksToDisplay = list.filter(book => handleSearch(book, searchString.toLowerCase()))
 
 
     return (

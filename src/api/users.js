@@ -55,7 +55,7 @@ export async function registerUser(username, password, email, firstName, lastNam
             },
             body: JSON.stringify({ username, password, email, firstName, lastName }),
         };
-        console.log(url + "/users/register", reqObj)
+
         const response = await fetch(url + "/users/register", reqObj);
         const result = await response.json();
         return result;
