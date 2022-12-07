@@ -119,7 +119,14 @@ body {
   align-items: center;
 }
 
-.search_bar {
+.products_page input {
+  width: 40%;
+  margin-top: 2rem;
+}
+
+
+
+/* .search_bar {
   font-family: "Abel", sans-serif;
   
 
@@ -129,19 +136,19 @@ body {
   align-items: center;
   
   width: 40%;
-}
+} */
 
-.search_input {
+/* .search_input {
   font-family: "Abel", sans-serif;
   font-size: 14pt;
   flex-grow: 1;
-}
+} */
 
-.search_button {
+/* .search_button {
   font-family: "Abel", sans-serif;
   font-size: 14pt;
   flex: 0;
-}
+} */
 
 .products_page .book_list {
   display: flex;
