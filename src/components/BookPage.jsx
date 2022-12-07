@@ -116,7 +116,7 @@ const BookPage = ({ user, cart, setCart }) => {
                 type="number"
                 min="1"
                 value={quantity}
-                onChange={(elem) => setQuantity(elem.target.value)}
+                onChange={(elem) => {if (elem.target.value >0 ) setQuantity(elem.target.value)}}
               />
               <button onClick={handleAdd}>
                 <span className="material-symbols-outlined">

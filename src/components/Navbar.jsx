@@ -7,7 +7,8 @@ const Navbar = ({user, setUser, cart}) => {
 
     return (
         <div id='navbar'>
-            <img  className="logo" src="https://res.cloudinary.com/fsa2/image/upload/v1670213973/Site%20Images/1_nljlde.png"/>
+            <img  className="logo" src="https://res.cloudinary.com/fsa2/image/upload/v1670432399/Site%20Images/3_yg5x0d.png"/>
+            <img className="logo_words" src="https://res.cloudinary.com/fsa2/image/upload/v1670433805/Site%20Images/new_aapj8j.png"/>
                 
             <div className="navbar_box">
                 <LoginForm user={user} setUser={setUser}/>

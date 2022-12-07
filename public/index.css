@@ -19,17 +19,25 @@ body {
 
   color: rgb(108, 131, 122);
 
+
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
 
   padding-right: 2rem;
+  padding-left: 2rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  padding-top: 1rem;
 }
 
 .logo {
   width: 270px;
+}
+
+.logo_words {
+  width: 30%;
+  align-self: center;
 }
 
 .navbar_box {
