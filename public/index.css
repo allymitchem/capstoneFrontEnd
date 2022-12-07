@@ -715,6 +715,7 @@ p {
   flex-direction: column;
   color: black;
   font-size: 18px;
+  width: 40%;
 }
 .edit_user_button {
   margin-left: 10px;
@@ -731,6 +732,7 @@ p {
   background-color: rgb(255, 255, 255);
   color: black;
   font-size: 18px;
+  width: 40%;
 }
 
 .update_user_button {
