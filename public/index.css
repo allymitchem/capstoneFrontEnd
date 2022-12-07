@@ -35,7 +35,7 @@ body {
 .navbar_box {
   display: flex;
   flex-direction: column;
-  margin-bottom: none;
+  margin-bottom: 1.15rem;
   align-items: flex-end;
 }
 
@@ -119,36 +119,37 @@ body {
   align-items: center;
 }
 
-.search_bar {
-  font-family: "Abel", sans-serif;
-  
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  
+.products_page input {
   width: 40%;
-}
-
-.search_input {
+  margin-top: 2rem;
   font-family: "Abel", sans-serif;
-  font-size: 14pt;
-  flex-grow: 1;
+  font-weight:bold;
 }
 
-.search_button {
-  font-family: "Abel", sans-serif;
-  font-size: 14pt;
-  flex: 0;
-}
 
-.products_page .book_list {
+/* .products_page */
+ .book_list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+.categories button{
+  border:none;
+  background-color:#184c4421;
+  font-family: "Bellefair", serif;
+  font-size:18pt;
+  /* font-weight:bold; */
+  color:#184C44;
+  border-right: 1px solid #184C44; 
+}
 
+.categories button:last-of-type{
+  border:none;
+}
+
+/* .categories button:active{
+  background-color: aquamarine;
+} */
 .book {
   display: flex;
   flex-direction: column;
@@ -528,9 +529,14 @@ p {
   font-size: 18px;
 }
 
+.add_book_form input {
+  width: 20%;
+
+}
+
 .add_book_button {
   width: 100px;
-  align-self: center;
+
   margin-top: 5px;
   font-family: "Abel", sans-serif;
 }

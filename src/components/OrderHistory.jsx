@@ -29,8 +29,6 @@ const OrderHistory = ({ user }) => {
                         (sum, elem) => ((sum += elem.price * elem.quantity) * 1.0875),
                         0
                     ) / 100).toFixed(2) }</h4>
-                    {/* <h4>Total: ${`${Number.parseFloat(order.items.reduce(
-                        (sum, elem) => ((sum += elem.price * elem.quantity) * 1.0875))).toFixed(2)}`}</h4> */}
                     {order.items.map((item) => {
                         return (<div className="single_item" key={`items_${item.id}`}><p>Title: {item.title}</p><p>Author: {item.author}</p><img src={item.imageURL}/>
                         <p>Price: ${item.price/100}</p><p>Quantity: {item.quantity}</p></div>)
@@ -39,7 +37,7 @@ const OrderHistory = ({ user }) => {
                     </div>)
                 })
             ) : (
-                <h3>Pulling all the books from your shelves</h3>
+                <h3>No Order History</h3>
             )}
         </div>
     )
