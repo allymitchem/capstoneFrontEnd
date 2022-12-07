@@ -552,6 +552,10 @@ p {
 
 .add_book_form input {
   width: 20%;
+}
+
+.add_book_form select {
+  width: 20%;
 
 }
 
