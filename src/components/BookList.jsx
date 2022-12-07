@@ -17,7 +17,7 @@ const BookList = ({list, setList, cart, setCart, user}) => {
 
     return (
         <>        
-            <input type="search" placeholder="Search by Title, Author, or Genre" value={searchString} onChange={e => setSearchString(e.target.value)}/>
+            <input type="search" placeholder=" 🔍 Search by Title, Author, or Genre" value={searchString} onChange={e => setSearchString(e.target.value)}/>
             {searchString.length
             ? <div className="book_list">
                 {booksToDisplay.map((elem) => <Book key={`book_${elem.id}`} item={elem} user={user} cart={cart} setCart={setCart}/>)}

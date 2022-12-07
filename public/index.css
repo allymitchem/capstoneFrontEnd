@@ -35,7 +35,7 @@ body {
 .navbar_box {
   display: flex;
   flex-direction: column;
-  margin-bottom: none;
+  margin-bottom: 1.15rem;
   align-items: flex-end;
 }
 
@@ -122,40 +122,33 @@ body {
 .products_page input {
   width: 40%;
   margin-top: 2rem;
+  font-family: "Abel", sans-serif;
+  font-weight:bold;
 }
 
-
-
-/* .search_bar {
-  font-family: "Abel", sans-serif;
-  
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  
-  width: 40%;
-} */
-
-/* .search_input {
-  font-family: "Abel", sans-serif;
-  font-size: 14pt;
-  flex-grow: 1;
-} */
-
-/* .search_button {
-  font-family: "Abel", sans-serif;
-  font-size: 14pt;
-  flex: 0;
-} */
 
 .products_page .book_list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+.categories button{
+  border:none;
+  background-color:#184c4421;
+  font-family: "Bellefair", serif;
+  font-size:18pt;
+  /* font-weight:bold; */
+  color:#184C44;
+  border-right: 1px solid #184C44; 
+}
 
+.categories button:last-of-type{
+  border:none;
+}
+
+/* .categories button:active{
+  background-color: aquamarine;
+} */
 .book {
   display: flex;
   flex-direction: column;
