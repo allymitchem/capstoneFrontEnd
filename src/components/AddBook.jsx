@@ -16,7 +16,6 @@ const AddBook = ({bookList, setBookList}) => {
         price: 0,
         numInStock: 0
     })
-    console.log(formData, "this is form data")
 
     //On change of the input fields, the values of the inputs get sent to the formData state. On submission, we then store those values in variables which get sent to our database via the postBook call. We then pass the createdBook variable to the bookList state which adds our new book to the bookList state. If createdBook is true(meaning it was submitted under the required guidelines), then we receive a confirmation message. The state then resets to allow the admin to add another book if they'd like.
     async function handleSubmit(event){
