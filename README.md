@@ -9,6 +9,7 @@ To host the site locally, change the url contained in all api folders from the "
 If you would prefer to not host it locally, the "render" url should be selected.
 
 
+Link to back end: https://github.com/allymitchem/capstoneBackEnd
 
 
 
